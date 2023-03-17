@@ -4,12 +4,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./resources/icons/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     <title>Paweł Trojański</title>
 </head>
 
 <body>
-    <h1>Hello World</h1>
+    <!-- Cursor -->
+    <div class="cursor">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+
+    <!-- Header -->
+    <section id="header">
+        <div class="header container">
+            <div class="nav-bar">
+                <div class="brand">
+                    <a href="#hero">
+                        <h1><span>P</span>aweł <span>T</span>rojański</h1>
+                    </a>
+                </div>
+                <div class="nav-list">
+                    <div class="hamburger">
+                        <div class="bar"></div>
+                    </div>
+                    <ul>
+                        <li><a href="#hero" data-after="Home">Home</a></li>
+                        <li><a href="#about" data-after="About">About</a></li>
+                        <li><a href="#projects" data-after="Projects">Projects</a></li>
+                        <li><a href="#contact" data-after="Contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Header -->
+    <!-- Hero Section  -->
+    <section id="hero">
+        <div class="hero container">
+            <div>
+                <h1>Hello, <span></span></h1>
+                <h1>My name is <span></span></h1>
+                <h1>Paweł <span></span></h1>
+                <a href="#projects" type="button" class="cta"><span style="color: white">Portfolio</span></a>
+            </div>
+        </div>
+    </section>
+    <!-- End Hero Section  -->
+    <!-- About Section -->
+    <section id="about">
+        <div class="about container">
+            <div class="col-left">
+                <div class="about-img">
+                    <img src="./resources/img/me.jpg" alt="My photo">
+                </div>
+            </div>
+            <div class="col-right">
+                <h1 class="section-title">About <span>me</span></h1>
+                <h2>Student</h2>
+                <p>
+                    I am a student in my third year of Applied Computer Science at a university in Krakow. Prior to that,
+                    I graduated from a technical high school with the title of technician.
+                </p>
+                <p>
+                    In my free time, I enjoy computer games, exploring new IT technologies and hardware.
+                    As a computer science student, I have developed skills in analyzing and interpreting
+                    complex data sets. I also enjoy developing software projects and experimenting with
+                    different coding techniques and frameworks to improve my skills. Furthermore, I have
+                    an interest in cybersecurity and enjoy learning about different security practices
+                    and methods to protect data and systems from cyber threats. I believe that
+                    understanding cybersecurity is crucial in today's digital age,  and I am constantly
+                    seeking opportunities to expand my knowledge in this area. I believe that it is
+                    important to maintain a balance between work and play, as it helps me to stay
+                    creative, focused, and energized.
+                </p>
+                <p>
+                    If you're interested in connecting with me or learning more about what I do, please feel free to reach out.
+                    I am always open to new ideas and collaborations!
+                <p>
+                    <a href="./resources/files/cv.pdf" class="cta" target="_blank" download="Resume_PawelTrojanski.pdf"><span>Download Resume</span></a>
+            </div>
+        </div>
+    </section>
+    <!-- End About Section -->
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="projects container">
+            <div class="projects-header">
+                <h1 class="section-title">Recent <span>Projects</span></h1>
+            </div>
+            <div class="all-projects">
+                <div class="project-item">
+                    <div class="project-info">
+                        <h1>Weather Prophet</h1>
+                        <h2>C# | .NET Core | Newtonsoft.Json</h2>
+                        <p>
+                            The goal of the project is to provide users from around the world with a
+                            multilingual desktop application that allows them to check the current
+                            weather and forecast for the next few days for a specific city.
+                        </p>
+                    </div>
+                    <div class="project-img">
+                        <img src="./resources/img/project1.png" alt="Weather Prophet">
+                    </div>
+                </div>
+                <div class="project-item">
+                    <div class="project-info">
+                        <h1>Pomodoro Timer</h1>
+                        <h2>C# | .NET Core | Newtonsoft.Json</h2>
+                        <p>
+                            Pomodoro Timer is a usefull tool that helps users apply the Pomodoro
+                            technique by providing a timer for the work and break sessions, as well as a
+                            list of completed sessions.
+                        </p>
+                    </div>
+                    <div class="project-img">
+                        <img src="./resources/img/project2.png" alt="Pomodoro Timer">
+                    </div>
+                </div>
+                <div class="project-item">
+                    <div class="project-info">
+                        <h1>Hotel Las Palmas</h1>
+                        <h2>C# | SQL | .NET Core | Entity Framework</h2>
+                        <p>
+                            Hotel Las Palmas is a versatile hotel room reservation system that includes
+                            features like managing client databases, adding, editing, and deleting
+                            existing client information, data validation, and cost calculation for renting
+                            specific rooms for specific days. The application also includes dialog
+                            windows for handling incorrect data and confirming key app functionality.
+                        </p>
+                    </div>
+                    <div class="project-img">
+                        <img src="./resources/img/project3.png" alt="Hotel Las Palmas">
+                    </div>
+                </div>
+                <div class="project-item">
+                    <div class="project-info">
+                        <h1>Intel8086</h1>
+                        <h2>C# | .NET Core</h2>
+                        <p>
+                            A simple INTEL 8086 processor command simulator created for executing basic
+                            commands like MOV or XCHG. It contains functions to reset and properly fill
+                            registers with random values.
+                        </p>
+                    </div>
+                    <div class="project-img2">
+                        <img src="./resources/img/project4.png" alt="Intel8086">
+                    </div>
+                </div>
+                <div class="project-item">
+                    <div class="project-info">
+                        <h1>Rube Goldberg Machine</h1>
+                        <h2>C# | UnityEngine | Unity3D</h2>
+                        <p>
+                            An engineering project involving a machine that performs simple tasks in an
+                            execution way. The machine, which is only in the force of gravity, kinetics,
+                            magnetism and electricity, will guide the balls through a series of pipes,
+                            tunnels, a ramp and other activities to reach the goal.
+                        </p>
+                    </div>
+                    <div class="project-img">
+                        <img src="./resources/img/project5.png" alt="Rube Goldberg Machine">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Projects Section -->
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact container">
+            <div>
+                <h1 class="section-title">Contact <span>info</span></h1>
+            </div>
+            <div class="contact-items">
+                <div class="contact-item">
+                    <a href="tel:+48505777259" target="_blank">
+                        <div class="icon"><img src="./resources/img/phone.png" /></div>
+                        <div class="contact-info">
+                            <h1>Phone</h1>
+                            <h2>+48 505 777 259</h2>
+                        </div>
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <a href="mailto:paweltrojanski@gmail.com" target="_blank">
+                        <div class="icon"><img src="./resources/img/email.png" /></div>
+                        <div class="contact-info">
+                            <h1>Email</h1>
+                            <h2>paweltrojanski@gmail.com</h2>
+                        </div>
+                    </a>
+                </div>
+                <div class="contact-item">
+                    <a href="https://www.google.pl/maps/place/Krak%C3%B3w/@50.0469018,19.8647881,11z/data=!3m1!4b1!4m6!3m5!1s0x471644c0354e18d1:0xb46bb6b576478abf!8m2!3d50.0646501!4d19.9449799!16zL20vMDQ5MXk" target="_blank">
+                        <div class="icon"><img src="./resources/img/map.png" /></div>
+                        <div class="contact-info">
+                            <h1>Address</h1>
+                            <h2>Krakow, Lesser Poland Voivodeship, Poland</h2>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Contact Section -->
+    <!-- Footer -->
+    <section id="footer">
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+        <ul>
+            <li><a href="https://www.linkedin.com/in/ptrojanski/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+            <li><a href="https://github.com/enviGit" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.facebook.com/Envixoxo/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.instagram.com/envixoxo/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+            <li><a href="https://twitter.com/envixoxo" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        </ul>
+        <div class="copyrights"><p>Copyright © 2023 Paweł Trojański. All rights reserved</p></div>
+    </section>
+    <!-- End Footer -->
+
+    <script src="./script.js"></script>
 </body>
 
 </html>
