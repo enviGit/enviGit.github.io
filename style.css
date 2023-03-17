@@ -381,8 +381,8 @@ p {
         }
 /* End Header section */
 
-/* Hero Section */
-#hero {
+/* Home Section */
+#home {
     background-image: url(./resources/img/bg.jpg);
     background-size: cover;
     background-position: top center;
@@ -390,7 +390,7 @@ p {
     z-index: 1;
 }
 
-    #hero::after {
+    #home::after {
         content: '';
         position: absolute;
         left: 0;
@@ -402,27 +402,27 @@ p {
         z-index: -1;
     }
 
-    #hero .hero {
+    #home .home {
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 50px;
         justify-content: flex-start;
     }
 
-    #hero h1 {
+    #home h1 {
         width: fit-content;
         font-size: 4rem;
         position: relative;
         color: white;
     }
 
-        #hero h1 span {
+        #home h1 span {
             position: relative;
             color: #0f0;
             max-width: 100%;
         }
 
-    #hero .topline {
+    #home .topline {
         display: block;
         position: relative;
         font-size: 35px;
@@ -430,7 +430,7 @@ p {
         color: #fff;
     }
 
-        #hero .topline::after {
+        #home .topline::after {
             position: absolute;
             content: '';
             height: 4px;
@@ -438,7 +438,7 @@ p {
             bottom: 10px;
             background-color: #0f0;
         }
-/* End Hero Section */
+/* End Home Section */
 
 /* Projects section */
 #projects .projects {
@@ -792,11 +792,11 @@ p {
         font-size: 6rem;
     }
 
-    /* Hero */
-    #hero h1 {
+    /* Home */
+    #home h1 {
         font-size: 7rem;
     }
-    /* End Hero */
+    /* End Home */
 
     /* Project */
     #projects .project-item {
