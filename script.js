@@ -41,25 +41,6 @@ addEventListener('DOMContentLoaded', (event) => {
 
     animateCircles();
 });
-//Zegar
-const deg = 6;
-
-function setClock() {
-    const now = new Date();
-    const hr = now.getHours();
-    const mn = now.getMinutes();
-    const sc = now.getSeconds();
-
-    const hrDeg = (hr * 30) + (mn / 2);
-    const mnDeg = (mn * deg);
-    const scDeg = (sc * deg);
-
-    document.getElementById("hr").style.transform = `rotate(${hrDeg}deg)`;
-    document.getElementById("mn").style.transform = `rotate(${mnDeg}deg)`;
-    document.getElementById("sc").style.transform = `rotate(${scDeg}deg)`;
-}
-
-setInterval(setClock, 1000);
 
 //NavBar
 const hamburger = document.querySelector('.header .nav-bar .nav-list .hamburger');
