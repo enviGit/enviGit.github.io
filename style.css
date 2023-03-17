@@ -584,6 +584,9 @@ p {
     width: 100%;
     position: relative;
     border: 10px solid white;
+    opacity: 0;
+    animation: zoomIn 1s ease forwards, floatImage 4s ease-in-out infinite;
+    animation-delay: 2s, 3s;
 }
 
     #about .col-left .about-img::after {
@@ -595,6 +598,27 @@ p {
         width: 98%;
         border: 7px solid #0f0;
         z-index: -1;
+    }
+    @keyframes zoomIn{
+        0%{
+            transform: scale(0);
+            opacity: 0;
+        }
+        100%{
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+    @keyframes floatImage{
+        0%{
+            transform: translateY(0px);
+        }
+        50%{
+            transform: translateY(-50px);
+        }
+        100%{
+            transform: translateY(0px);
+        }
     }
 /* End About Section */
 
@@ -792,7 +816,7 @@ p {
 /* Media Query For Tablet */
 @media only screen and (min-width: 768px) {
     .cursor, .circle {
-        display: none;
+        display: block;
     }
 
     .cta {

@@ -1,4 +1,4 @@
-//Kursor
+//Cursor
 addEventListener('DOMContentLoaded', (event) => {
     const coords = { x: 0, y: 0 };
     const circles = document.querySelectorAll(".circle");
@@ -68,3 +68,12 @@ menu_item.forEach((item) => {
         mobile_menu.classList.toggle('active');
     });
 });
+
+//Home
+/*var typed = new Typed(".multiple-text", {
+    strings: ["Student", "Coder", "Analyst"],
+    typeSpeed: 100,
+    backSpeed: 100,
+    backDelay: 2000,
+    loop: true
+});*/
