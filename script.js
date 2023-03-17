@@ -70,10 +70,10 @@ menu_item.forEach((item) => {
 });
 
 //Home
-/*var typed = new Typed(".multiple-text", {
+var typed = new Typed(".multiple-text", {
     strings: ["Student", "Coder", "Analyst"],
     typeSpeed: 100,
     backSpeed: 100,
-    backDelay: 2000,
+    backDelay: 1000,
     loop: true
-});*/
+});
