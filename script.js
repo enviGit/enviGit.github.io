@@ -1,68 +1,89 @@
+//Kursor
 addEventListener('DOMContentLoaded', (event) => {
-	const coords = { x: 0, y: 0 };
-	const circles = document.querySelectorAll(".circle");
-	const cursor = document.querySelector(".cursor");
+    const coords = { x: 0, y: 0 };
+    const circles = document.querySelectorAll(".circle");
+    const cursor = document.querySelector(".cursor");
 
-	circles.forEach(function (circle, index) {
-		circle.x = 0;
-		circle.y = 0;
-		circle.style.backgroundColor = "white";
-	});
+    circles.forEach(function (circle, index) {
+        circle.x = 0;
+        circle.y = 0;
+        circle.style.backgroundColor = "white";
+    });
 
-	window.addEventListener("mousemove", function (e) {
-		coords.x = e.clientX;
-		coords.y = e.clientY;
-	});
+    window.addEventListener("mousemove", function (e) {
+        coords.x = e.clientX;
+        coords.y = e.clientY;
+    });
 
-	function animateCircles() {
-		let x = coords.x;
-		let y = coords.y;
+    function animateCircles() {
+        let x = coords.x;
+        let y = coords.y;
 
-		cursor.style.top = x;
-		cursor.style.left = y;
+        cursor.style.top = x;
+        cursor.style.left = y;
 
-		circles.forEach(function (circle, index) {
-			circle.style.left = x - 12 + "px";
-			circle.style.top = y - 12 + "px";
+        circles.forEach(function (circle, index) {
+            circle.style.left = x - 12 + "px";
+            circle.style.top = y - 12 + "px";
 
-			circle.style.scale = (circles.length - index) / circles.length;
+            circle.style.scale = (circles.length - index) / circles.length;
 
-			circle.x = x;
-			circle.y = y;
+            circle.x = x;
+            circle.y = y;
 
-			const nextCircle = circles[index + 1] || circles[0];
-			x += (nextCircle.x - x) * 0.25;
-			y += (nextCircle.y - y) * 0.25;
-		});
+            const nextCircle = circles[index + 1] || circles[0];
+            x += (nextCircle.x - x) * 0.25;
+            y += (nextCircle.y - y) * 0.25;
+        });
 
-		requestAnimationFrame(animateCircles);
-	}
+        requestAnimationFrame(animateCircles);
+    }
 
-	animateCircles();
+    animateCircles();
 });
+//Zegar
+const deg = 6;
 
+function setClock() {
+    const now = new Date();
+    const hr = now.getHours();
+    const mn = now.getMinutes();
+    const sc = now.getSeconds();
+
+    const hrDeg = (hr * 30) + (mn / 2);
+    const mnDeg = (mn * deg);
+    const scDeg = (sc * deg);
+
+    document.getElementById("hr").style.transform = `rotate(${hrDeg}deg)`;
+    document.getElementById("mn").style.transform = `rotate(${mnDeg}deg)`;
+    document.getElementById("sc").style.transform = `rotate(${scDeg}deg)`;
+}
+
+setInterval(setClock, 1000);
+
+//NavBar
 const hamburger = document.querySelector('.header .nav-bar .nav-list .hamburger');
 const mobile_menu = document.querySelector('.header .nav-bar .nav-list ul');
 const menu_item = document.querySelectorAll('.header .nav-bar .nav-list ul li a');
 const header = document.querySelector('.header.container');
 
 hamburger.addEventListener('click', () => {
-	hamburger.classList.toggle('active');
-	mobile_menu.classList.toggle('active');
+    hamburger.classList.toggle('active');
+    mobile_menu.classList.toggle('active');
 });
 
 document.addEventListener('scroll', () => {
-	var scroll_position = window.scrollY;
-	if (scroll_position > 125) {
-		header.style.backgroundColor = '#29323c';
-	} else {
-		header.style.backgroundColor = 'transparent';
-	}
+    var scroll_position = window.scrollY;
+    if (scroll_position > 125) {
+        header.style.backgroundColor = '#29323c';
+    } else {
+        header.style.backgroundColor = 'transparent';
+    }
 });
 
 menu_item.forEach((item) => {
-	item.addEventListener('click', () => {
-		hamburger.classList.toggle('active');
-		mobile_menu.classList.toggle('active');
-	});
+    item.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobile_menu.classList.toggle('active');
+    });
 });
