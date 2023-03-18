@@ -45,7 +45,7 @@ body {
     }
 audio {
     filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) invert(12%);
-    width: 200px;
+    width: 250px;
     height: 25px;
 }
 a {
@@ -954,6 +954,11 @@ p {
 @media only screen and (max-device-width : 768px) {
     .cursor, .circle {
         display: none;
+    }
+    audio {
+        filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) invert(12%);
+        width: 135px;
+        height: 25px;
     }
     /* Footer */
     #footer .liHidden {
