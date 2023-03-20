@@ -380,48 +380,59 @@ p {
             top: 0;
         }
 
-.audio-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 60px;
-    background-color: rgba(0, 0, 0, 0.15);
-    border-radius: 10px;
-    padding: 10px;
-    min-width: 220px;
-    position: relative;
-    top: 10px;
-}
-
-    .audio-container img {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        margin-right: 10px;
-    }
-
-    .audio-container .audio-controls {
+    #header .audio-container {
         display: flex;
-        flex-grow: 1;
         align-items: center;
-        margin-right: 10px;
-        border-radius: 50%;
+        width: 90%;
+        height: 60px;
+        background-color: rgba(0, 0, 0, 0.15);
+        border-radius: 10px;
+        padding: 10px;
+        min-width: 220px;
+        position: relative;
+        top: 10px;
     }
 
-        .audio-container .audio-controls .audio-buttons {
-            display: flex;
-            align-items: center;
+        #header .audio-container img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             margin-right: 10px;
         }
 
-            .audio-container .audio-controls .audio-buttons button {
-                background-color: transparent;
-                border: none;
-                color: white;
-                margin-right: 5px;
-                font-size: 20px;
-                cursor: none;
+        #header .audio-container .audio-controls {
+            display: flex;
+            flex-grow: 1;
+            align-items: center;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+            #header .audio-container .audio-controls .audio-buttons {
+                display: flex;
+                align-items: center;
+                margin-right: 10px;
             }
+
+                #header .audio-container .audio-controls .audio-buttons button {
+                    background-color: transparent;
+                    border: none;
+                    color: white;
+                    margin-right: 5px;
+                    font-size: 20px;
+                    cursor: none;
+                }
+
+    #header .audio-buttons button {
+        padding: 15px;
+    }
+
+        #header .audio-buttons button:hover {
+            transition: all 0.4s ease-in-out;
+            transform: scale(1.2);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+            background-color: rgba(255, 255, 255, 0.4);
+        }
 
 .song-artist {
     color: white;
@@ -639,7 +650,6 @@ p {
         z-index: -1;
     }
 /* End About Section */
-
 /* Contact Section */
 #contact .contact {
     flex-direction: column;
