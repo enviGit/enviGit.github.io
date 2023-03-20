@@ -54,14 +54,32 @@
                         <li><a href="#projects" data-after="Projects">Projects</a></li>
                         <li><a href="#contact" data-after="Contact">Contact</a></li>
                         <li class="mediaPlayer">
-                            <audio src="" controls id="audioPlayer"></audio>
-                            <ul id="playlist">
-                                <li class="current-song"><a href="./resources/music/NEFFEX - Best of Me.mp3"></a></li>
-                                <li><a href="./resources/music/NEFFEX - Grateful.mp3"></a></li>
-                                <li><a href="./resources/music/NEFFEX - Life.mp3"></a></li>
-                                <li><a href="./resources/music/NEFFEX - Chance.mp3"></a></li>
-                                <li><a href="./resources/music/NEFFEX - Cold.mp3"></a></li>
-                                <li><a href="./resources/music/NEFFEX - Destiny.mp3"></a></li>
+                            <div class="audio-container">
+                                <div class="song-image">
+                                    <img src="./resources/img/song1.jpg">
+                                </div>
+                                <!---->
+                                <div class="song-info">
+                                    <div class="song-artist"></div>
+                                    <div class="song-title"></div>
+                                </div>
+                                <!---->
+                                <div class="audio-controls">
+                                    <div class="audio-buttons">
+                                        <button class="prev-btn"><i class="fa fa-step-backward"></i></button>
+                                        <button class="play-btn"><i class="fa fa-play"></i></button>
+                                        <button class="next-btn"><i class="fa fa-step-forward"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <audio id="audioPlayer" src="./resources/music/NEFFEX - Best of Me.mp3" data-index="0"></audio>
+                            <ul id="playlist" style="display: none;">
+                                <li data-index="0"><a href="./resources/music/NEFFEX - Best of Me.mp3" data-image="./resources/img/song1.jpg"></a></li>
+                                <li data-index="1"><a href="./resources/music/NEFFEX - Grateful.mp3" data-image="./resources/img/song2.jpg"></a></li>
+                                <li data-index="2"><a href="./resources/music/NEFFEX - Life.mp3" data-image="./resources/img/song3.jpg"></a></li>
+                                <li data-index="3"><a href="./resources/music/NEFFEX - Chance.mp3" data-image="./resources/img/song4.jpg"></a></li>
+                                <li data-index="4"><a href="./resources/music/NEFFEX - Cold.mp3"  data-image="./resources/img/song5.jpg"></a></li>
+                                <li data-index="5"><a href="./resources/music/NEFFEX - Destiny.mp3" data-image="./resources/img/song6.jpg"></a></li>
                             </ul>
                         </li>
                     </ul>

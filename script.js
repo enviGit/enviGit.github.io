@@ -1,7 +1,4 @@
 addEventListener('DOMContentLoaded', (event) => {
-    //MusicPlayer
-    audioPlayer();
-
     //Cursor
     const coords = { x: 0, y: 0 };
     const circles = document.querySelectorAll(".circle");
@@ -83,30 +80,84 @@ var typed = new Typed(".multiple-text", {
 
 //MusicPlayer
 function audioPlayer() {
-    var currentSong = 0;
-    $("#audioPlayer")[0].src = $("#playlist li a")[0];
-    $("#audioPlayer")[0].volume = 0.2;
-    $("#audioPlayer")[0].play();
-    $("#playlist li a").click(function (e) {
-        e.preventDefault();
-        $("#audioPlayer")[0].src = this;
-        $("#audioPlayer")[0].volume = 0.2;
-        $("#audioPlayer")[0].play();
-        $("#playlist li").removeClass("current-song");
-        currentSong = $(this).parent().index();
-        $(this).parent().addClass("current-song");
+    const audio = document.getElementById("audioPlayer");
+    const playlist = document.getElementById("playlist");
+    const tracks = playlist.getElementsByTagName("a");
+    const songImage = document.querySelector(".song-image img");
+    const prevBtn = document.querySelector(".prev-btn");
+    const playBtn = document.querySelector(".play-btn");
+    const nextBtn = document.querySelector(".next-btn");
+
+    document.querySelector('.song-artist').textContent = "NEFFEX";
+    document.querySelector('.song-title').textContent = "Best of Me";
+    audio.volume = 0.2;
+
+    function loadTrack(index) {
+        audio.src = tracks[index].getAttribute('href');
+        songImage.src = tracks[index].dataset.image;
+        const artist = tracks[index].getAttribute('href').split(' - ')[0].slice(18, 24);
+        const title = tracks[index].getAttribute('href').split(' - ')[1].slice(0, -4);
+        document.querySelector('.song-artist').textContent = artist;
+        document.querySelector('.song-title').textContent = title;
+        audio.play();
+        audio.setAttribute('data-index', index);
+    }
+
+    function updatePlayButton() {
+        if (audio.paused) {
+            playBtn.querySelector("i").classList.remove("fa-pause");
+            playBtn.querySelector("i").classList.add("fa-play");
+        } else {
+            playBtn.querySelector("i").classList.remove("fa-play");
+            playBtn.querySelector("i").classList.add("fa-pause");
+        }
+    }
+
+    for (let i = 0; i < tracks.length; i++) {
+        tracks[i].addEventListener("click", function (e) {
+            e.preventDefault();
+            const index = parseInt(this.parentElement.getAttribute('data-index'));
+            loadTrack(index);
+            updatePlayButton();
+        });
+    }
+
+    prevBtn.addEventListener("click", function () {
+        let currentIndex = parseInt(audio.getAttribute('data-index')) - 1;
+
+        if (currentIndex < 0) {
+            currentIndex = tracks.length - 1;
+        }
+        loadTrack(currentIndex);
+        updatePlayButton();
     });
 
-    $("#audioPlayer")[0].addEventListener("ended", function () {
-        currentSong++;
+    nextBtn.addEventListener("click", function () {
+        let currentIndex = parseInt(audio.getAttribute('data-index')) + 1;
 
-        if (currentSong == $("#playlist li a").length)
-            currentSong = 0;
+        if (currentIndex === tracks.length) {
+            currentIndex = 0;
+        }
+        loadTrack(currentIndex);
+        updatePlayButton();
+    });
 
-        $("#playlist li").removeClass("current-song");
-        $("#playlist li:eq(" + currentSong + ")").addClass("current-song");
-        $("#audioPlayer")[0].src = $("#playlist li a")[currentSong].href;
-        $("#audioPlayer")[0].volume = 0.2;
-        $("#audioPlayer")[0].play();
+    audio.addEventListener("play", function () {
+        updatePlayButton();
+    });
+
+    audio.addEventListener("pause", function () {
+        updatePlayButton();
+    });
+
+    playBtn.addEventListener("click", function () {
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause();
+        }
+        updatePlayButton();
     });
 }
+
+audioPlayer();
