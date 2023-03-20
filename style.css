@@ -389,6 +389,8 @@ p {
     border-radius: 10px;
     padding: 10px;
     min-width: 220px;
+    position: relative;
+    top: 10px;
 }
 
     .audio-container img {
@@ -434,7 +436,6 @@ p {
     min-width: 53px;
 }
 /* End Header section */
-
 /* Home Section */
 #home {
     background-image: url(./resources/img/bg.jpg);
