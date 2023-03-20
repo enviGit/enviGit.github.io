@@ -36,18 +36,6 @@ body {
     border-radius: 20px;
     background-color: #fff;
 }
-#playlist {
-    list-style: none;
-}
-
-    #playlist li a {
-        display: none;
-    }
-audio {
-    filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) invert(12%);
-    width: 250px;
-    height: 25px;
-}
 a {
     text-decoration: none;
     cursor: none;
@@ -328,7 +316,6 @@ p {
         #header .nav-list ul li:hover a {
             color: #0f0;
         }
-
     #header .hamburger {
         height: 60px;
         width: 60px;
@@ -802,6 +789,16 @@ p {
     h1.section-title {
         font-size: 6rem;
     }
+    /* Header */
+    audio {
+        filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) invert(12%);
+        width: 250px;
+        height: 25px;
+        position: fixed;
+        margin-top: 3%;
+        margin-left: -14%;
+    }
+    /* End Header */
 
     /* Home */
     #home h1 {
@@ -941,6 +938,14 @@ p {
         #header .nav-list ul a:after {
             display: none;
         }
+    audio {
+        filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) invert(12%);
+        width: 250px;
+        height: 25px;
+        position: fixed;
+        margin-top: 1.3%;
+        margin-left: 0%;
+    }
     /* End Header */
     /* Footer */
     #footer .liHidden {
@@ -957,8 +962,11 @@ p {
     }
     audio {
         filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) invert(12%);
-        width: 135px;
+        width: 200px;
         height: 25px;
+        position: fixed;
+        margin-top: 5%;
+        margin-left: -23%;
     }
     /* Footer */
     #footer .liHidden {
