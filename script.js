@@ -60,6 +60,18 @@ menu_item.forEach((item) => {
     });
 });
 
+document.addEventListener('scroll', () => {
+    var scroll_position = window.scrollY;
+
+    if (scroll_position > 125) {
+        header.style.backgroundColor = '#29323c';
+    } else {
+        header.style.backgroundColor = 'transparent';
+    }
+
+    addActiveClass();
+});
+
 //Home
 var typed = new Typed(".multiple-text", {
     strings: ["Student", "Coder", "Analyst"],
@@ -177,37 +189,77 @@ const navLinks = document.querySelectorAll('.stnTte');
 function addActiveClass() {
     let scrollY = window.pageYOffset;
 
+    navLinks.forEach(navLink => {
+        navLink.classList.remove('active');
+    });
+
     sections.forEach(current => {
         const sectionHeight = current.offsetHeight;
         const sectionTop = current.offsetTop - 50;
         const sectionId = current.getAttribute('id');
+        const navLink = document.querySelector('.stnTte[href="#' + sectionId + '"]');
 
         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            document.querySelector('.stnTte[href*=' + sectionId + ']').classList.add('active');
-        } else {
-            document.querySelector('.stnTte[href*=' + sectionId + ']').classList.remove('active');
+            navLink.classList.add('active');
         }
     });
 
-    const activeLink = document.querySelector('.stnTte.active');
-    marker.style.width = activeLink.offsetWidth + "px";
-    marker.style.left = activeLink.offsetLeft + "px";
+    const activeLinks = document.querySelectorAll('.stnTte.active');
+    let activeWidth = 0;
+    let activeLeft = 0;
+
+    activeLinks.forEach(activeLink => {
+        activeWidth += activeLink.offsetWidth;
+        activeLeft = activeLink.offsetLeft;
+    });
+
+    marker.style.width = activeWidth + "px";
+    marker.style.left = activeLeft + "px";
 }
+
+
+
+let activeSectionIndex = 0;
+
+function updateActiveSection() {
+    let maxSectionIndex = 0;
+    for (let i = 0; i < sections.length; i++) {
+        const section = sections[i];
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= window.innerHeight / 2 && rect.bottom > window.innerHeight / 2) {
+            maxSectionIndex = i;
+        }
+    }
+    activeSectionIndex = maxSectionIndex;
+}
+
+function updateMarkerPosition() {
+    const activeLinks = document.querySelectorAll('.stnTte.active');
+    let activeWidth = 0;
+    let activeLeft = 0;
+
+    activeLinks.forEach(activeLink => {
+        activeWidth += activeLink.offsetWidth;
+        activeLeft = activeLink.offsetLeft;
+    });
+
+    marker.style.width = activeWidth + "px";
+    marker.style.left = activeLeft + "px";
+}
+
+window.addEventListener('resize', () => {
+    updateActiveSection();
+    updateMarkerPosition();
+});
+
+window.addEventListener('scroll', () => {
+    updateActiveSection();
+    updateMarkerPosition();
+});
 
 window.addEventListener('load', () => {
     addActiveClass();
-    marker.style.width = document.querySelector('.stnTte.active').offsetWidth + "px";
-    marker.style.left = document.querySelector('.stnTte.active').offsetLeft + "px";
 });
 
-document.addEventListener('scroll', () => {
-    var scroll_position = window.scrollY;
-
-    if (scroll_position > 125) {
-        header.style.backgroundColor = '#29323c';
-    } else {
-        header.style.backgroundColor = 'transparent';
-    }
-
-    addActiveClass();
-});
+updateActiveSection();
+updateMarkerPosition();
