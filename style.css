@@ -17,6 +17,17 @@ body {
     background-color: white;
 }
 
+::-webkit-scrollbar {
+    width: 15px;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgb(150,150,150)), color-stop(0.72, rgb(125,125,125)), color-stop(0.86, rgb(55,55,55)));
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgb(55,55,55)), color-stop(0.72, rgb(125,125,125)), color-stop(0.86, rgb(150,150,150)));
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgb(0,255,0)), color-stop(0.72, rgb(0,200,0)), color-stop(0.86, rgb(0,175,0)));
+}
+
 .cursor {
     pointer-events: none;
     position: fixed;
@@ -1033,13 +1044,12 @@ p {
         #header .nav-list ul a:after {
             display: none;
         }
-    #marker {
+    #header .marker {
         position: absolute;
-        left: 0;
         height: 4px;
         background: #00ff00;
         bottom: 0;
-        transition: 1s;
+        transition: 0.5s;
         border-radius: 4px;
     }
     /* End Header */

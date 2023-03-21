@@ -53,15 +53,6 @@ hamburger.addEventListener('click', () => {
     mobile_menu.classList.toggle('active');
 });
 
-document.addEventListener('scroll', () => {
-    var scroll_position = window.scrollY;
-    if (scroll_position > 125) {
-        header.style.backgroundColor = '#29323c';
-    } else {
-        header.style.backgroundColor = 'transparent';
-    }
-});
-
 menu_item.forEach((item) => {
     item.addEventListener('click', () => {
         hamburger.classList.toggle('active');
@@ -174,21 +165,49 @@ const handleOnMouseMove = e => {
     target.style.setProperty("--mouse-y", `${y}px`);
 }
 
-for (const card of document.querySelectorAll(".project-info, .project-img, .project-img2")) {
+for (const card of document.querySelectorAll(".project-info, .project-img")) {
     card.onmousemove = e => handleOnMouseMove(e);
 }
 
 //Marker
-var marker = document.querySelector('#marker');
-var item = document.querySelectorAll('.stnTte');
+const sections = document.querySelectorAll('.track-section');
+const marker = document.querySelector('.marker');
+const navLinks = document.querySelectorAll('.stnTte');
 
-function indicator(e) {
-    marker.style.left = e.offsetLeft + "px";
-    marker.style.width = e.offsetWidth + "px";
+function addActiveClass() {
+    let scrollY = window.pageYOffset;
+
+    sections.forEach(current => {
+        const sectionHeight = current.offsetHeight;
+        const sectionTop = current.offsetTop - 50;
+        const sectionId = current.getAttribute('id');
+
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            document.querySelector('.stnTte[href*=' + sectionId + ']').classList.add('active');
+        } else {
+            document.querySelector('.stnTte[href*=' + sectionId + ']').classList.remove('active');
+        }
+    });
+
+    const activeLink = document.querySelector('.stnTte.active');
+    marker.style.width = activeLink.offsetWidth + "px";
+    marker.style.left = activeLink.offsetLeft + "px";
 }
 
-    item.forEach(link => {
-        link.addEventListener('click', (e) => {
-            indicator(e.target)
-        })
-    });
+window.addEventListener('load', () => {
+    addActiveClass();
+    marker.style.width = document.querySelector('.stnTte.active').offsetWidth + "px";
+    marker.style.left = document.querySelector('.stnTte.active').offsetLeft + "px";
+});
+
+document.addEventListener('scroll', () => {
+    var scroll_position = window.scrollY;
+
+    if (scroll_position > 125) {
+        header.style.backgroundColor = '#29323c';
+    } else {
+        header.style.backgroundColor = 'transparent';
+    }
+
+    addActiveClass();
+});
