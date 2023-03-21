@@ -76,14 +76,14 @@ p {
 }
 
     .section-title span {
-        color: #0f0;
+        color: #00ff00;
     }
 
 .cta {
     position: relative;
     display: inline-block;
     padding: 15px 30px;
-    border: 2px solid #0f0;
+    border: 2px solid #00ff00;
     margin: 40px;
     text-transform: uppercase;
     font-weight: 600;
@@ -97,7 +97,7 @@ p {
     .cta:hover {
         transition-delay: 1.5s;
         color: #000;
-        box-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 40px #0f0, 0 0 80px #0f0, 0 0 160px #0f0;
+        box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 40px #00ff00, 0 0 80px #00ff00, 0 0 160px #00ff00;
     }
 
     .cta span {
@@ -117,8 +117,8 @@ p {
         transform: translateY(-50%);
         width: 20px;
         height: 2px;
-        background: #0f0;
-        box-shadow: 5px -8px 0 #0f0, 5px 8px 0 #0f0;
+        background: #00ff00;
+        box-shadow: 5px -8px 0 #00ff00, 5px 8px 0 #00ff00;
         transition: width 0.5s, left 0.5s, height 0.5s, box-shadow 0.5s;
         transition-delay: 1s, 0.5s, 0s, 0s;
     }
@@ -127,7 +127,7 @@ p {
         width: 60%;
         height: 100%;
         left: -2px;
-        box-shadow: 5px 0 0 #0f0, 5px 0 0 #0f0;
+        box-shadow: 5px 0 0 #00ff00, 5px 0 0 #00ff00;
         transition-delay: 1s, 0.5s, 0s, 0s;
     }
 
@@ -139,8 +139,8 @@ p {
         transform: translateY(-50%);
         width: 20px;
         height: 2px;
-        background: #0f0;
-        box-shadow: -5px -8px 0 #0f0, -5px 8px 0 #0f0;
+        background: #00ff00;
+        box-shadow: -5px -8px 0 #00ff00, -5px 8px 0 #00ff00;
         transition: width 0.5s, left 0.5s, height 0.5s, box-shadow 0.5s;
         transition-delay: 1s, 0.5s, 0s, 0s;
     }
@@ -149,7 +149,7 @@ p {
         width: 60%;
         height: 100%;
         right: -2px;
-        box-shadow: -5px 0 0 #0f0, -5px 0 0 #0f0;
+        box-shadow: -5px 0 0 #00ff00, -5px 0 0 #00ff00;
         transition-delay: 1s, 0.5s, 0s, 0s;
     }
 
@@ -237,7 +237,7 @@ p {
 }
 
     .brand h1 span {
-        color: #0f0;
+        color: #00ff00;
     }
 
 /* Header section */
@@ -317,7 +317,7 @@ p {
         }
 
         #header .nav-list ul li:hover a {
-            color: #0f0;
+            color: #00ff00;
         }
 
     #header .hamburger {
@@ -436,13 +436,13 @@ p {
             background-color: rgba(255, 255, 255, 0.4);
         }
 
-.song-artist {
+#header .song-artist {
     color: white;
     font-weight: 900;
     margin-right: 10px;
 }
 
-.song-title {
+#header .song-title {
     color: white;
     font-weight: 500;
     margin-right: 10px;
@@ -486,7 +486,7 @@ p {
 
         #home h1 span {
             position: relative;
-            color: #0f0;
+            color: #00ff00;
             max-width: 100%;
         }
 
@@ -504,7 +504,7 @@ p {
             height: 4px;
             width: 35px;
             bottom: 10px;
-            background-color: #0f0;
+            background-color: #00ff00;
         }
 /* End Home Section */
 
@@ -684,7 +684,7 @@ p {
         top: 19px;
         height: 98%;
         width: 98%;
-        border: 7px solid #0f0;
+        border: 7px solid #00ff00;
         z-index: -1;
     }
 /* End About Section */
@@ -942,7 +942,7 @@ p {
         top: 34px;
         height: 98%;
         width: 98%;
-        border: 10px solid #0f0;
+        border: 10px solid #00ff00;
     }
 
     #about .col-right {
@@ -1033,6 +1033,15 @@ p {
         #header .nav-list ul a:after {
             display: none;
         }
+    #marker {
+        position: absolute;
+        left: 0;
+        height: 4px;
+        background: #00ff00;
+        bottom: 0;
+        transition: 1s;
+        border-radius: 4px;
+    }
     /* End Header */
     /* Footer */
     #footer .liHidden {

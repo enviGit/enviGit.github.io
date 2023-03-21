@@ -177,3 +177,18 @@ const handleOnMouseMove = e => {
 for (const card of document.querySelectorAll(".project-info, .project-img, .project-img2")) {
     card.onmousemove = e => handleOnMouseMove(e);
 }
+
+//Marker
+var marker = document.querySelector('#marker');
+var item = document.querySelectorAll('.stnTte');
+
+function indicator(e) {
+    marker.style.left = e.offsetLeft + "px";
+    marker.style.width = e.offsetWidth + "px";
+}
+
+    item.forEach(link => {
+        link.addEventListener('click', (e) => {
+            indicator(e.target)
+        })
+    });
