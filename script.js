@@ -18,19 +18,15 @@ addEventListener('DOMContentLoaded', (event) => {
     function animateCircles() {
         let x = coords.x;
         let y = coords.y;
-
         cursor.style.top = x;
         cursor.style.left = y;
 
         circles.forEach(function (circle, index) {
             circle.style.left = x - 12 + "px";
             circle.style.top = y - 12 + "px";
-
             circle.style.scale = (circles.length - index) / circles.length;
-
             circle.x = x;
             circle.y = y;
-
             const nextCircle = circles[index + 1] || circles[0];
             x += (nextCircle.x - x) * 0.25;
             y += (nextCircle.y - y) * 0.25;
@@ -90,7 +86,7 @@ function audioPlayer() {
     const prevBtn = document.querySelector(".prev-btn");
     const playBtn = document.querySelector(".play-btn");
     const nextBtn = document.querySelector(".next-btn");
-
+    let currentIndex = 0;
     document.querySelector('.song-artist').textContent = "NEFFEX";
     document.querySelector('.song-title').textContent = "Best of Me";
     audio.volume = 0.2;
@@ -104,6 +100,7 @@ function audioPlayer() {
         document.querySelector('.song-title').textContent = title;
         audio.play();
         audio.setAttribute('data-index', index);
+        currentIndex = index;
     }
 
     function updatePlayButton() {
@@ -126,22 +123,24 @@ function audioPlayer() {
     }
 
     prevBtn.addEventListener("click", function () {
-        let currentIndex = parseInt(audio.getAttribute('data-index')) - 1;
+        let index = currentIndex - 1;
 
-        if (currentIndex < 0) {
-            currentIndex = tracks.length - 1;
+        if (index < 0) {
+            index = tracks.length - 1;
         }
-        loadTrack(currentIndex);
+
+        loadTrack(index);
         updatePlayButton();
     });
 
     nextBtn.addEventListener("click", function () {
-        let currentIndex = parseInt(audio.getAttribute('data-index')) + 1;
+        let index = currentIndex + 1;
 
-        if (currentIndex === tracks.length) {
-            currentIndex = 0;
+        if (index === tracks.length) {
+            index = 0;
         }
-        loadTrack(currentIndex);
+
+        loadTrack(index);
         updatePlayButton();
     });
 
@@ -153,14 +152,27 @@ function audioPlayer() {
         updatePlayButton();
     });
 
+    audio.addEventListener("ended", function () {
+        let index = currentIndex + 1;
+
+        if (index === tracks.length) {
+            index = 0;
+        }
+
+        loadTrack(index);
+    });
+
     playBtn.addEventListener("click", function () {
         if (audio.paused) {
             audio.play();
         } else {
             audio.pause();
         }
+
         updatePlayButton();
     });
+
+    loadTrack(currentIndex);
 }
 
 audioPlayer();
@@ -223,13 +235,16 @@ let activeSectionIndex = 0;
 
 function updateActiveSection() {
     let maxSectionIndex = 0;
+
     for (let i = 0; i < sections.length; i++) {
         const section = sections[i];
         const rect = section.getBoundingClientRect();
+
         if (rect.top <= window.innerHeight / 2 && rect.bottom > window.innerHeight / 2) {
             maxSectionIndex = i;
         }
     }
+
     activeSectionIndex = maxSectionIndex;
 }
 
