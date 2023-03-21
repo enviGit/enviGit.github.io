@@ -167,6 +167,8 @@ p {
     -webkit-box-reflect: below 000px linear-gradient(transparent, #0002);
     transition: 0.5s;
     transition-delay: 0s;
+    /**/
+    z-index: 3;
 }
 
     .ctaProjects:hover {
@@ -523,6 +525,7 @@ p {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    gap: 8px;
 }
 
 #projects .project-item {
@@ -533,7 +536,7 @@ p {
     width: 80%;
     margin: 20px auto;
     overflow: hidden;
-    border-radius: 10px;
+    gap: 8px;
 }
 
 #projects .project-info {
@@ -544,9 +547,29 @@ p {
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
-    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
     color: white;
+    border-radius: 10px;
+    position: relative;
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
 }
+
+    #projects .project-info:hover::before {
+        opacity: 1;
+    }
+
+    #projects .project-info::before {
+        content: '';
+        background: radial-gradient(250px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.15), transparent 40%);
+        border-radius: inherit;
+        height: 100%;
+        left: 0px;
+        opacity: 0;
+        position: absolute;
+        top: 0px;
+        transition: opacity 500ms;
+        width: 100%;
+        z-index: 2;
+    }
 
     #projects .project-info h1 {
         font-size: 4rem;
@@ -563,13 +586,32 @@ p {
         color: white;
     }
 
-#projects .project-img, .project-img2 {
+#projects .project-img{
     flex-basis: 50%;
     overflow: hidden;
     position: relative;
+    border-radius: 10px;
+    position: relative;
 }
 
-    #projects .project-img:after, .project-img2:after {
+    #projects .project-img:hover::before{
+        opacity: 1;
+    }
+
+    #projects .project-img::before{
+        content: '';
+        background: radial-gradient(250px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.20), transparent 40%);
+        height: 100%;
+        left: 0px;
+        opacity: 0;
+        position: absolute;
+        top: 0px;
+        transition: opacity 500ms;
+        width: 100%;
+        z-index: 2;
+    }
+
+    #projects .project-img:after{
         content: '';
         position: absolute;
         left: 0px;
@@ -580,16 +622,12 @@ p {
         opacity: 0.7;
     }
 
-    #projects .project-img img, .project-img2 img {
+    #projects .project-img img{
         transition: 0.3s ease transform;
     }
 
 #projects .project-item:hover .project-img img {
     transform: scale(1.1);
-}
-
-#projects .project-item:hover .project-img2 img {
-    transform: scale(1.08);
 }
 /* End Projects section */
 
