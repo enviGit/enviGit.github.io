@@ -68,14 +68,17 @@ document.addEventListener('scroll', () => {
     addActiveClass();
 });
 
-//Home
-var typed = new Typed(".multiple-text", {
-    strings: ["Student", "Coder", "Analyst"],
-    typeSpeed: 100,
-    backSpeed: 100,
-    backDelay: 1000,
-    loop: true
-});
+//MultiText
+setTimeout(function () {
+    var typed = new Typed(".multiple-text", {
+        strings: ["Student", "Coder", "Analyst"],
+        typeSpeed: 100,
+        backSpeed: 100,
+        backDelay: 1000,
+        loop: true
+    });
+}, 4500);
+
 
 //MusicPlayer
 function audioPlayer() {
@@ -89,7 +92,7 @@ function audioPlayer() {
     let currentIndex = 0;
     document.querySelector('.song-artist').textContent = "NEFFEX";
     document.querySelector('.song-title').textContent = "Best of Me";
-    audio.volume = 0.2;
+    audio.volume = 0.05;
 
     function loadTrack(index) {
         audio.src = tracks[index].getAttribute('href');
@@ -229,8 +232,6 @@ function addActiveClass() {
     marker.style.left = activeLeft + "px";
 }
 
-
-
 let activeSectionIndex = 0;
 
 function updateActiveSection() {
@@ -272,9 +273,22 @@ window.addEventListener('scroll', () => {
     updateMarkerPosition();
 });
 
-window.addEventListener('load', () => {
-    addActiveClass();
-});
+//SmoothTransition
+$(document).ready(function () {
+    $('.start-btn').click(function () {
+        $('.obj-to-hide').hide();
+        $('body').css('backgroundColor', '#ffffff').css('overflow', 'auto');
+        $('.loading-container').css('display', 'flex').show();
+        $('#header, #home, #about, #projects, #contact').fadeIn(3000);
+        $('#footer').css('display', 'flex').fadeIn(3000);
+        addActiveClass();
+        updateActiveSection();
+        updateMarkerPosition();
 
-updateActiveSection();
-updateMarkerPosition();
+        setTimeout(function () {
+            $('.loading-container').fadeOut();
+            const audio = document.getElementById("audioPlayer");
+            audio.play();
+        }, 2500);
+    });
+});
