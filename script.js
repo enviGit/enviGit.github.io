@@ -61,7 +61,7 @@ document.addEventListener('scroll', () => {
     const screenWidth = window.innerWidth;
     const scaleFactor = screenWidth / REF_SCREEN_WIDTH;
     var scroll_position = window.scrollY;
-    const loadingAdjustedValue = 185 * scaleFactor;
+    const loadingAdjustedValue = 180 * scaleFactor;
     const bgAdjustedValue = 175 * scaleFactor;
     var loadingContainer = document.querySelector(".loading-container p");
 
