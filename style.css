@@ -310,10 +310,8 @@ body {
     width: 200%;
     height: 200%;
     animation-name: fogFrames;
-    animation-duration: 60s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-    animation-direction: alternate;
     background: linear-gradient(-5deg #00000000 0%, #ffffff15 40%, #74590121 45%, #8b845b21 55%, #00000000 70%);
 }
 
@@ -404,7 +402,7 @@ body {
 .rights {
     position: absolute;
     width: 100%;
-    bottom: 5%;
+    bottom: -20%;
     justify-content: center;
     align-items: center;
     text-align: center;
