@@ -57,9 +57,15 @@ menu_item.forEach((item) => {
 });
 
 document.addEventListener('scroll', () => {
+    const REF_SCREEN_WIDTH = 1920;
+    const screenWidth = window.innerWidth;
+    const scaleFactor = screenWidth / REF_SCREEN_WIDTH;
     var scroll_position = window.scrollY;
+    const loadingAdjustedValue = 185 * scaleFactor;
+    const bgAdjustedValue = 175 * scaleFactor;
+    var loadingContainer = document.querySelector(".loading-container p");
 
-    if (scroll_position > 125) {
+    if (scroll_position > bgAdjustedValue) {
         header.style.backgroundColor = '#29323c';
     } else {
         header.style.backgroundColor = 'transparent';
@@ -67,9 +73,7 @@ document.addEventListener('scroll', () => {
 
     addActiveClass();
 
-    var loadingContainer = document.querySelector(".loading-container p");
-
-    if (scroll_position > 185) {
+    if (scroll_position > loadingAdjustedValue) {
         loadingContainer.style.color = "black";
     } else {
         loadingContainer.style.color = "white";
