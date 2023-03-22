@@ -404,7 +404,7 @@ body {
 .rights {
     position: absolute;
     width: 100%;
-    bottom: -40%;
+    bottom: 5%;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -499,7 +499,7 @@ body {
         position: absolute;
         font-family: Consolas;
         color: white;
-        font-size: 2vw;
+        font-size: 1.5vw;
         bottom: 30%;
         left: 50%;
         transform: translateX(-50%);
