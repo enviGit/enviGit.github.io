@@ -422,8 +422,10 @@ body {
     display: none;
     justify-content: center;
     align-items: center;
-    margin: 25% auto auto auto;
     z-index: 99999;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
 
     .loading-container .ring {
@@ -473,7 +475,11 @@ body {
             animation: loading2 4s linear infinite;
             animation-delay: -3s;
             position: absolute;
-            top: -66.66px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 15%;
+            height: 15%;
             border-top: 4px solid transparent;
             border-left: 4px solid #e41cf8;
         }
@@ -493,10 +499,12 @@ body {
 
     .loading-container p {
         position: absolute;
-        font-size: 3em;
         font-family: Consolas;
         color: white;
-        bottom: -90px;
+        font-size: 3vw;
+        bottom: 25%;
+        left: 50%;
+        transform: translateX(-50%);
         letter-spacing: 0.15px;
     }
 
