@@ -66,6 +66,14 @@ document.addEventListener('scroll', () => {
     }
 
     addActiveClass();
+
+    var loadingContainer = document.querySelector(".loading-container p");
+
+    if (scroll_position > 185) {
+        loadingContainer.style.color = "black";
+    } else {
+        loadingContainer.style.color = "white";
+    }
 });
 
 //MusicPlayer
@@ -291,3 +299,4 @@ $(document).ready(function () {
         }, 2500);
     });
 });
+

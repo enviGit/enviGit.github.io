@@ -399,21 +399,6 @@ body {
         transform: translateY(-25px);
     }
 
-.rights {
-    position: absolute;
-    width: 100%;
-    bottom: -20%;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    z-index: 10;
-}
-
-    .rights p {
-        color: white;
-        font-size: 1.3rem;
-    }
-
 .loading-container {
     position: fixed;
     width: 100%;
@@ -497,8 +482,8 @@ body {
         position: absolute;
         font-family: Consolas;
         color: white;
-        font-size: 1.5vw;
-        bottom: 30%;
+        font-size: 1.8vw;
+        bottom: 18%;
         left: 50%;
         transform: translateX(-50%);
         letter-spacing: 0.15px;
