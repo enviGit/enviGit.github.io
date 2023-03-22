@@ -68,18 +68,6 @@ document.addEventListener('scroll', () => {
     addActiveClass();
 });
 
-//MultiText
-setTimeout(function () {
-    var typed = new Typed(".multiple-text", {
-        strings: ["Student", "Coder", "Analyst"],
-        typeSpeed: 100,
-        backSpeed: 100,
-        backDelay: 1000,
-        loop: true
-    });
-}, 4500);
-
-
 //MusicPlayer
 function audioPlayer() {
     const audio = document.getElementById("audioPlayer");
@@ -287,6 +275,17 @@ $(document).ready(function () {
 
         setTimeout(function () {
             $('.loading-container').fadeOut();
+
+            //MultiText
+            var typed = new Typed(".multiple-text", {
+                strings: ["Student", "Coder", "Analyst"],
+                startDelay: 500,
+                typeSpeed: 100,
+                backSpeed: 100,
+                backDelay: 1000,
+                loop: true
+            });
+
             const audio = document.getElementById("audioPlayer");
             audio.play();
         }, 2500);

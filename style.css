@@ -478,8 +478,6 @@ body {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 15%;
-            height: 15%;
             border-top: 4px solid transparent;
             border-left: 4px solid #e41cf8;
         }
@@ -501,8 +499,8 @@ body {
         position: absolute;
         font-family: Consolas;
         color: white;
-        font-size: 3vw;
-        bottom: 25%;
+        font-size: 2vw;
+        bottom: 30%;
         left: 50%;
         transform: translateX(-50%);
         letter-spacing: 0.15px;
