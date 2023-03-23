@@ -406,7 +406,6 @@ p {
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 2px;
-    color: #fff;
     -webkit-box-reflect: below 000px linear-gradient(transparent, #0002);
     transition: 0.5s;
     transition-delay: 0s;
@@ -414,7 +413,6 @@ p {
 
     .cta:hover {
         transition-delay: 1.5s;
-        color: #000;
         box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 40px #00ff00, 0 0 80px #00ff00, 0 0 160px #00ff00;
     }
 
@@ -481,7 +479,7 @@ p {
     font-size: 1.3rem;
     font-weight: 900;
     letter-spacing: 2px;
-    color: #fff;
+    color: #000000;
     -webkit-box-reflect: below 000px linear-gradient(transparent, #0002);
     transition: 0.5s;
     transition-delay: 0s;
@@ -490,7 +488,7 @@ p {
 
     .ctaProjects:hover {
         transition-delay: 1.5s;
-        color: #000;
+        color: #ffffff;
         box-shadow: 0 0 10px #00c3ff, 0 0 20px #00c3ff, 0 0 40px #00c3ff, 0 0 80px #00c3ff, 0 0 160px #00c3ff;
     }
 
