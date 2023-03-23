@@ -7,8 +7,8 @@ Looking for a showcase of my work and skills? Look no further than my portfolio 
 - Responsive design that looks great on all devices
 - Amazing background music from the music group NEFFEX
 - About me section, where you can get to know me better!
-- A selection of my past projects, with links to view them live
-- A contact section that allows visitors to get in touch with me directly
+- A selection of my past projects, with links to view them
+- A contact section that allows visitors to get in touch with me
 
 ## Technologies Used
 - HTML5
