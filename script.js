@@ -97,8 +97,9 @@ function audioPlayer() {
     function loadTrack(index) {
         audio.src = tracks[index].getAttribute('href');
         songImage.src = tracks[index].dataset.image;
-        const trackName = tracks[index].getAttribute('href').slice(18, -4);
-        const [artist, title] = trackName.split('-').map(str => str.trim());
+        const trackPath = tracks[index].getAttribute('href');
+        const trackName = trackPath.substring(trackPath.lastIndexOf('/') + 1, trackPath.lastIndexOf('.'));
+        const [artist, title] = trackName.split(' - ').map(str => str.trim());
         document.querySelector('.song-artist').textContent = artist;
         document.querySelector('.song-title').textContent = title;
         audio.play();
