@@ -1282,6 +1282,129 @@ p {
 }
 /* End Keyframes */
 
+/* Media Query For Tablet */
+@media only screen and (min-width: 768px) {
+    .cursor, .circle {
+        display: block;
+    }
+
+    .cta {
+        font-size: 2.5rem;
+        padding: 20px 60px;
+    }
+
+    h1.section-title {
+        font-size: 6rem;
+    }
+
+    /* Home */
+    #home h1 {
+        font-size: 7rem;
+    }
+    /* End Home */
+
+    /* Project */
+    #projects .project-item {
+        flex-direction: row;
+    }
+
+        #projects .project-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+    #projects .project-item {
+        height: 400px;
+        margin: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    #projects .all-projects .project-info {
+        height: 100%;
+    }
+
+    #projects .all-projects .project-img {
+        height: 100%;
+    }
+    /* End Project */
+
+    /* About */
+    #about .about {
+        flex-direction: row;
+    }
+
+    #about .col-left {
+        width: 600px;
+        height: 400px;
+        padding-left: 60px;
+    }
+
+    #about .about .col-left .about-img::after {
+        left: -45px;
+        top: 34px;
+        height: 98%;
+        width: 98%;
+        border: 10px solid #00ff00;
+    }
+
+    #about .col-right {
+        text-align: left;
+        padding: 30px;
+    }
+
+        #about .col-right h1 {
+            text-align: left;
+        }
+    /* End About */
+
+    /* Contact  */
+    #contact .contact {
+        flex-direction: column;
+        padding: 100px 0;
+        align-items: center;
+        justify-content: center;
+        min-width: 20vh;
+    }
+
+    #contact .contact-items {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin: 0;
+    }
+
+    #contact .contact-item {
+        width: 30%;
+        margin: 0;
+        flex-direction: row;
+    }
+
+        #contact .contact-item .icon {
+            height: 100px;
+            width: 100px;
+        }
+
+            #contact .contact-item .icon img {
+                object-fit: contain;
+            }
+
+        #contact .contact-item .contact-info {
+            width: 100%;
+        }
+
+        #contact .contact-item a:link, a:visited, a:hover, a:active {
+            color: black;
+        }
+    /* End Contact */
+    /* Footer */
+    #footer .liHidden {
+        display: initial;
+    }
+    /* End Footer */
+}
+/* End Media Query For Tablet */
+
 /* Media Query For Desktop */
 @media only screen and (min-width: 1200px) {
     .cursor, .circle {
