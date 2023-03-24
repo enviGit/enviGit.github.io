@@ -18,7 +18,7 @@ body {
     overflow: hidden;
 }
 
-.stars {
+.obj-to-hide {
     position: absolute;
     top: 0;
     left: 0;
@@ -27,116 +27,115 @@ body {
     background: url(./resources/img/bg2.jpg);
     background-position-x: center;
     background-size: cover;
-    animation: animateBg 50s linear infinite;
+    animation: animateBg 50s linear infinite
 }
 
-    .stars span {
+.stars span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 0 0 0 8px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 1);
+    animation: shootingStars 3s linear infinite;
+}
+
+    .stars span::before {
+        content: '';
         position: absolute;
         top: 50%;
-        left: 50%;
-        width: 4px;
-        height: 4px;
-        background: #ffffff;
-        border-radius: 50%;
-        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 0 0 0 8px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 1);
-        animation: shootingStars 3s linear infinite;
+        transform: translateY(-50%);
+        width: 300px;
+        height: 1px;
+        background: linear-gradient(90deg, #ffffff, transparent);
     }
 
-        .stars span::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 300px;
-            height: 1px;
-            background: linear-gradient(90deg, #ffffff, transparent);
-        }
+    .stars span:nth-child(1) {
+        top: 0;
+        right: 0px;
+        left: initial;
+        animation-delay: 0s;
+        animation-duration: 1s;
+    }
 
-        .stars span:nth-child(1) {
-            top: 0;
-            right: 0px;
-            left: initial;
-            animation-delay: 0s;
-            animation-duration: 1s;
-        }
+    .stars span:nth-child(2) {
+        top: 0;
+        right: 80px;
+        left: initial;
+        animation-delay: 0s;
+        animation-duration: 3s;
+    }
 
-        .stars span:nth-child(2) {
-            top: 0;
-            right: 80px;
-            left: initial;
-            animation-delay: 0s;
-            animation-duration: 3s;
-        }
+    .stars span:nth-child(3) {
+        top: 80px;
+        right: 0px;
+        left: initial;
+        animation-delay: 0s;
+        animation-duration: 2s;
+    }
 
-        .stars span:nth-child(3) {
-            top: 80px;
-            right: 0px;
-            left: initial;
-            animation-delay: 0s;
-            animation-duration: 2s;
-        }
+    .stars span:nth-child(4) {
+        top: 0px;
+        right: 180px;
+        left: initial;
+        animation-delay: 0s;
+        animation-duration: 1.5s;
+    }
 
-        .stars span:nth-child(4) {
-            top: 0px;
-            right: 180px;
-            left: initial;
-            animation-delay: 0s;
-            animation-duration: 1.5s;
-        }
+    .stars span:nth-child(5) {
+        top: 0px;
+        right: 400px;
+        left: initial;
+        animation-delay: 0s;
+        animation-duration: 2.5s;
+    }
 
-        .stars span:nth-child(5) {
-            top: 0px;
-            right: 400px;
-            left: initial;
-            animation-delay: 0s;
-            animation-duration: 2.5s;
-        }
+    .stars span:nth-child(6) {
+        top: 0px;
+        right: 600px;
+        left: initial;
+        animation-delay: 0s;
+        animation-duration: 3s;
+    }
 
-        .stars span:nth-child(6) {
-            top: 0px;
-            right: 600px;
-            left: initial;
-            animation-delay: 0s;
-            animation-duration: 3s;
-        }
+    .stars span:nth-child(7) {
+        top: 300px;
+        right: 0px;
+        left: initial;
+        animation-delay: 0s;
+        animation-duration: 1.75s;
+    }
 
-        .stars span:nth-child(7) {
-            top: 300px;
-            right: 0px;
-            left: initial;
-            animation-delay: 0s;
-            animation-duration: 1.75s;
-        }
+    .stars span:nth-child(8) {
+        top: 0px;
+        right: 700px;
+        left: initial;
+        animation-delay: 0s;
+        animation-duration: 1.25s;
+    }
 
-        .stars span:nth-child(8) {
-            top: 0px;
-            right: 700px;
-            left: initial;
-            animation-delay: 0s;
-            animation-duration: 1.25s;
-        }
+    .stars span:nth-child(9) {
+        top: 0px;
+        right: 1000px;
+        left: initial;
+        animation-delay: 0s;
+        animation-duration: 2.25s;
+    }
 
-        .stars span:nth-child(9) {
-            top: 0px;
-            right: 1000px;
-            left: initial;
-            animation-delay: 0s;
-            animation-duration: 2.25s;
-        }
-
-        .stars span:nth-child(10) {
-            top: 0px;
-            right: 450px;
-            left: initial;
-            animation-delay: 0s;
-            animation-duration: 2.25s;
-        }
+    .stars span:nth-child(10) {
+        top: 0px;
+        right: 450px;
+        left: initial;
+        animation-delay: 0s;
+        animation-duration: 2.25s;
+    }
 
 .name {
     position: fixed;
     width: 100%;
-    top: 0;
-    margin: 1.2% auto auto auto;
+    top: 10vh;
     text-align: center;
     z-index: 10;
 }
@@ -219,7 +218,7 @@ body {
 .rights {
     position: absolute;
     width: 100%;
-    bottom: 3vh;
+    bottom: 10vh;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -1156,6 +1155,7 @@ p {
         bottom: 0;
         z-index: 15;
     }
+
         #footer .copyrights p {
             font-weight: bold;
             font-size: 1.5rem;
@@ -1266,6 +1266,18 @@ p {
 
     50% {
         transform: scale(1.2);
+    }
+}
+
+@keyframes move-down {
+    0% {
+        opacity: 1;
+        display: block;
+    }
+
+    100% {
+        opacity: 0;
+        display: none;
     }
 }
 /* End Keyframes */

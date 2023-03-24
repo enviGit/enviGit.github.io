@@ -277,17 +277,19 @@ window.addEventListener('scroll', () => {
 //SmoothTransition
 $(document).ready(function () {
     $('.start-btn').click(function () {
-        $('.obj-to-hide').hide();
-        $('body').css('backgroundColor', '#ffffff').css('overflow', 'auto');
+        $('.center').hide();
+        $('.name, .rights, .stars').fadeOut(1000);
+        $('.obj-to-hide').addClass('move-down');
         $('.loading-container').css('display', 'flex').show();
-        $('#header, #home, #about, #projects, #contact').fadeIn(3000);
-        $('#footer').css('display', 'flex').fadeIn(3000);
+        $('#header, #home, #about, #projects, #contact, #footer').fadeIn(3000);
+        $('#footer').css('display', 'flex');
         addActiveClass();
         updateActiveSection();
         updateMarkerPosition();
 
         setTimeout(function () {
-            $('.loading-container').fadeOut();
+            $('body').css('overflow', 'auto').css('background-color', '#ffffff');
+            $('.obj-to-hide').hide();
 
             //MultiText
             var typed = new Typed(".multiple-text", {
@@ -301,7 +303,8 @@ $(document).ready(function () {
 
             const audio = document.getElementById("audioPlayer");
             audio.play();
+
+            $('.loading-container').hide();
         }, 2500);
     });
 });
-
