@@ -61,9 +61,7 @@ document.addEventListener('scroll', () => {
     const screenWidth = window.innerWidth;
     const scaleFactor = screenWidth / REF_SCREEN_WIDTH;
     var scroll_position = window.scrollY;
-    const loadingAdjustedValue = 180 * scaleFactor;
     const bgAdjustedValue = 175 * scaleFactor;
-    var loadingContainer = document.querySelector(".loading-container p");
 
     if (scroll_position > bgAdjustedValue) {
         header.style.backgroundColor = '#29323c';
@@ -72,12 +70,6 @@ document.addEventListener('scroll', () => {
     }
 
     addActiveClass();
-
-    if (scroll_position > loadingAdjustedValue) {
-        loadingContainer.style.color = "black";
-    } else {
-        loadingContainer.style.color = "white";
-    }
 });
 
 //MusicPlayer
