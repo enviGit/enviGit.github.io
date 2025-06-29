@@ -1,4 +1,12 @@
 addEventListener('DOMContentLoaded', (event) => {
+    //Footer
+    const years = document.getElementsByClassName("year");
+    const currentYear = new Date().getFullYear();
+
+    for (let i = 0; i < years.length; i++) {
+        years[i].textContent = currentYear;
+    }
+
     //Cursor
     const coords = { x: 0, y: 0 };
     const circles = document.querySelectorAll(".circle");
@@ -37,14 +45,6 @@ addEventListener('DOMContentLoaded', (event) => {
 
     animateCircles();
 });
-
-//Footer
-const years = document.getElementsByClassName("year");
-const currentYear = new Date().getFullYear();
-
-for (let i = 0; i < years.length; i++) {
-    years[i].textContent = currentYear;
-}
 
 //NavBar
 const hamburger = document.querySelector('.header .nav-bar .nav-list .hamburger');
