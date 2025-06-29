@@ -38,6 +38,14 @@ addEventListener('DOMContentLoaded', (event) => {
     animateCircles();
 });
 
+//Footer
+const years = document.getElementsByClassName("year");
+const currentYear = new Date().getFullYear();
+
+for (let i = 0; i < years.length; i++) {
+    years[i].textContent = currentYear;
+}
+
 //NavBar
 const hamburger = document.querySelector('.header .nav-bar .nav-list .hamburger');
 const mobile_menu = document.querySelector('.header .nav-bar .nav-list ul');
@@ -285,7 +293,12 @@ $(document).ready(function () {
 
             //MultiText
             var typed = new Typed(".multiple-text", {
-                strings: ["Student", "Coder", "Analyst"],
+                strings: [
+                    "Technical Implementation Specialist",
+                    "Unity Developer",
+                    "C# Software Engineer",
+                    "Cybersecurity & Data Analytics Enthusiast"
+                ],
                 startDelay: 500,
                 typeSpeed: 100,
                 backSpeed: 100,
