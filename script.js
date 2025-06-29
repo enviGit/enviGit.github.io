@@ -296,8 +296,7 @@ $(document).ready(function () {
                 strings: [
                     "Technical Implementation Specialist",
                     "Unity Developer",
-                    "C# Software Engineer",
-                    "Cybersecurity & Data Analytics Enthusiast"
+                    "C# Software Engineer"
                 ],
                 startDelay: 500,
                 typeSpeed: 100,
