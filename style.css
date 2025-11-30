@@ -109,6 +109,208 @@ p {
     transform: translateY(-5px);
 }
 
+/* --- GRAPHICAL TIMELINE SECTION --- */
+#timeline {
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.timeline-container {
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 15px;
+}
+
+.timeline {
+    position: relative;
+    width: 100%;
+    margin-top: 60px;
+}
+
+.timeline-line {
+    position: absolute;
+    width: 6px;
+    background-color: #333;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+/* Pojedynczy element (Wiersz) */
+.timeline-item {
+    position: relative;
+    width: 100%;
+    margin-bottom: 60px;
+    z-index: 1;
+    /* KLUCZOWE DLA ANIMACJI: */
+    transition: all 0.8s ease-out;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* IKONA NA ŚRODKU */
+.timeline-icon {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background-color: #111;
+    border: 3px solid #4ade80;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    box-shadow: 0 0 15px rgba(74, 222, 128, 0.4);
+    transition: 0.3s ease;
+}
+
+.timeline-icon i {
+    color: #f0f0f0;
+    font-size: 1.8rem;
+}
+
+.timeline-item:hover .timeline-icon {
+    background-color: #4ade80;
+    box-shadow: 0 0 25px rgba(74, 222, 128, 0.8);
+    transform: translateX(-50%) scale(1.1);
+}
+
+.timeline-item:hover .timeline-icon i {
+    color: #111;
+}
+
+/* TREŚĆ (Chmurka) */
+.timeline-content {
+    position: relative;
+    width: 45%;
+    background-color: #1e1e1e;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.3s ease;
+}
+
+/* Pozycjonowanie LEFT */
+.timeline-item.left .timeline-content {
+    left: 0;
+    text-align: right;
+}
+
+/* Pozycjonowanie RIGHT */
+.timeline-item.right .timeline-content {
+    left: 55%;
+    text-align: left;
+}
+
+/* Strzałeczki przy chmurkach */
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    z-index: 10;
+}
+
+.timeline-item.left .timeline-content::before {
+    right: -10px;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent #4ade80;
+}
+
+.timeline-item.right .timeline-content::before {
+    left: -10px;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #4ade80 transparent transparent;
+}
+
+.timeline-item:hover .timeline-content {
+    border-color: #4ade80;
+    transform: translateY(-5px);
+}
+
+/* Typografia w środku */
+.timeline-content .date {
+    display: inline-block;
+    color: #4ade80;
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+.timeline-content h3 {
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.timeline-content h4 {
+    font-size: 1.3rem;
+    color: #aaa;
+    margin-bottom: 10px;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.timeline-content p {
+    font-size: 1.4rem;
+    color: #ccc;
+    margin: 0;
+}
+
+.badge {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 1rem;
+    background-color: rgba(74, 222, 128, 0.1);
+    color: #4ade80;
+    border: 1px solid #4ade80;
+    font-weight: 600;
+}
+
+/* --- ANIMACJE WJAZDU (Scroll Reveal) --- */
+
+.timeline-item.left.hidden {
+    transform: translateX(-100px);
+    opacity: 0;
+}
+
+.timeline-item.right.hidden {
+    transform: translateX(100px);
+    opacity: 0;
+}
+
+.timeline-item.hidden.show {
+    transform: translateX(0);
+    opacity: 1;
+    transition: all 0.8s ease-out;
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+    filter: blur(5px);
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
 /* --- Buttons (Direction Aware Hover) --- */
 .cta,
 .ctaProjects {
@@ -482,7 +684,7 @@ p {
 
 .social-icons a:hover {
     color: #4ade80;
-    transform: translateY(-5px);
+    transform: translateY(-10px) scale(1.5);
 }
 
 #footer p {
@@ -572,6 +774,37 @@ p {
         display: none;
     }
 
+    .timeline-line {
+        left: 30px;
+    }
+
+    .timeline-icon {
+        left: 30px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+
+    .timeline-content {
+        width: calc(100% - 70px);
+        left: 70px !important;
+        text-align: left !important;
+    }
+
+    .timeline-item.left .timeline-content::before,
+    .timeline-item.right .timeline-content::before {
+        right: auto;
+        left: -10px;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent #4ade80 transparent transparent;
+    }
+
+    .timeline-item.left.hidden,
+    .timeline-item.right.hidden {
+        transform: translateY(50px);
+    }
+
+    /* --- Navigation Fixes (Bigger Text) --- */
     .nav-list ul {
         position: absolute;
         background-color: #111;
@@ -589,7 +822,52 @@ p {
         left: 0;
     }
 
+    .nav-list ul li {
+        margin: 20px 0;
+    }
+
+    .nav-list ul li a {
+        font-size: 3.5rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
     .hamburger {
         display: flex;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        position: relative;
+        z-index: 100;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border: 2px solid white;
+    }
+
+    .hamburger .bar {
+        height: 2px;
+        width: 22px;
+        background-color: white;
+        position: relative;
+    }
+
+    .hamburger .bar::after,
+    .hamburger .bar::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        background-color: white;
+        transition: 0.3s ease;
+    }
+
+    .hamburger .bar::after {
+        top: 6px;
+    }
+
+    .hamburger .bar::before {
+        bottom: 6px;
     }
 }

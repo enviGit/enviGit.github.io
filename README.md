@@ -25,7 +25,8 @@ The website has been recently refactored to focus on performance, clean code, an
 
 ## Sections
 1.  **Home:** Hero section with a dynamic typewriter effect.
-2.  **About:** Professional bio, skills list, and a vertical timeline showcasing my career path and academic background.
+2.  **About:** Professional bio, and skills list.
+3.  **Timeline:** A vertical timeline showcasing my career path and academic background.
 4.  **Projects:** A gallery of my recent work with links to live demos and repositories.
 
 ## Contact
