@@ -19,6 +19,7 @@ body {
     background-color: #111111;
     color: #f0f0f0;
     overflow-x: hidden;
+    width: 100%;
 }
 
 a {
@@ -805,6 +806,17 @@ button,
     .marker,
     .cursor {
         display: none;
+    }
+
+    #home h1 {
+        font-size: 2.5rem;
+        line-height: 1.3;
+        word-wrap: break-word;
+        width: 100%;
+    }
+
+    #home .topline {
+        font-size: 1.5rem;
     }
 
     .timeline-line {
