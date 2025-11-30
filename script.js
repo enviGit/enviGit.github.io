@@ -1,21 +1,201 @@
-addEventListener('DOMContentLoaded', (event) => {
-    //Footer
-    const years = document.getElementsByClassName("year");
-    const currentYear = new Date().getFullYear();
+document.addEventListener('DOMContentLoaded', () => {
 
-    for (let i = 0; i < years.length; i++) {
-        years[i].textContent = currentYear;
+    // --- Typed.js ---
+    if (document.querySelector(".multiple-text")) {
+        var typed = new Typed(".multiple-text", {
+            strings: [
+                "Technical Specialist",
+                "Unity Developer",
+                "Cybersecurity Student"
+            ],
+            typeSpeed: 100,
+            backSpeed: 100,
+            backDelay: 1000,
+            loop: true
+        });
     }
 
-    //Cursor
+    // --- Dynamic Year ---
+    const yearSpan = document.querySelector(".year");
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+    // --- Hamburger Menu ---
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.querySelector('.nav-list ul');
+    const menuItems = document.querySelectorAll('.nav-list ul li a');
+    const header = document.querySelector('.header.container');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+    });
+
+    // --- Marker Animation & Glitch Fix ---
+    const marker = document.querySelector('.marker');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section');
+
+    // Variable to block scroll spy during click-scrolling
+    let isManualScrolling = false;
+    let scrollTimeout;
+
+    // Function to move marker
+    function indicator(e) {
+        if (!e) return;
+        marker.style.left = e.offsetLeft + "px";
+        marker.style.width = e.offsetWidth + "px";
+    }
+
+    // Click Event for Nav Links
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            // 1. Set flag to true to disable scroll spy
+            isManualScrolling = true;
+
+            // 2. Immediately move marker to clicked link
+            navLinks.forEach(l => l.classList.remove('active-link'));
+            link.classList.add('active-link');
+            indicator(link);
+
+            // 3. Close mobile menu if open
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+
+            // 4. Reset flag after scroll animation (approx 1000ms)
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                isManualScrolling = false;
+            }, 1000);
+        });
+    });
+
+    // Scroll Spy (Marker follows scroll)
+    window.addEventListener('scroll', () => {
+        // Header background logic
+        if (window.scrollY > 100) {
+            header.style.backgroundColor = 'rgba(17, 17, 17, 0.95)';
+        } else {
+            header.style.backgroundColor = 'rgba(17, 17, 17, 0.8)';
+        }
+
+        // CRITICAL FIX: Stop if we are manually scrolling via click
+        if (isManualScrolling) return;
+
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            // Offset logic to switch marker slightly before section hits top
+            if (pageYOffset >= (sectionTop - 200)) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        // Update active link based on scroll position
+        navLinks.forEach(link => {
+            link.classList.remove('active-link');
+            if (link.dataset.section === current) {
+                link.classList.add('active-link');
+                indicator(link);
+            }
+        });
+
+        // Fix for top of page
+        if (window.scrollY < 100) {
+            const homeLink = document.querySelector('a[data-section="home"]');
+            if (homeLink) indicator(homeLink);
+        }
+    });
+
+    // Initialize marker on load
+    const homeLink = document.querySelector('a[data-section="home"]');
+    if (homeLink) indicator(homeLink);
+
+
+    // --- Direction Aware Hover Button Effect ---
+    const buttons = document.querySelectorAll('.btn-hover');
+
+    buttons.forEach(btn => {
+        btn.addEventListener('mouseenter', function (e) {
+            const directions = getDirection(e, btn);
+
+            // Disable transition to instantly place background at entry point
+            btn.style.setProperty('--transition', 'none');
+
+            // Set start position based on entry direction
+            switch (directions) {
+                case 0: // Top
+                    btn.style.setProperty('--tx', '0%');
+                    btn.style.setProperty('--ty', '-100%');
+                    break;
+                case 1: // Right
+                    btn.style.setProperty('--tx', '100%');
+                    btn.style.setProperty('--ty', '0%');
+                    break;
+                case 2: // Bottom
+                    btn.style.setProperty('--tx', '0%');
+                    btn.style.setProperty('--ty', '100%');
+                    break;
+                case 3: // Left
+                    btn.style.setProperty('--tx', '-100%');
+                    btn.style.setProperty('--ty', '0%');
+                    break;
+            }
+
+            // Force reflow
+            btn.offsetHeight;
+
+            // Enable transition and move to center
+            btn.style.setProperty('--transition', 'transform 0.3s cubic-bezier(0.215, 0.610, 0.355, 1.000)');
+            btn.style.setProperty('--tx', '0%');
+            btn.style.setProperty('--ty', '0%');
+        });
+
+        btn.addEventListener('mouseleave', function (e) {
+            const directions = getDirection(e, btn);
+
+            btn.style.setProperty('--transition', 'transform 0.3s cubic-bezier(0.215, 0.610, 0.355, 1.000)');
+
+            // Move background out based on exit direction
+            switch (directions) {
+                case 0: // Top
+                    btn.style.setProperty('--tx', '0%');
+                    btn.style.setProperty('--ty', '-100%');
+                    break;
+                case 1: // Right
+                    btn.style.setProperty('--tx', '100%');
+                    btn.style.setProperty('--ty', '0%');
+                    break;
+                case 2: // Bottom
+                    btn.style.setProperty('--tx', '0%');
+                    btn.style.setProperty('--ty', '100%');
+                    break;
+                case 3: // Left
+                    btn.style.setProperty('--tx', '-100%');
+                    btn.style.setProperty('--ty', '0%');
+                    break;
+            }
+        });
+    });
+
+    // Helper function for direction detection (0:Top, 1:Right, 2:Bottom, 3:Left)
+    function getDirection(e, item) {
+        const w = item.offsetWidth;
+        const h = item.offsetHeight;
+        const position = item.getBoundingClientRect();
+        const x = (e.clientX - position.left - (w / 2)) * (w > h ? (h / w) : 1);
+        const y = (e.clientY - position.top - (h / 2)) * (h > w ? (w / h) : 1);
+        const direction = Math.round((((Math.atan2(y, x) * (180 / Math.PI)) + 180) / 90) + 3) % 4;
+        return direction;
+    }
+
+    // --- Cursor Logic ---
     const coords = { x: 0, y: 0 };
     const circles = document.querySelectorAll(".circle");
-    const cursor = document.querySelector(".cursor");
 
-    circles.forEach(function (circle, index) {
+    circles.forEach(function (circle) {
         circle.x = 0;
         circle.y = 0;
-        circle.style.backgroundColor = "white";
     });
 
     window.addEventListener("mousemove", function (e) {
@@ -26,289 +206,39 @@ addEventListener('DOMContentLoaded', (event) => {
     function animateCircles() {
         let x = coords.x;
         let y = coords.y;
-        cursor.style.top = x;
-        cursor.style.left = y;
 
         circles.forEach(function (circle, index) {
-            circle.style.left = x - 12 + "px";
-            circle.style.top = y - 12 + "px";
+            circle.style.left = x - 10 + "px";
+            circle.style.top = y - 10 + "px";
             circle.style.scale = (circles.length - index) / circles.length;
             circle.x = x;
             circle.y = y;
             const nextCircle = circles[index + 1] || circles[0];
-            x += (nextCircle.x - x) * 0.25;
-            y += (nextCircle.y - y) * 0.25;
+            x += (nextCircle.x - x) * 0.3;
+            y += (nextCircle.y - y) * 0.3;
         });
 
         requestAnimationFrame(animateCircles);
     }
-
     animateCircles();
-});
 
-//NavBar
-const hamburger = document.querySelector('.header .nav-bar .nav-list .hamburger');
-const mobile_menu = document.querySelector('.header .nav-bar .nav-list ul');
-const menu_item = document.querySelectorAll('.header .nav-bar .nav-list ul li a');
-const header = document.querySelector('.header.container');
+    // --- Scroll Reveal Animation (Intersection Observer) ---
+    const observerOptions = {
+        root: null, // viewport
+        threshold: 0.15,
+        rootMargin: "0px"
+    };
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    mobile_menu.classList.toggle('active');
-});
-
-menu_item.forEach((item) => {
-    item.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        mobile_menu.classList.toggle('active');
-    });
-});
-
-document.addEventListener('scroll', () => {
-    const REF_SCREEN_WIDTH = 1920;
-    const screenWidth = window.innerWidth;
-    const scaleFactor = screenWidth / REF_SCREEN_WIDTH;
-    var scroll_position = window.scrollY;
-    const bgAdjustedValue = 175 * scaleFactor;
-
-    if (scroll_position > bgAdjustedValue) {
-        header.style.backgroundColor = '#29323c';
-    } else {
-        header.style.backgroundColor = 'transparent';
-    }
-
-    addActiveClass();
-});
-
-//MusicPlayer
-function audioPlayer() {
-    const audio = document.getElementById("audioPlayer");
-    const playlist = document.getElementById("playlist");
-    const tracks = playlist.getElementsByTagName("a");
-    const songImage = document.querySelector(".song-image img");
-    const prevBtn = document.querySelector(".prev-btn");
-    const playBtn = document.querySelector(".play-btn");
-    const nextBtn = document.querySelector(".next-btn");
-    let currentIndex = 0;
-    document.querySelector('.song-artist').textContent = "NEFFEX";
-    document.querySelector('.song-title').textContent = "Best of Me";
-    audio.volume = 0.05;
-
-    function loadTrack(index) {
-        audio.src = tracks[index].getAttribute('href');
-        songImage.src = tracks[index].dataset.image;
-        const trackPath = tracks[index].getAttribute('href');
-        const trackName = trackPath.substring(trackPath.lastIndexOf('/') + 1, trackPath.lastIndexOf('.'));
-        const [artist, title] = trackName.split(' - ').map(str => str.trim());
-        document.querySelector('.song-artist').textContent = artist;
-        document.querySelector('.song-title').textContent = title;
-        audio.play();
-        audio.setAttribute('data-index', index);
-        currentIndex = index;
-    }
-
-    function updatePlayButton() {
-        if (audio.paused) {
-            playBtn.querySelector("i").classList.remove("fa-pause");
-            playBtn.querySelector("i").classList.add("fa-play");
-        } else {
-            playBtn.querySelector("i").classList.remove("fa-play");
-            playBtn.querySelector("i").classList.add("fa-pause");
-        }
-    }
-
-    for (let i = 0; i < tracks.length; i++) {
-        tracks[i].addEventListener("click", function (e) {
-            e.preventDefault();
-            const index = parseInt(this.parentElement.getAttribute('data-index'));
-            loadTrack(index);
-            updatePlayButton();
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            } else {
+                entry.target.classList.remove('show');
+            }
         });
-    }
+    }, observerOptions);
 
-    prevBtn.addEventListener("click", function () {
-        let index = currentIndex - 1;
-
-        if (index < 0) {
-            index = tracks.length - 1;
-        }
-
-        loadTrack(index);
-        updatePlayButton();
-    });
-
-    nextBtn.addEventListener("click", function () {
-        let index = currentIndex + 1;
-
-        if (index === tracks.length) {
-            index = 0;
-        }
-
-        loadTrack(index);
-        updatePlayButton();
-    });
-
-    audio.addEventListener("play", function () {
-        updatePlayButton();
-    });
-
-    audio.addEventListener("pause", function () {
-        updatePlayButton();
-    });
-
-    audio.addEventListener("ended", function () {
-        let index = currentIndex + 1;
-
-        if (index === tracks.length) {
-            index = 0;
-        }
-
-        loadTrack(index);
-    });
-
-    playBtn.addEventListener("click", function () {
-        if (audio.paused) {
-            audio.play();
-        } else {
-            audio.pause();
-        }
-
-        updatePlayButton();
-    });
-
-    loadTrack(currentIndex);
-}
-
-audioPlayer();
-
-//Hover Effect
-const handleOnMouseMove = e => {
-    const { currentTarget: target } = e;
-
-    const rect = target.getBoundingClientRect(),
-        x = e.clientX - rect.left,
-        y = e.clientY - rect.top;
-
-    target.style.setProperty("--mouse-x", `${x}px`);
-    target.style.setProperty("--mouse-y", `${y}px`);
-}
-
-for (const card of document.querySelectorAll(".project-info, .project-img")) {
-    card.onmousemove = e => handleOnMouseMove(e);
-}
-
-//Marker
-const sections = document.querySelectorAll('.track-section');
-const marker = document.querySelector('.marker');
-const navLinks = document.querySelectorAll('.stnTte');
-
-function addActiveClass() {
-    let scrollY = window.pageYOffset;
-
-    navLinks.forEach(navLink => {
-        navLink.classList.remove('active');
-    });
-
-    sections.forEach(current => {
-        const sectionHeight = current.offsetHeight;
-        const sectionTop = current.offsetTop - 50;
-        const sectionId = current.getAttribute('id');
-        const navLink = document.querySelector('.stnTte[href="#' + sectionId + '"]');
-
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            navLink.classList.add('active');
-        }
-    });
-
-    const activeLinks = document.querySelectorAll('.stnTte.active');
-    let activeWidth = 0;
-    let activeLeft = 0;
-
-    activeLinks.forEach(activeLink => {
-        activeWidth += activeLink.offsetWidth;
-        activeLeft = activeLink.offsetLeft;
-    });
-
-    marker.style.width = activeWidth + "px";
-    marker.style.left = activeLeft + "px";
-}
-
-let activeSectionIndex = 0;
-
-function updateActiveSection() {
-    let maxSectionIndex = 0;
-
-    for (let i = 0; i < sections.length; i++) {
-        const section = sections[i];
-        const rect = section.getBoundingClientRect();
-
-        if (rect.top <= window.innerHeight / 2 && rect.bottom > window.innerHeight / 2) {
-            maxSectionIndex = i;
-        }
-    }
-
-    activeSectionIndex = maxSectionIndex;
-}
-
-function updateMarkerPosition() {
-    const activeLinks = document.querySelectorAll('.stnTte.active');
-    let activeWidth = 0;
-    let activeLeft = 0;
-
-    activeLinks.forEach(activeLink => {
-        activeWidth += activeLink.offsetWidth;
-        activeLeft = activeLink.offsetLeft;
-    });
-
-    marker.style.width = activeWidth + "px";
-    marker.style.left = activeLeft + "px";
-}
-
-window.addEventListener('resize', () => {
-    updateActiveSection();
-    updateMarkerPosition();
-});
-
-window.addEventListener('scroll', () => {
-    updateActiveSection();
-    updateMarkerPosition();
-});
-
-//SmoothTransition
-$(document).ready(function () {
-    $('.start-btn').click(function () {
-        $('.center').hide();
-        $('.name, .rights, .stars').fadeOut(1000);
-        $('.obj-to-hide').addClass('move-down');
-        $('.loading-container').css('display', 'flex').show();
-        $('#header, #home, #about, #projects, #contact, #footer').fadeIn(3000);
-        $('#footer').css('display', 'flex');
-        addActiveClass();
-        updateActiveSection();
-        updateMarkerPosition();
-
-        setTimeout(function () {
-            $('body').css('overflow', 'auto').css('background-color', '#ffffff');
-            $('.obj-to-hide').hide();
-
-            //MultiText
-            var typed = new Typed(".multiple-text", {
-                strings: [
-                    "Technical Implementation Specialist",
-                    "Unity Developer",
-                    "C# Software Engineer"
-                ],
-                startDelay: 500,
-                typeSpeed: 100,
-                backSpeed: 100,
-                backDelay: 1000,
-                loop: true
-            });
-
-            const audio = document.getElementById("audioPlayer");
-            audio.play();
-
-            $('.loading-container').hide();
-        }, 2500);
-    });
+    const hiddenElements = document.querySelectorAll('.hidden');
+    hiddenElements.forEach((el) => observer.observe(el));
 });
