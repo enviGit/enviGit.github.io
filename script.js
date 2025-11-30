@@ -189,10 +189,12 @@ document.addEventListener('DOMContentLoaded', () => {
         return direction;
     }
 
-    // --- Cursor Logic ---
+    // --- Cursor Logic (Fixed Teleport Issue) ---
     const coords = { x: 0, y: 0 };
     const circles = document.querySelectorAll(".circle");
+    const cursor = document.querySelector(".cursor");
 
+    // Initialize circles off-screen
     circles.forEach(function (circle) {
         circle.x = 0;
         circle.y = 0;
@@ -201,6 +203,61 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener("mousemove", function (e) {
         coords.x = e.clientX;
         coords.y = e.clientY;
+
+        if (!cursor.classList.contains("visible")) {
+            cursor.classList.add("visible");
+            resetCirclesPosition();
+        }
+    });
+
+    // Hide cursor when leaving window
+    document.addEventListener("mouseleave", () => {
+        cursor.classList.remove("visible");
+    });
+
+    // Show cursor when entering window & RESET POSITION immediately
+    document.addEventListener("mouseenter", (e) => {
+        coords.x = e.clientX;
+        coords.y = e.clientY;
+
+        resetCirclesPosition();
+
+        cursor.classList.add("visible");
+    });
+
+    // Helper to reset circles to current mouse position
+    function resetCirclesPosition() {
+        circles.forEach(function (circle) {
+            circle.x = coords.x;
+            circle.y = coords.y;
+            circle.style.left = coords.x - 10 + "px";
+            circle.style.top = coords.y - 10 + "px";
+            // Important: Disable transition temporarily if set in CSS, though JS animation handles movement
+            circle.style.transition = 'none';
+        });
+
+        // Restore transition after a tiny delay (optional if CSS transitions are used for scaling/color)
+        setTimeout(() => {
+            circles.forEach(c => c.style.transition = '');
+        }, 10);
+    }
+
+    // --- Interactions ---
+    window.addEventListener("mousedown", () => {
+        document.body.classList.add("click-active");
+    });
+    window.addEventListener("mouseup", () => {
+        document.body.classList.remove("click-active");
+    });
+
+    const clickableElements = document.querySelectorAll('a, button, .cta, .ctaProjects, .project-item');
+    clickableElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            document.body.classList.add("hover-active");
+        });
+        el.addEventListener('mouseleave', () => {
+            document.body.classList.remove("hover-active");
+        });
     });
 
     function animateCircles() {
@@ -208,11 +265,15 @@ document.addEventListener('DOMContentLoaded', () => {
         let y = coords.y;
 
         circles.forEach(function (circle, index) {
-            circle.style.left = x - 10 + "px";
-            circle.style.top = y - 10 + "px";
+            const offset = circle.offsetWidth / 2;
+
+            circle.style.left = x - offset + "px";
+            circle.style.top = y - offset + "px";
             circle.style.scale = (circles.length - index) / circles.length;
+
             circle.x = x;
             circle.y = y;
+
             const nextCircle = circles[index + 1] || circles[0];
             x += (nextCircle.x - x) * 0.3;
             y += (nextCircle.y - y) * 0.3;
@@ -220,6 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         requestAnimationFrame(animateCircles);
     }
+
     animateCircles();
 
     // --- Scroll Reveal Animation (Intersection Observer) ---
