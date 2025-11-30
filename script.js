@@ -303,4 +303,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const hiddenElements = document.querySelectorAll('.hidden');
     hiddenElements.forEach((el) => observer.observe(el));
+
+    // --- GENIUS MOVE: 3D Tilt Effect ---
+    VanillaTilt.init(document.querySelectorAll(".project-item, .timeline-content, .about-img"), {
+        max: 5,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.2,   // Moc odblasku (0-1) - na ciemnym tle 0.2-0.3 wygląda najlepiej
+        scale: 1.02,
+        gyroscope: true,
+    });
+
+    VanillaTilt.init(document.querySelector(".about-img"), {
+        max: 10,
+        speed: 400,
+        glare: false,
+        scale: 1.05
+    });
 });

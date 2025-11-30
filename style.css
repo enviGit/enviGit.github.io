@@ -732,6 +732,13 @@ button,
     filter: blur(0);
 }
 
+.project-item,
+.timeline-content,
+.about-img {
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+}
+
 /* --- Media Queries --- */
 @media only screen and (min-width: 768px) {
     .hamburger {
