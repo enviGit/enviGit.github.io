@@ -877,6 +877,32 @@ button,
         letter-spacing: 2px;
     }
 
+    .section-title {
+        font-size: 3.5rem;
+        letter-spacing: 0.1rem;
+        margin-bottom: 15px;
+    }
+
+    .project-info h1 {
+        font-size: 2.2rem;
+        margin-bottom: 5px;
+    }
+
+    .project-info h2 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        line-height: 1.4;
+    }
+
+    .project-info p {
+        font-size: 1.4rem;
+        line-height: 1.5;
+    }
+
+    .project-info {
+        padding: 20px;
+    }
+
     .hamburger {
         display: flex;
         height: 40px;
