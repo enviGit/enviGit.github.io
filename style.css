@@ -566,9 +566,10 @@ p {
 }
 
 @media only screen and (max-width: 767px) {
-    .marker {
+
+    .marker,
+    .cursor {
         display: none;
-        /* Hide marker on mobile */
     }
 
     .nav-list ul {
