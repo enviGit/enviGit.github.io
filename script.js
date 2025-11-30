@@ -35,33 +35,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('section');
 
-    // Variable to block scroll spy during click-scrolling
     let isManualScrolling = false;
     let scrollTimeout;
 
-    // Function to move marker
     function indicator(e) {
         if (!e) return;
         marker.style.left = e.offsetLeft + "px";
         marker.style.width = e.offsetWidth + "px";
     }
 
-    // Click Event for Nav Links
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            // 1. Set flag to true to disable scroll spy
             isManualScrolling = true;
 
-            // 2. Immediately move marker to clicked link
             navLinks.forEach(l => l.classList.remove('active-link'));
             link.classList.add('active-link');
             indicator(link);
 
-            // 3. Close mobile menu if open
             hamburger.classList.remove('active');
             mobileMenu.classList.remove('active');
 
-            // 4. Reset flag after scroll animation (approx 1000ms)
             clearTimeout(scrollTimeout);
             scrollTimeout = setTimeout(() => {
                 isManualScrolling = false;
@@ -71,7 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Scroll Spy (Marker follows scroll)
     window.addEventListener('scroll', () => {
-        // Header background logic
         if (window.scrollY > 100) {
             header.style.backgroundColor = 'rgba(17, 17, 17, 0.95)';
         } else {
@@ -85,13 +77,11 @@ document.addEventListener('DOMContentLoaded', () => {
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
-            // Offset logic to switch marker slightly before section hits top
             if (pageYOffset >= (sectionTop - 200)) {
                 current = section.getAttribute('id');
             }
         });
 
-        // Update active link based on scroll position
         navLinks.forEach(link => {
             link.classList.remove('active-link');
             if (link.dataset.section === current) {
@@ -100,14 +90,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Fix for top of page
         if (window.scrollY < 100) {
             const homeLink = document.querySelector('a[data-section="home"]');
             if (homeLink) indicator(homeLink);
         }
     });
 
-    // Initialize marker on load
     const homeLink = document.querySelector('a[data-section="home"]');
     if (homeLink) indicator(homeLink);
 
@@ -119,33 +107,28 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('mouseenter', function (e) {
             const directions = getDirection(e, btn);
 
-            // Disable transition to instantly place background at entry point
             btn.style.setProperty('--transition', 'none');
 
-            // Set start position based on entry direction
             switch (directions) {
-                case 0: // Top
+                case 0:
                     btn.style.setProperty('--tx', '0%');
                     btn.style.setProperty('--ty', '-100%');
                     break;
-                case 1: // Right
+                case 1:
                     btn.style.setProperty('--tx', '100%');
                     btn.style.setProperty('--ty', '0%');
                     break;
-                case 2: // Bottom
+                case 2:
                     btn.style.setProperty('--tx', '0%');
                     btn.style.setProperty('--ty', '100%');
                     break;
-                case 3: // Left
+                case 3:
                     btn.style.setProperty('--tx', '-100%');
                     btn.style.setProperty('--ty', '0%');
                     break;
             }
 
-            // Force reflow
             btn.offsetHeight;
-
-            // Enable transition and move to center
             btn.style.setProperty('--transition', 'transform 0.3s cubic-bezier(0.215, 0.610, 0.355, 1.000)');
             btn.style.setProperty('--tx', '0%');
             btn.style.setProperty('--ty', '0%');
@@ -156,21 +139,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
             btn.style.setProperty('--transition', 'transform 0.3s cubic-bezier(0.215, 0.610, 0.355, 1.000)');
 
-            // Move background out based on exit direction
             switch (directions) {
                 case 0: // Top
                     btn.style.setProperty('--tx', '0%');
                     btn.style.setProperty('--ty', '-100%');
                     break;
-                case 1: // Right
+                case 1:
                     btn.style.setProperty('--tx', '100%');
                     btn.style.setProperty('--ty', '0%');
                     break;
-                case 2: // Bottom
+                case 2:
                     btn.style.setProperty('--tx', '0%');
                     btn.style.setProperty('--ty', '100%');
                     break;
-                case 3: // Left
+                case 3:
                     btn.style.setProperty('--tx', '-100%');
                     btn.style.setProperty('--ty', '0%');
                     break;
@@ -232,7 +214,6 @@ document.addEventListener('DOMContentLoaded', () => {
             circle.y = coords.y;
             circle.style.left = coords.x - 10 + "px";
             circle.style.top = coords.y - 10 + "px";
-            // Important: Disable transition temporarily if set in CSS, though JS animation handles movement
             circle.style.transition = 'none';
         });
 
@@ -286,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Scroll Reveal Animation (Intersection Observer) ---
     const observerOptions = {
-        root: null, // viewport
+        root: null,
         threshold: 0.15,
         rootMargin: "0px"
     };
@@ -309,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
         max: 5,
         speed: 400,
         glare: true,
-        "max-glare": 0.2,   // Moc odblasku (0-1) - na ciemnym tle 0.2-0.3 wygląda najlepiej
+        "max-glare": 0.2,
         scale: 1.02,
         gyroscope: true,
     });
