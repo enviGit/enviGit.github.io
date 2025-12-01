@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
             circle.style.transition = 'none';
         });
 
-        // Restore transition after a tiny delay (optional if CSS transitions are used for scaling/color)
+        // Restore transition after a tiny delay
         setTimeout(() => {
             circles.forEach(c => c.style.transition = '');
         }, 10);
@@ -285,6 +285,65 @@ document.addEventListener('DOMContentLoaded', () => {
     const hiddenElements = document.querySelectorAll('.hidden');
     hiddenElements.forEach((el) => observer.observe(el));
 
+    // --- Stats Counter Animation ---
+    const statsSection = document.querySelector("#stats");
+    const counters = document.querySelectorAll(".counter");
+    let hasCounted = false;
+
+    const statsObserver = new IntersectionObserver((entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting && !hasCounted) {
+            hasCounted = true;
+
+            counters.forEach((counter) => {
+                const target = +counter.getAttribute("data-target");
+                const duration = 2000;
+                const increment = target / (duration / 16);
+
+                let current = 0;
+
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.textContent = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target + (target > 100 ? "+" : "");
+                    }
+                };
+
+                updateCounter();
+            });
+        }
+    }, { threshold: 0.5 });
+
+    if (statsSection) {
+        statsObserver.observe(statsSection);
+    }
+
+    // --- TIMELINE SCROLL PROGRESS ---
+    const timelineSection = document.querySelector("#timeline");
+    const timelineLineFill = document.querySelector(".timeline-line-fill");
+
+    if (timelineSection && timelineLineFill) {
+        window.addEventListener("scroll", () => {
+            const rect = timelineSection.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            const startOffset = windowHeight / 2;
+            const sectionHeight = timelineSection.offsetHeight;
+
+            const distanceFromTop = -rect.top + startOffset;
+
+            let percentage = (distanceFromTop / sectionHeight) * 100;
+
+            if (percentage < 0) percentage = 0;
+            if (percentage > 100) percentage = 100;
+
+            timelineLineFill.style.height = `${percentage}%`;
+        });
+    }
+
     // --- GENIUS MOVE: 3D Tilt Effect ---
     VanillaTilt.init(document.querySelectorAll(".project-item, .timeline-content, .about-img"), {
         max: 5,
@@ -299,6 +358,14 @@ document.addEventListener('DOMContentLoaded', () => {
         max: 10,
         speed: 400,
         glare: false,
+        scale: 1.05
+    });
+
+    VanillaTilt.init(document.querySelectorAll(".stat-item"), {
+        max: 15,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.2,
         scale: 1.05
     });
 });

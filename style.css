@@ -12,7 +12,6 @@ html {
     font-family: 'Montserrat', sans-serif;
     scroll-behavior: smooth;
     cursor: none;
-    /* Hides system cursor */
 }
 
 body {
@@ -169,19 +168,30 @@ button,
     z-index: 0;
 }
 
-/* Pojedynczy element (Wiersz) */
+.timeline-line-fill {
+    position: absolute;
+    width: 6px;
+    background-color: #4ade80;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 3px;
+    z-index: 0;
+    height: 0;
+    box-shadow: 0 0 15px rgba(74, 222, 128, 0.6);
+    transition: height 0.1s linear;
+}
+
 .timeline-item {
     position: relative;
     width: 100%;
     margin-bottom: 60px;
     z-index: 1;
-    /* KLUCZOWE DLA ANIMACJI: */
     transition: all 0.8s ease-out;
     opacity: 1;
     transform: translateX(0);
 }
 
-/* IKONA NA ŚRODKU */
 .timeline-icon {
     position: absolute;
     left: 50%;
@@ -215,7 +225,6 @@ button,
     color: #111;
 }
 
-/* TREŚĆ (Chmurka) */
 .timeline-content {
     position: relative;
     width: 45%;
@@ -226,19 +235,16 @@ button,
     transition: 0.3s ease;
 }
 
-/* Pozycjonowanie LEFT */
 .timeline-item.left .timeline-content {
     left: 0;
     text-align: right;
 }
 
-/* Pozycjonowanie RIGHT */
 .timeline-item.right .timeline-content {
     left: 55%;
     text-align: left;
 }
 
-/* Strzałeczki przy chmurkach */
 .timeline-content::before {
     content: '';
     position: absolute;
@@ -266,7 +272,6 @@ button,
     transform: translateY(-5px);
 }
 
-/* Typografia w środku */
 .timeline-content .date {
     display: inline-block;
     color: #4ade80;
@@ -307,8 +312,7 @@ button,
     font-weight: 600;
 }
 
-/* --- ANIMACJE WJAZDU (Scroll Reveal) --- */
-
+/* --- Scroll Reveal --- */
 .timeline-item.left.hidden {
     transform: translateX(-100px);
     opacity: 0;
@@ -336,6 +340,68 @@ button,
     opacity: 1;
     transform: translateY(0);
     filter: blur(0);
+}
+
+/* --- STATS SECTION --- */
+#stats {
+    padding: 60px 0;
+    background: linear-gradient(to right, #111, #1a1a1a, #111);
+    position: relative;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 20px;
+    min-width: 200px;
+    background-color: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+    border: 1px solid rgba(74, 222, 128, 0.1);
+    transition: 0.3s ease;
+}
+
+.stat-item i {
+    font-size: 3rem;
+    color: #4ade80;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.counter {
+    font-size: 4rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 5px;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 0 0 10px rgba(74, 222, 128, 0.3);
+}
+
+.stat-item p {
+    font-size: 1.4rem;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.stat-item:hover {
+    transform: translateY(-10px);
+    border-color: #4ade80;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.stat-item:hover i {
+    transform: scale(1.2);
+    color: white;
 }
 
 /* --- Buttons (Direction Aware Hover) --- */
@@ -823,6 +889,10 @@ button,
         left: 30px;
     }
 
+    .timeline-line-fill {
+        left: 30px;
+    }
+
     .timeline-icon {
         left: 30px;
         width: 50px;
@@ -847,6 +917,14 @@ button,
     .timeline-item.left.hidden,
     .timeline-item.right.hidden {
         transform: translateY(50px);
+    }
+
+    .stats-container {
+        flex-direction: column;
+    }
+
+    .stat-item {
+        width: 80%;
     }
 
     /* --- Navigation Fixes (Bigger Text) --- */
@@ -963,4 +1041,10 @@ button,
 html {
     scrollbar-width: thin;
     scrollbar-color: #333 #111;
+}
+
+/* --- PREMIUM SELECTION STYLE --- */
+::selection {
+    background-color: #4ade80;
+    color: #111;
 }
