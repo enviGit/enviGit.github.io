@@ -1,5 +1,51 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- DARK / LIGHT MODE TOGGLE ---
+    const themeBtn = document.getElementById('theme-toggle');
+    const themeIcon = themeBtn.querySelector('i');
+
+    const currentTheme = localStorage.getItem('theme');
+
+    const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+    if (currentTheme === 'light' || (!currentTheme && systemPrefersLight)) {
+        document.body.classList.add('light-mode');
+        themeIcon.classList.remove('fa-sun-o');
+        themeIcon.classList.add('fa-moon-o');
+    }
+
+    themeBtn.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+
+        let theme = 'dark';
+
+        if (document.body.classList.contains('light-mode')) {
+            theme = 'light';
+            themeIcon.classList.remove('fa-sun-o');
+            themeIcon.classList.add('fa-moon-o');
+        } else {
+            theme = 'dark';
+            themeIcon.classList.remove('fa-moon-o');
+            themeIcon.classList.add('fa-sun-o');
+        }
+
+        localStorage.setItem('theme', theme);
+    });
+
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
+        if (!localStorage.getItem('theme')) {
+            if (e.matches) {
+                document.body.classList.add('light-mode');
+                themeIcon.classList.remove('fa-sun-o');
+                themeIcon.classList.add('fa-moon-o');
+            } else {
+                document.body.classList.remove('light-mode');
+                themeIcon.classList.remove('fa-moon-o');
+                themeIcon.classList.add('fa-sun-o');
+            }
+        }
+    });
+
     // --- Typed.js ---
     if (document.querySelector(".multiple-text")) {
         var typed = new Typed(".multiple-text", {
@@ -64,12 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Scroll Spy (Marker follows scroll)
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            header.style.backgroundColor = 'rgba(17, 17, 17, 0.95)';
-        } else {
-            header.style.backgroundColor = 'rgba(17, 17, 17, 0.8)';
-        }
-
         // CRITICAL FIX: Stop if we are manually scrolling via click
         if (isManualScrolling) return;
 
@@ -140,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.style.setProperty('--transition', 'transform 0.3s cubic-bezier(0.215, 0.610, 0.355, 1.000)');
 
             switch (directions) {
-                case 0: // Top
+                case 0:
                     btn.style.setProperty('--tx', '0%');
                     btn.style.setProperty('--ty', '-100%');
                     break;
