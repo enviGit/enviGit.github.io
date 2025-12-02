@@ -22,10 +22,32 @@
     <meta property="twitter:title" content="Paweł Trojański | Portfolio">
     <meta property="twitter:description" content="Junior Technical Specialist & Unity Developer.">
 
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Paweł Trojański",
+      "jobTitle": "Junior Technical Implementation Specialist",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Printbox"
+      },
+      "url": "https://envigit.github.io/",
+      "sameAs": [
+        "https://www.linkedin.com/in/ptrojanski/",
+        "https://github.com/enviGit",
+        "https://www.facebook.com/Envixoxo",
+        "https://www.instagram.com/envixoxo/"
+      ],
+      "alumniOf": "Wyższa Szkoła Ekonomii i Informatyki w Krakowie",
+      "knowsAbout": ["C#", ".NET", "Unity", "Cybersecurity", "SQL", "Technical Support"]
+    }
+    </script>
+
     <link rel="stylesheet" href="./resources/icons/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23111111%22/><path d=%22M35 25h15c12 0 20 8 20 18s-8 18-20 18h-5v15h-10V25zm10 8v20h5c7 0 10-4 10-10s-3-10-10-10h-5z%22 fill=%22%234ade80%22/></svg>">
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23111111'/><rect x='5' y='5' width='90' height='90' rx='15' fill='none' stroke='%234ade80' stroke-width='5'><animate attributeName='opacity' values='1;0.3;1' dur='2s' repeatCount='indefinite'/></rect><text x='50' y='75' font-family='Arial, sans-serif' font-weight='bold' font-size='65' fill='%234ade80' text-anchor='middle'>P<animate attributeName='opacity' values='1;0.5;1' dur='2s' repeatCount='indefinite'/></text></svg>">
 
     <title>Paweł Trojański | Portfolio</title>
 </head>
@@ -401,7 +423,9 @@
     <section id="footer">
         <div class="footer-container">
             <div class="social-icons">
-                <a href="mailto:paweltrojanski@gmail.com"><i class="fa fa-envelope"></i></a>
+                <a href="#" class="copy-email" data-email="paweltrojanski@gmail.com" title="Copy Email">
+                    <i class="fa fa-envelope"></i>
+                </a>
                 <a href="https://github.com/enviGit" target="_blank" title="GitHub"><i class="fa fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/ptrojanski/" target="_blank" title="LinkedIn"><i
                         class="fa fa-linkedin"></i></a>
@@ -419,6 +443,10 @@
             <p>© <span class="year"></span> Paweł Trojański. All rights reserved.</p>
         </div>
     </section>
+
+    <button id="back-to-top" aria-label="Back to top">
+        <i class="fa fa-arrow-up"></i>
+    </button>
 
     <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
     <script src="./script.js"></script>

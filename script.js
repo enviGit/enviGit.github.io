@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     safeInit(initScrollReveal);
     safeInit(initStatsCounter);
     safeInit(initTimelineProgress);
+    safeInit(initBackToTop);
+    safeInit(initCopyEmail);
 
     function safeInit(func) {
         try { func(); } catch (e) { console.error(`Error in ${func.name}:`, e); }
@@ -46,30 +48,34 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener("mouseup", () => document.body.classList.remove("click-active"));
 
         // 4. Hover Interaction (Expand effect on interactive elements)
-        const clickableSelectors = 'a, button, .cta, .ctaProjects, .theme-btn, .nav-link';
-        const clickableElements = document.querySelectorAll(clickableSelectors);
+        const expandSelectors = `
+            a:not(.cta):not(.ctaProjects):not(.copy-email), 
+            button:not(#back-to-top), 
+            .nav-link
+        `;
+        const expandElements = document.querySelectorAll(expandSelectors);
 
-        clickableElements.forEach(el => {
+        expandElements.forEach(el => {
             el.addEventListener('mouseenter', () => document.body.classList.add("hover-active"));
             el.addEventListener('mouseleave', () => document.body.classList.remove("hover-active"));
         });
 
-        const standardLinks = document.querySelectorAll('a:not(.cta):not(.ctaProjects), button:not(.theme-btn), .theme-btn, .nav-link');
+        const ctaSelectors = '.cta, .ctaProjects';
+        const ctaElements = document.querySelectorAll(ctaSelectors);
 
-        standardLinks.forEach(el => {
-            el.addEventListener('mouseenter', () => document.body.classList.add("hover-active"));
-            el.addEventListener('mouseleave', () => document.body.classList.remove("hover-active"));
-        });
-
-        const ctaButtons = document.querySelectorAll('.cta, .ctaProjects');
-
-        ctaButtons.forEach(el => {
+        ctaElements.forEach(el => {
             el.addEventListener('mouseenter', () => document.body.classList.add("cta-hover-active"));
             el.addEventListener('mouseleave', () => document.body.classList.remove("cta-hover-active"));
         });
 
         // 5. Contrast Interaction
-        const contrastElements = document.querySelectorAll('.skills-list span, .timeline-icon');
+        const contrastSelectors = `
+            #back-to-top,
+            .copy-email,
+            .timeline-icon, 
+            .skills-list span
+        `;
+        const contrastElements = document.querySelectorAll(contrastSelectors);
 
         contrastElements.forEach(el => {
             el.addEventListener('mouseenter', () => document.body.classList.add("contrast-active"));
@@ -353,5 +359,73 @@ document.addEventListener('DOMContentLoaded', () => {
                 fill.style.height = `${percentage}%`;
             });
         }
+    }
+
+    // --- Back To Top Button ---
+    function initBackToTop() {
+        const btn = document.getElementById('back-to-top');
+        if (!btn) return;
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        });
+
+        btn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // --- Copy Email Feature ---
+    function initCopyEmail() {
+        const emailLinks = document.querySelectorAll('.copy-email');
+
+        // Helper: Create and show toast
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast-notification';
+            toast.innerHTML = `<i class="fa fa-check-circle"></i> <span>${message}</span>`;
+
+            document.body.appendChild(toast);
+
+            // Reflow
+            toast.offsetHeight;
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    document.body.removeChild(toast);
+                }, 400);
+            }, 3000);
+        }
+
+        emailLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const email = link.getAttribute('data-email');
+
+                navigator.clipboard.writeText(email).then(() => {
+                    const icon = link.querySelector('i');
+                    const originalClass = icon.className;
+
+                    icon.className = 'fa fa-check';
+                    link.style.color = 'var(--accent)';
+
+                    setTimeout(() => {
+                        icon.className = originalClass;
+                        link.style.color = '';
+                    }, 2000);
+
+                    showToast("Email copied to clipboard!");
+                }).catch(err => {
+                    console.error('Failed to copy:', err);
+                    showToast("Failed to copy email.");
+                });
+            });
+        });
     }
 });

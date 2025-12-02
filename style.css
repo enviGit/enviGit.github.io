@@ -674,7 +674,7 @@ button,
     justify-content: center;
     align-items: center;
     cursor: none;
-    border: 2px solid var(--text-color);
+    border: 3px solid var(--accent);
 }
 
 .hamburger .bar {
@@ -910,6 +910,75 @@ button,
     filter: blur(0);
 }
 
+/* --- BACK TO TOP BUTTON --- */
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+#back-to-top:hover {
+    background-color: var(--accent);
+    color: var(--bg-color);
+    transform: translateY(-5px);
+}
+
+/* --- TOAST NOTIFICATION --- */
+.toast-notification {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--accent);
+    padding: 12px 25px;
+    border-radius: 50px;
+    box-shadow: 0 5px 20px var(--shadow-color);
+    z-index: 99999999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.toast-notification.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.toast-notification i {
+    color: var(--accent);
+    font-size: 1.6rem;
+}
+
 /* --- Media Queries --- */
 @media only screen and (min-width: 768px) {
     .hamburger {
@@ -1102,7 +1171,6 @@ button,
         justify-content: center;
         align-items: center;
         cursor: pointer;
-        border: 2px solid var(--text-color);
     }
 
     .hamburger .bar {
@@ -1143,6 +1211,14 @@ button,
     .theme-btn i {
         font-size: 4rem !important;
         line-height: 1;
+    }
+
+    .toast-notification {
+        font-size: 1.2rem;
+        padding: 10px 20px;
+        bottom: 20px;
+        width: auto;
+        max-width: 90%;
     }
 }
 
