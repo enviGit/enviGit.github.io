@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 1. SYSTEM INITIALIZATION ---
     // Using a helper to safely run functions so one error doesn't break the whole site
     safeInit(initThemeToggle);
-    safeInit(initTypedEffect);
+    safeInit(initScrambleEffect);
     safeInit(initDynamicYear);
     safeInit(initMobileMenu);
     safeInit(initNavigationMarker);
@@ -88,6 +88,94 @@ document.addEventListener('DOMContentLoaded', () => {
             img.addEventListener('mouseenter', () => document.body.classList.add("image-hover"));
             img.addEventListener('mouseleave', () => document.body.classList.remove("image-hover"));
         });
+    }
+
+    // --- CYBER SCRAMBLE EFFECT ---
+    function initScrambleEffect() {
+        const el = document.querySelector('.multiple-text');
+        if (!el) return;
+
+        const phrases = [
+            "Implementation Specialist",
+            "Unity Developer",
+            "Software Engineer",
+            "Cybersecurity Student"
+        ];
+
+        class TextScramble {
+            constructor(el) {
+                this.el = el;
+                this.chars = '!<>-_\\/[]{}—=+*^?#________';
+                this.update = this.update.bind(this);
+            }
+
+            setText(newText) {
+                const oldText = this.el.innerText;
+                const length = Math.max(oldText.length, newText.length);
+                const promise = new Promise((resolve) => this.resolve = resolve);
+
+                this.queue = [];
+                for (let i = 0; i < length; i++) {
+                    const from = oldText[i] || '';
+                    const to = newText[i] || '';
+                    const start = Math.floor(Math.random() * 40);
+                    const end = start + Math.floor(Math.random() * 40);
+                    this.queue.push({ from, to, start, end });
+                }
+
+                cancelAnimationFrame(this.frameRequest);
+                this.frame = 0;
+                this.update();
+                return promise;
+            }
+
+            update() {
+                let output = '';
+                let complete = 0;
+
+                for (let i = 0, n = this.queue.length; i < n; i++) {
+                    let { from, to, start, end, char } = this.queue[i];
+
+                    if (this.frame >= end) {
+                        complete++;
+                        output += to;
+                    } else if (this.frame >= start) {
+                        if (!char || Math.random() < 0.28) {
+                            char = this.randomChar();
+                            this.queue[i].char = char;
+                        }
+                        output += `<span class="dud">${char}</span>`;
+                    } else {
+                        output += from;
+                    }
+                }
+
+                this.el.innerHTML = output;
+
+                if (complete === this.queue.length) {
+                    this.resolve();
+                } else {
+                    this.frameRequest = requestAnimationFrame(this.update);
+                    this.frame++;
+                }
+            }
+
+            randomChar() {
+                return this.chars[Math.floor(Math.random() * this.chars.length)];
+            }
+        }
+
+        const fx = new TextScramble(el);
+        let counter = 0;
+
+        const next = () => {
+            fx.setText(phrases[counter]).then(() => {
+                setTimeout(next, 2500);
+            });
+            counter = (counter + 1) % phrases.length;
+        };
+
+        next();
     }
 
     // --- Direction Aware Buttons (Hover Effect) ---
@@ -185,23 +273,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 themeIcon.classList.remove('fa-moon-o');
                 themeIcon.classList.add('fa-sun-o');
             }
-        }
-    }
-
-    // --- Typed.js Effect ---
-    function initTypedEffect() {
-        if (document.querySelector(".multiple-text") && typeof Typed !== 'undefined') {
-            new Typed(".multiple-text", {
-                strings: [
-                    "Student",
-                    "Unity Developer",
-                    "Technical Implementation Specialist"
-                ],
-                typeSpeed: 50,
-                backSpeed: 70,
-                backDelay: 300,
-                loop: false
-            });
         }
     }
 
