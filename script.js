@@ -68,6 +68,15 @@ document.addEventListener('DOMContentLoaded', () => {
             el.addEventListener('mouseleave', () => document.body.classList.remove("cta-hover-active"));
         });
 
+        // 5. Contrast Interaction
+        const contrastElements = document.querySelectorAll('.skills-list span, .timeline-icon');
+
+        contrastElements.forEach(el => {
+            el.addEventListener('mouseenter', () => document.body.classList.add("contrast-active"));
+            el.addEventListener('mouseleave', () => document.body.classList.remove("contrast-active"));
+        });
+
+        // 6. Image Interaction
         const allImages = document.querySelectorAll('img');
         allImages.forEach(img => {
             img.addEventListener('mouseenter', () => document.body.classList.add("image-hover"));

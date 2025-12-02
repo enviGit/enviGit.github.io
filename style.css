@@ -33,8 +33,47 @@ body.light-mode {
     --home-bg-2: rgba(243, 244, 246, 0.9);
 }
 
+/* --- LIGHT MODE CURSOR FIXES --- */
 body.light-mode .cursor {
-    background-color: #FA6996;
+    mix-blend-mode: normal !important;
+    background-color: var(--accent);
+    opacity: 0.8;
+}
+
+body.light-mode.hover-active .cursor {
+    mix-blend-mode: normal !important;
+    background-color: transparent;
+    border: 2px solid var(--accent);
+    width: 50px;
+    height: 50px;
+    opacity: 1;
+}
+
+body.light-mode.cta-hover-active .cursor {
+    mix-blend-mode: normal !important;
+    background-color: transparent;
+    border: 2px solid var(--text-color);
+    width: 50px;
+    height: 50px;
+    opacity: 0.8;
+}
+
+body.light-mode.click-active .cursor {
+    mix-blend-mode: normal !important;
+    background-color: var(--accent);
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 1;
+}
+
+body.light-mode.contrast-active .cursor {
+    mix-blend-mode: normal !important;
+    background-color: transparent;
+    border: 2px solid var(--text-color);
+    width: 20px;
+    height: 20px;
+    transform: translate(-50%, -50%);
+    opacity: 0.8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 /* --- DARK/LIGHT MODE SWITCH --- */
@@ -151,7 +190,7 @@ body.cta-hover-active .cursor {
     border: 2px solid var(--text-color);
     width: 50px;
     height: 50px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 body.image-hover .cursor {
