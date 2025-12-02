@@ -33,6 +33,24 @@ body.light-mode {
     --home-bg-2: rgba(243, 244, 246, 0.9);
 }
 
+body.light-mode .cursor {
+    background-color: #FA6996;
+}
+
+/* --- DARK/LIGHT MODE SWITCH --- */
+.theme-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-size: 2rem;
+    transition: 0.3s;
+}
+
+.theme-btn:hover {
+    color: var(--accent);
+    transform: rotate(15deg);
+}
+
 /* --- Reset & Base --- */
 * {
     padding: 0;
@@ -100,37 +118,55 @@ p {
 
 /* --- Cursor --- */
 .cursor {
-    position: fixed;
-    pointer-events: none;
-    display: block;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     background-color: var(--accent);
-    mix-blend-mode: difference;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
     z-index: 9999999;
+    mix-blend-mode: difference;
+    transition: width 0.2s, height 0.2s, background-color 0.2s, opacity 0.2s;
+    transform: translate(-50%, -50%);
+    opacity: 0;
 }
 
 .cursor.visible {
     opacity: 1;
 }
 
-.circle {
-    position: absolute;
-    display: block;
+body.hover-active .cursor {
+    width: 50px;
+    height: 50px;
+    mix-blend-mode: normal;
+    background-color: transparent;
+    border: 2px solid var(--accent);
+}
+
+body.cta-hover-active .cursor {
+    mix-blend-mode: normal;
+    background-color: transparent;
+    border: 2px solid var(--text-color);
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+body.image-hover .cursor {
+    mix-blend-mode: normal !important;
+    background-color: var(--accent);
+    opacity: 1;
     width: 20px;
     height: 20px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
 }
 
-body.hover-active .circle {
-    mix-blend-mode: difference;
-}
-
-body.click-active .circle {
-    transform: scale(0.5) !important;
+body.click-active .cursor {
+    transform: translate(-50%, -50%) scale(0.8);
     background-color: var(--accent);
+    border: none;
 }
 
 html,
@@ -835,13 +871,6 @@ button,
     filter: blur(0);
 }
 
-.project-item,
-.timeline-content,
-.about-img {
-    transform-style: preserve-3d;
-    transform: perspective(1000px);
-}
-
 /* --- Media Queries --- */
 @media only screen and (min-width: 768px) {
     .hamburger {
@@ -907,7 +936,14 @@ button,
 
     .marker,
     .cursor {
-        display: none;
+        display: none !important;
+    }
+
+    html,
+    body,
+    a,
+    button {
+        cursor: auto !important;
     }
 
     #home h1 {
@@ -1086,19 +1122,6 @@ button,
 
 ::-webkit-scrollbar-thumb:hover {
     background-color: var(--accent);
-}
-
-.theme-btn {
-    background: transparent;
-    border: none;
-    color: var(--text-color);
-    font-size: 2rem;
-    transition: 0.3s;
-}
-
-.theme-btn:hover {
-    color: var(--accent);
-    transform: rotate(15deg);
 }
 
 /* --- PREMIUM SELECTION STYLE --- */
