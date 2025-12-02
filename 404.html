@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        html,
+        body {
+            cursor: auto !important;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow: hidden;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 8rem;
+            margin: 0;
+            color: var(--accent);
+            text-shadow: 0 0 20px var(--accent);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn-404 {
+            padding: 15px 30px;
+            border: 2px solid var(--accent);
+            color: var(--text-color);
+            text-transform: uppercase;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+            cursor: pointer !important;
+            user-select: none;
+        }
+
+        .btn-404:hover {
+            background-color: var(--accent);
+            color: var(--bg-color);
+            box-shadow: 0 0 20px var(--accent);
+            cursor: pointer !important;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>404</h1>
+    <p>System Error: Path not found.</p>
+    <a href="index.html" class="btn-404">Return to Base</a>
+</body>
+
+</html>

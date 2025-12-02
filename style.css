@@ -16,6 +16,16 @@
     --home-bg-2: rgba(0, 0, 0, 0.9);
 }
 
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 /* --- SCROLL LOCK (Gdy menu otwarte) --- */
 body.no-scroll {
     overflow: hidden !important;
@@ -109,6 +119,7 @@ html {
     scroll-behavior: smooth;
     scrollbar-width: thin;
     scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-bg);
+    background-color: var(--bg-color);
 }
 
 body {
@@ -116,6 +127,7 @@ body {
     color: var(--text-color);
     overflow-x: hidden;
     transition: background-color 0.3s ease, color 0.3s ease;
+    animation: pageFadeIn 0.8s ease-out forwards;
 }
 
 a {
@@ -1060,6 +1072,11 @@ button,
         cursor: auto !important;
     }
 
+    body {
+        animation: none !important;
+        opacity: 1 !important;
+    }
+
     #home h1 {
         font-size: 2.5rem;
         line-height: 1.3;
@@ -1249,4 +1266,15 @@ button,
 ::selection {
     background-color: var(--accent);
     color: var(--bg-color);
+}
+
+/* --- ACCESSIBILITY: KEYBOARD NAVIGATION --- */
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+.theme-btn:focus-visible {
+    border-radius: 50%;
 }
