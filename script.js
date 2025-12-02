@@ -221,6 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
             hamburger.addEventListener('click', () => {
                 hamburger.classList.toggle('active');
                 mobileMenu.classList.toggle('active');
+                document.body.classList.toggle('no-scroll');
             });
 
             // Close menu when a link is clicked
@@ -228,6 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.addEventListener('click', () => {
                     hamburger.classList.remove('active');
                     mobileMenu.classList.remove('active');
+                    document.body.classList.remove('no-scroll');
                 });
             });
         }
@@ -239,6 +241,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const navLinks = document.querySelectorAll('.nav-link');
         const sections = document.querySelectorAll('section');
         const header = document.querySelector('.header.container');
+
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.querySelector('.nav-list ul');
 
         let isManualScrolling = false;
         let scrollTimeout;
@@ -260,6 +265,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 navLinks.forEach(l => l.classList.remove('active-link'));
                 link.classList.add('active-link');
                 moveMarker(link);
+
+                if (hamburger) hamburger.classList.remove('active');
+                if (mobileMenu) mobileMenu.classList.remove('active');
+
+                document.body.classList.remove('no-scroll');
 
                 clearTimeout(scrollTimeout);
                 scrollTimeout = setTimeout(() => { isManualScrolling = false; }, 1000);

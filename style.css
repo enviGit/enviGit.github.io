@@ -16,6 +16,12 @@
     --home-bg-2: rgba(0, 0, 0, 0.9);
 }
 
+/* --- SCROLL LOCK (Gdy menu otwarte) --- */
+body.no-scroll {
+    overflow: hidden !important;
+    height: 100vh;
+}
+
 /* --- LIGHT MODE  --- */
 body.light-mode {
     --bg-color: #f3f4f6;
