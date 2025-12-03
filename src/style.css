@@ -1298,42 +1298,64 @@ button,
         opacity: 1 !important;
     }
 
+    .hamburger {
+        display: flex !important;
+        z-index: 1001
+    }
+
     .nav-list ul {
         display: flex !important;
         flex-direction: column !important;
         justify-content: flex-start !important;
         padding-top: 60px !important;
         padding-bottom: 120px !important;
-        height: 100% !important;
-        overflow-y: scroll !important;
-        left: 0 !important;
         position: fixed !important;
-        bottom: 0 !important
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100% !important;
+        min-height: 100vh !important;
+        background-color: var(--bg-color) !important;
+        box-sizing: border-box !important;
+        overflow-y: auto !important;
+        z-index: 1000;
+        overscroll-behavior: contain;
     }
 
     .nav-list ul li {
-        margin: 5px 0;
+        margin: 5px 0 !important;
+        width: 100%;
+        text-align: center;
+        position: relative;
+        z-index: 2
     }
 
     .nav-list ul li a {
-        font-size: 2.2rem;
-        letter-spacing: 1px;
+        font-size: 2rem !important;
+        line-height: 1.5;
+        display: inline-block
     }
 
     .theme-btn {
-        font-size: 2.5rem !important;
-        margin: 10px 0 !important;
+        margin: 5px auto !important;
         padding: 5px !important;
-        width: auto !important;
-        display: block;
+        font-size: 2.5rem !important;
+        display: block !important
     }
 
     .theme-btn i {
         font-size: 2.5rem !important;
+        line-height: 1
     }
 
     .nav-list ul::-webkit-scrollbar {
         width: 5px;
+        background: var(--bg-color)
+    }
+
+    .nav-list ul::-webkit-scrollbar-thumb {
+        background: var(--accent);
+        border-radius: 4px
     }
 }
 
