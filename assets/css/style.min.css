@@ -1146,7 +1146,9 @@ html {
         flex-direction: column;
         justify-content: center;
         z-index: 1;
-        transition: left .3s
+        transition: 0.3s ease left;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch
     }
 
     .nav-list ul.active {
@@ -1273,11 +1275,16 @@ html {
     }
 
     .nav-list ul {
-        justify-content: flex-start;
-        padding-top: 40px;
-        padding-bottom: 40px;
-        overflow-y: auto;
-        height: 100vh;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        padding-top: 60px !important;
+        padding-bottom: 120px !important;
+        height: 100% !important;
+        overflow-y: scroll !important;
+        left: 0 !important;
+        position: fixed !important;
+        bottom: 0 !important
     }
 
     .nav-list ul li {
