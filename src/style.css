@@ -1276,6 +1276,43 @@ button,
     }
 }
 
+/* --- MOBILE LANDSCAPE MENU FIX --- */
+@media only screen and (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+
+    .nav-list ul {
+        justify-content: flex-start;
+        padding-top: 80px;
+        padding-bottom: 40px;
+        overflow-y: auto;
+        height: 100vh;
+    }
+
+    .nav-list ul li {
+        margin: 5px 0;
+    }
+
+    .nav-list ul li a {
+        font-size: 2.2rem;
+        letter-spacing: 1px;
+    }
+
+    .theme-btn {
+        font-size: 2.5rem !important;
+        margin: 10px 0 !important;
+        padding: 5px !important;
+        width: auto !important;
+        display: block;
+    }
+
+    .theme-btn i {
+        font-size: 2.5rem !important;
+    }
+
+    .nav-list ul::-webkit-scrollbar {
+        width: 5px;
+    }
+}
+
 /* --- Custom Scrollbar --- */
 ::-webkit-scrollbar {
     width: 10px;
