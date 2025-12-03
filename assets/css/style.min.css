@@ -1254,9 +1254,27 @@ html {
 }
 
 @media only screen and (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+
+    .marker,
+    .cursor {
+        display: none !important;
+    }
+
+    html,
+    body,
+    a,
+    button {
+        cursor: auto !important;
+    }
+
+    body {
+        animation: none !important;
+        opacity: 1 !important;
+    }
+
     .nav-list ul {
         justify-content: flex-start;
-        padding-top: 80px;
+        padding-top: 40px;
         padding-bottom: 40px;
         overflow-y: auto;
         height: 100vh;
