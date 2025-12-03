@@ -650,13 +650,14 @@ button,
     margin: 0 auto;
 }
 
-.brand h1 {
+.brand .brand-text {
     font-size: 2.5rem;
     text-transform: uppercase;
     color: var(--text-color);
+    font-weight: 700;
 }
 
-.brand h1 span {
+.brand .brand-text span {
     color: var(--accent);
 }
 
@@ -802,22 +803,11 @@ button,
 .about-img {
     height: 100%;
     width: 100%;
-    position: relative;
     border: 2px solid var(--border-color);
     border-radius: 10px;
     overflow: hidden;
-}
-
-.about-img::after {
-    content: '';
-    position: absolute;
-    left: 20px;
-    top: 20px;
-    height: 98%;
-    width: 98%;
-    border: 2px solid var(--accent);
-    z-index: -1;
-    border-radius: 10px;
+    background-color: var(--card-bg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .col-right {
@@ -860,14 +850,14 @@ button,
     align-items: flex-start;
 }
 
-.project-info h1 {
+.project-info h3 {
     font-size: 2.5rem;
     font-weight: 500;
     margin-bottom: 10px;
     color: var(--text-color);
 }
 
-.project-info h2 {
+.project-info h4 {
     font-size: 1.4rem;
     color: var(--accent);
     margin-bottom: 20px;
@@ -1038,11 +1028,16 @@ button,
         text-align: left;
     }
 
+    .about-img {
+        height: 90%;
+        margin: auto;
+    }
+
     .col-right {
         text-align: left;
     }
 
-    .col-right h1 {
+    .col-right h2 {
         text-align: left;
     }
 
@@ -1198,12 +1193,12 @@ button,
         margin-bottom: 15px;
     }
 
-    .project-info h1 {
+    .project-info h3 {
         font-size: 2.2rem;
         margin-bottom: 5px;
     }
 
-    .project-info h2 {
+    .project-info h4 {
         font-size: 1.2rem;
         margin-bottom: 15px;
         line-height: 1.4;

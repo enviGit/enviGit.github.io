@@ -107,7 +107,7 @@ body.light-mode.contrast-active .cursor {
 }
 
 #home h1 span,
-.brand h1 span,
+.brand .brand-text span,
 .multiple-text,
 .nav-list ul li a:hover,
 .section-title span,
@@ -473,6 +473,13 @@ html {
     font-weight: 600
 }
 
+.counter,
+.cta,
+.ctaProjects,
+.stat-item:hover i {
+    color: var(--text-color)
+}
+
 .timeline-item.left.hidden {
     transform: translateX(-100px);
     opacity: 0
@@ -529,7 +536,6 @@ html {
 .counter {
     font-size: 4rem;
     font-weight: 700;
-    color: var(--text-color);
     margin-bottom: 5px;
     font-family: Montserrat, sans-serif
 }
@@ -538,16 +544,6 @@ html {
     color: var(--text-muted);
     letter-spacing: 1px;
     margin: 0
-}
-
-#home h1,
-.brand h1,
-.cta,
-.ctaProjects,
-.nav-list ul li a,
-.project-info h1,
-.stat-item:hover i {
-    color: var(--text-color)
 }
 
 .stat-item:hover {
@@ -628,6 +624,13 @@ html {
     border-color: var(--accent)
 }
 
+#home h1,
+.brand .brand-text,
+.nav-list ul li a,
+.project-info h3 {
+    color: var(--text-color)
+}
+
 #header {
     position: fixed;
     z-index: 1000;
@@ -658,9 +661,10 @@ html {
     height: 100%
 }
 
-.brand h1 {
+.brand .brand-text {
     font-size: 2.5rem;
-    text-transform: uppercase
+    text-transform: uppercase;
+    font-weight: 700
 }
 
 .nav-list ul {
@@ -802,19 +806,9 @@ html {
     width: 100%;
     border: 2px solid var(--border-color);
     border-radius: 10px;
-    overflow: hidden
-}
-
-.about-img::after {
-    content: '';
-    position: absolute;
-    left: 20px;
-    top: 20px;
-    height: 98%;
-    width: 98%;
-    border: 2px solid var(--accent);
-    z-index: -1;
-    border-radius: 10px
+    overflow: hidden;
+    background-color: var(--card-bg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .col-right {
@@ -849,13 +843,13 @@ html {
     align-items: flex-start
 }
 
-.project-info h1 {
+.project-info h3 {
     font-size: 2.5rem;
     font-weight: 500;
     margin-bottom: 10px
 }
 
-.project-info h2 {
+.project-info h4 {
     font-size: 1.4rem;
     color: var(--accent);
     margin-bottom: 20px;
@@ -995,7 +989,7 @@ html {
 
     #about .about,
     .col-right,
-    .col-right h1 {
+    .col-right h2 {
         text-align: left
     }
 
@@ -1018,6 +1012,11 @@ html {
 
     #about .about {
         flex-direction: row
+    }
+
+    .about-img {
+        height: 90%;
+        margin: auto;
     }
 
     .project-item {
@@ -1168,12 +1167,12 @@ html {
         margin-bottom: 15px
     }
 
-    .project-info h1 {
+    .project-info h3 {
         font-size: 2.2rem;
         margin-bottom: 5px
     }
 
-    .project-info h2 {
+    .project-info h4 {
         font-size: 1.2rem;
         margin-bottom: 15px;
         line-height: 1.4
