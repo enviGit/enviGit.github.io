@@ -54,6 +54,7 @@ body.light-mode .cursor {
     mix-blend-mode: normal !important;
     background-color: var(--accent);
     opacity: 0.8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 body.light-mode.hover-active .cursor {
@@ -202,6 +203,7 @@ p {
     pointer-events: none;
     z-index: 9999999;
     mix-blend-mode: difference;
+    box-shadow: 0 0 10px var(--accent);
     transition: width 0.2s, height 0.2s, background-color 0.2s, opacity 0.2s;
     transform: translate(-50%, -50%);
     opacity: 0;
@@ -710,7 +712,7 @@ button,
     justify-content: center;
     align-items: center;
     cursor: none;
-    border: 3px solid var(--accent);
+    border: 2px solid var(--accent);
 }
 
 .hamburger .bar {
