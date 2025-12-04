@@ -388,7 +388,7 @@ document.addEventListener("DOMContentLoaded", () => {
         clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(() => {
           isManualScrolling = false;
-        }, 1000);
+        }, 1500);
       });
     });
 
