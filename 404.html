@@ -1,74 +1,118 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="noindex, follow" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        html,
-        body {
-            cursor: auto !important;
-        }
+        <title>404 - Page Not Found | Paweł Trojański</title>
 
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            text-align: center;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            overflow: hidden;
-            margin: 0;
-        }
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Page Not Found | Paweł Trojański" />
+        <meta
+            property="og:description"
+            content="System Error: The requested path could not be found. Return to base."
+        />
+        <meta property="og:image" content="./assets/img/me.webp" />
+        <meta property="twitter:card" content="summary" />
 
-        h1 {
-            font-size: 8rem;
-            margin: 0;
-            color: var(--accent);
-            text-shadow: 0 0 20px var(--accent);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-        }
+        <link
+            rel="icon"
+            href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23111111'/><rect x='5' y='5' width='90' height='90' rx='15' fill='none' stroke='%234ade80' stroke-width='5'/><text x='50' y='72' font-family='Arial, sans-serif' font-weight='bold' font-size='65' fill='%234ade80' text-anchor='middle'>P</text></svg>"
+        />
 
-        p {
-            font-size: 1.5rem;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-            font-family: 'Montserrat', sans-serif;
-        }
+        <link rel="stylesheet" href="./assets/css/style.min.css" />
 
-        .btn-404 {
-            padding: 15px 30px;
-            border: 2px solid var(--accent);
-            color: var(--text-color);
-            text-transform: uppercase;
-            font-weight: bold;
-            text-decoration: none;
-            transition: 0.3s;
-            border-radius: 5px;
-            font-family: 'Montserrat', sans-serif;
-            letter-spacing: 1px;
-            cursor: pointer !important;
-            user-select: none;
-        }
+        <style>
+            html,
+            body,
+            a,
+            button {
+                cursor: auto !important;
+            }
 
-        .btn-404:hover {
-            background-color: var(--accent);
-            color: var(--bg-color);
-            box-shadow: 0 0 20px var(--accent);
-            cursor: pointer !important;
-        }
-    </style>
-</head>
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                text-align: center;
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                overflow: hidden;
+                margin: 0;
+            }
 
-<body>
-    <h1>404</h1>
-    <p>System Error: Path not found.</p>
-    <a href="index.html" class="btn-404">Return to Base</a>
-</body>
+            h1 {
+                font-size: 12rem;
+                line-height: 1;
+                margin: 0;
+                color: var(--accent);
+                text-shadow: 0 0 30px var(--accent);
+                font-family: "Montserrat", sans-serif;
+                font-weight: 700;
+                animation: pulse-error 3s infinite alternate;
+            }
 
+            p {
+                font-size: 1.8rem;
+                color: var(--text-muted);
+                margin-top: 10px;
+                margin-bottom: 40px;
+                font-family: "Montserrat", sans-serif;
+                letter-spacing: 1px;
+            }
+
+            .btn-404 {
+                padding: 15px 40px;
+                border: 2px solid var(--accent);
+                color: var(--text-color);
+                text-transform: uppercase;
+                font-weight: 700;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                border-radius: 4px;
+                font-family: "Montserrat", sans-serif;
+                font-size: 1.6rem;
+                letter-spacing: 2px;
+                cursor: pointer !important;
+                user-select: none;
+            }
+
+            .btn-404:hover {
+                background-color: var(--accent);
+                color: var(--bg-color);
+                box-shadow: 0 0 25px var(--accent);
+                transform: translateY(-3px);
+            }
+
+            @keyframes pulse-error {
+                0% {
+                    text-shadow: 0 0 20px var(--accent);
+                    opacity: 1;
+                }
+                100% {
+                    text-shadow: 0 0 5px var(--accent);
+                    opacity: 0.8;
+                }
+            }
+
+            @media only screen and (max-width: 767px) {
+                h1 {
+                    font-size: 8rem;
+                }
+                p {
+                    font-size: 1.4rem;
+                    padding: 0 20px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>404</h1>
+        <p>System Error: Path not found.</p>
+        <a href="index.html" class="btn-404">Return to Base</a>
+    </body>
 </html>
