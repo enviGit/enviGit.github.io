@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 4. Hover Interaction (Expand effect on interactive elements)
     const expandSelectors = `
-            a:not(.cta):not(.ctaProjects):not(.copy-email),
+            a:not(.cta):not(.ctaProjects),
             button:not(#back-to-top),
             .nav-link
         `;
@@ -88,7 +88,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // 5. Contrast Interaction
     const contrastSelectors = `
             #back-to-top,
-            .copy-email,
             .timeline-icon,
             .skills-list span
         `;
@@ -517,12 +516,13 @@ document.addEventListener("DOMContentLoaded", () => {
   function initCopyEmail() {
     const emailLinks = document.querySelectorAll(".copy-email");
 
+    let isToastActive = false;
+
     // Helper: Create and show toast
     function showToast(message) {
       const toast = document.createElement("div");
       toast.className = "toast-notification";
       toast.innerHTML = `<i class="fa fa-check-circle"></i> <span>${message}</span>`;
-
       document.body.appendChild(toast);
 
       // Reflow
@@ -531,8 +531,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       setTimeout(() => {
         toast.classList.remove("show");
+
         setTimeout(() => {
-          document.body.removeChild(toast);
+          if (document.body.contains(toast)) {
+            document.body.removeChild(toast);
+          }
+          isToastActive = false;
         }, 400);
       }, 3000);
     }
@@ -540,6 +544,10 @@ document.addEventListener("DOMContentLoaded", () => {
     emailLinks.forEach((link) => {
       link.addEventListener("click", (e) => {
         e.preventDefault();
+
+        if (isToastActive) return;
+
+        isToastActive = true;
         const email = link.getAttribute("data-email");
 
         navigator.clipboard
