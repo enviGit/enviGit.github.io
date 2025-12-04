@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap';
+@import "https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap";
 
 :root {
     --bg-color: #111111;
@@ -116,7 +116,7 @@ body.light-mode.contrast-active .cursor {
 
 html {
     font-size: 10px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     scroll-behavior: smooth;
     scrollbar-width: thin;
     scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-bg);
@@ -127,7 +127,9 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     overflow-x: hidden;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
     animation: pageFadeIn 0.8s ease-out forwards;
 }
 
@@ -153,7 +155,7 @@ p {
 
 /* --- SCRAMBLE TEXT EFFECT --- */
 .multiple-text {
-    font-family: 'Courier New', monospace;
+    font-family: "Courier New", monospace;
     color: var(--accent);
     font-weight: 700;
     display: inline-block;
@@ -204,7 +206,11 @@ p {
     z-index: 9999999;
     mix-blend-mode: difference;
     box-shadow: 0 0 10px var(--accent);
-    transition: width 0.2s, height 0.2s, background-color 0.2s, opacity 0.2s;
+    transition:
+        width 0.2s,
+        height 0.2s,
+        background-color 0.2s,
+        opacity 0.2s;
     transform: translate(-50%, -50%);
     opacity: 0;
 }
@@ -254,7 +260,6 @@ button,
     cursor: none !important;
 }
 
-
 /* --- New About Section Styles --- */
 .skills-list {
     display: flex;
@@ -267,7 +272,6 @@ button,
 .skills-list span {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
-    ;
     color: var(--text-color);
     padding: 5px 15px;
     border-radius: 20px;
@@ -394,7 +398,7 @@ button,
 }
 
 .timeline-content::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 20px;
     width: 0;
@@ -493,7 +497,12 @@ button,
 /* --- STATS SECTION --- */
 #stats {
     padding: 60px 0;
-    background: linear-gradient(to right, var(--bg-color), var(--card-bg), var(--bg-color));
+    background: linear-gradient(
+        to right,
+        var(--bg-color),
+        var(--card-bg),
+        var(--bg-color)
+    );
     position: relative;
 }
 
@@ -530,7 +539,7 @@ button,
     font-weight: 700;
     color: var(--text-color);
     margin-bottom: 5px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 .stat-item p {
@@ -565,7 +574,9 @@ button,
     margin-top: 20px;
     border-radius: 4px;
     overflow: hidden;
-    transition: 0.3s ease box-shadow, 0.3s ease color;
+    transition:
+        0.3s ease box-shadow,
+        0.3s ease color;
     z-index: 1;
     text-align: center;
 }
@@ -600,7 +611,7 @@ button,
 
 /* Filling rectangle (background) */
 .btn-hover::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -638,7 +649,9 @@ button,
     background-color: var(--header-bg);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
-    transition: 0.3s ease background-color, 0.3s ease border-color;
+    transition:
+        0.3s ease background-color,
+        0.3s ease border-color;
 }
 
 .nav-bar {
@@ -724,7 +737,7 @@ button,
 
 .hamburger .bar::after,
 .hamburger .bar::before {
-    content: '';
+    content: "";
     position: absolute;
     height: 100%;
     width: 100%;
@@ -758,7 +771,11 @@ button,
 /* --- Home --- */
 #home {
     background: var(--bg-color);
-    background-image: linear-gradient(135deg, var(--home-bg-1) 0%, var(--home-bg-2) 100%);
+    background-image: linear-gradient(
+        135deg,
+        var(--home-bg-1) 0%,
+        var(--home-bg-2) 100%
+    );
     position: relative;
 }
 
@@ -1073,7 +1090,6 @@ button,
 }
 
 @media only screen and (max-width: 767px) {
-
     .marker,
     .cursor {
         display: none !important;
@@ -1174,7 +1190,7 @@ button,
         z-index: 1;
         transition: 0.3s ease left;
         overflow-y: auto;
-        -webkit-overflow-scrolling: touch
+        -webkit-overflow-scrolling: touch;
     }
 
     .nav-list ul.active {
@@ -1238,7 +1254,7 @@ button,
 
     .hamburger .bar::after,
     .hamburger .bar::before {
-        content: '';
+        content: "";
         position: absolute;
         height: 100%;
         width: 100%;
@@ -1280,7 +1296,6 @@ button,
 
 /* --- MOBILE LANDSCAPE MENU FIX --- */
 @media only screen and (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
-
     .marker,
     .cursor {
         display: none !important;
@@ -1301,7 +1316,7 @@ button,
     .hamburger {
         display: flex !important;
         position: relative;
-        z-index: 1001
+        z-index: 1001;
     }
 
     .nav-list ul {
@@ -1321,7 +1336,7 @@ button,
         overflow-y: auto !important;
         z-index: 1000;
         overscroll-behavior: contain;
-        transition: left 0.3s ease !important
+        transition: left 0.3s ease !important;
     }
 
     .nav-list ul.active {
@@ -1333,35 +1348,35 @@ button,
         width: 100%;
         text-align: center;
         position: relative;
-        z-index: 2
+        z-index: 2;
     }
 
     .nav-list ul li a {
         font-size: 2rem !important;
         line-height: 1.5;
-        display: inline-block
+        display: inline-block;
     }
 
     .theme-btn {
         margin: 5px auto !important;
         padding: 5px !important;
         font-size: 2.5rem !important;
-        display: block !important
+        display: block !important;
     }
 
     .theme-btn i {
         font-size: 2.5rem !important;
-        line-height: 1
+        line-height: 1;
     }
 
     .nav-list ul::-webkit-scrollbar {
         width: 5px;
-        background: var(--bg-color)
+        background: var(--bg-color);
     }
 
     .nav-list ul::-webkit-scrollbar-thumb {
         background: var(--accent);
-        border-radius: 4px
+        border-radius: 4px;
     }
 }
 
