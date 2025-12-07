@@ -1321,6 +1321,7 @@ body.light-mode .marker::before {
     .project-info p {
         font-size: 1.4rem;
         line-height: 1.5;
+        text-wrap: balance;
     }
 
     .project-info {
