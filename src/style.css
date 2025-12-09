@@ -1118,17 +1118,6 @@ body.light-mode .marker::before {
 
 /* --- Media Queries --- */
 @media only screen and (min-width: 768px) {
-    .cursor {
-        display: none !important;
-    }
-
-    html,
-    body,
-    a,
-    button {
-        cursor: auto !important;
-    }
-
     .hamburger {
         display: none;
     }
@@ -1221,16 +1210,8 @@ body.light-mode .marker::before {
 }
 
 @media only screen and (max-width: 767px) {
-    .marker,
-    .cursor {
+    .marker {
         display: none !important;
-    }
-
-    html,
-    body,
-    a,
-    button {
-        cursor: auto !important;
     }
 
     body {
@@ -1435,16 +1416,8 @@ body.light-mode .marker::before {
 
 /* --- MOBILE LANDSCAPE MENU FIX --- */
 @media only screen and (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
-    .marker,
-    .cursor {
+    .marker {
         display: none !important;
-    }
-
-    html,
-    body,
-    a,
-    button {
-        cursor: auto !important;
     }
 
     body {
@@ -1516,6 +1489,19 @@ body.light-mode .marker::before {
     .nav-list ul::-webkit-scrollbar-thumb {
         background: var(--accent);
         border-radius: 4px;
+    }
+}
+
+@media (hover: none) {
+    .cursor {
+        display: none !important;
+    }
+
+    html,
+    body,
+    a,
+    button {
+        cursor: auto !important;
     }
 }
 
