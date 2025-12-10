@@ -25,7 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Custom Cursor (Single Dot Version) ---
   function initCursorSystem() {
+    if (window.matchMedia("(hover: none)").matches) return;
+
     const cursor = document.querySelector(".cursor");
+
     if (!cursor) return;
 
     // 1. Basic Movement (Instant position update for precision)
@@ -286,6 +289,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Toggle click handler
     themeBtn.addEventListener("click", () => {
+      this.blur();
       document.body.classList.toggle("light-mode");
       const isLight = document.body.classList.contains("light-mode");
       localStorage.setItem("theme", isLight ? "light" : "dark");
@@ -393,35 +397,39 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Scroll Handler
-    window.addEventListener("scroll", () => {
-      // Header background logic
-      if (header) {
-        if (window.scrollY > 100)
-          header.style.backgroundColor = "var(--header-bg)";
-        else header.style.backgroundColor = "var(--header-bg)";
-      }
-
-      if (isManualScrolling) return;
-
-      let current = "";
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 200) {
-          current = section.getAttribute("id");
+    window.addEventListener(
+      "scroll",
+      () => {
+        // Header background logic
+        if (header) {
+          if (window.scrollY > 100)
+            header.style.backgroundColor = "var(--header-bg)";
+          else header.style.backgroundColor = "var(--header-bg)";
         }
-      });
 
-      navLinks.forEach((link) => {
-        link.classList.remove("active-link");
-        if (link.dataset.section === current) {
-          link.classList.add("active-link");
-          moveMarker(link);
-        }
-      });
+        if (isManualScrolling) return;
 
-      // Reset to home if at top
-      if (window.scrollY < 100 && homeLink) moveMarker(homeLink);
-    });
+        let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          if (pageYOffset >= sectionTop - 200) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active-link");
+          if (link.dataset.section === current) {
+            link.classList.add("active-link");
+            moveMarker(link);
+          }
+        });
+
+        // Reset to home if at top
+        if (window.scrollY < 100 && homeLink) moveMarker(homeLink);
+      },
+      { passive: true },
+    );
   }
 
   // --- Scroll Reveal Animation ---
@@ -483,14 +491,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const fill = document.querySelector(".timeline-line-fill");
 
     if (section && fill) {
-      window.addEventListener("scroll", () => {
-        const rect = section.getBoundingClientRect();
-        const startOffset = window.innerHeight / 2;
-        const dist = -rect.top + startOffset;
-        let percentage = (dist / section.offsetHeight) * 100;
-        percentage = Math.max(0, Math.min(100, percentage));
-        fill.style.height = `${percentage}%`;
-      });
+      window.addEventListener(
+        "scroll",
+        () => {
+          const rect = section.getBoundingClientRect();
+          const startOffset = window.innerHeight / 2;
+          const dist = -rect.top + startOffset;
+          let percentage = (dist / section.offsetHeight) * 100;
+          percentage = Math.max(0, Math.min(100, percentage));
+          fill.style.height = `${percentage}%`;
+        },
+        { passive: true },
+      );
     }
   }
 
@@ -499,15 +511,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const btn = document.getElementById("back-to-top");
     if (!btn) return;
 
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 500) {
-        btn.classList.add("visible");
-      } else {
-        btn.classList.remove("visible");
-      }
-    });
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (window.scrollY > 500) {
+          btn.classList.add("visible");
+        } else {
+          btn.classList.remove("visible");
+        }
+      },
+      { passive: true },
+    );
 
     btn.addEventListener("click", () => {
+      this.blur();
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
@@ -544,6 +561,7 @@ document.addEventListener("DOMContentLoaded", () => {
     emailLinks.forEach((link) => {
       link.addEventListener("click", (e) => {
         e.preventDefault();
+        e.currentTarget.blur();
 
         if (isToastActive) return;
 
