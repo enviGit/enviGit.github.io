@@ -353,7 +353,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // --- Navigation Marker & Scroll Spy ---
+  // --- Navigation Marker (Optimized with RAF) ---
   function initNavigationMarker() {
     const marker = document.querySelector(".marker");
     const navLinks = document.querySelectorAll(".nav-link");
@@ -396,37 +396,43 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
+    let isTicking = false;
+
     // Scroll Handler
     window.addEventListener(
       "scroll",
       () => {
-        // Header background logic
-        if (header) {
-          if (window.scrollY > 100)
-            header.style.backgroundColor = "var(--header-bg)";
-          else header.style.backgroundColor = "var(--header-bg)";
-        }
+        if (isTicking) return;
 
-        if (isManualScrolling) return;
-
-        let current = "";
-        sections.forEach((section) => {
-          const sectionTop = section.offsetTop;
-          if (pageYOffset >= sectionTop - 200) {
-            current = section.getAttribute("id");
+        window.requestAnimationFrame(() => {
+          if (header) {
+            header.style.backgroundColor =
+              window.scrollY > 50 ? "var(--header-bg)" : "var(--header-bg)";
           }
+
+          if (!isManualScrolling) {
+            let current = "";
+            sections.forEach((section) => {
+              if (window.pageYOffset >= section.offsetTop - 200) {
+                current = section.getAttribute("id");
+              }
+            });
+
+            navLinks.forEach((link) => {
+              link.classList.remove("active-link");
+              if (link.dataset.section === current) {
+                link.classList.add("active-link");
+                moveMarker(link);
+              }
+            });
+
+            if (window.scrollY < 100 && homeLink) moveMarker(homeLink);
+          }
+
+          isTicking = false;
         });
 
-        navLinks.forEach((link) => {
-          link.classList.remove("active-link");
-          if (link.dataset.section === current) {
-            link.classList.add("active-link");
-            moveMarker(link);
-          }
-        });
-
-        // Reset to home if at top
-        if (window.scrollY < 100 && homeLink) moveMarker(homeLink);
+        isTicking = true;
       },
       { passive: true },
     );
@@ -485,21 +491,29 @@ document.addEventListener("DOMContentLoaded", () => {
     if (statsSection) statsObserver.observe(statsSection);
   }
 
-  // --- Timeline Progress Bar ---
+  // --- Timeline Progress Bar (Optimized with RAF) ---
   function initTimelineProgress() {
     const section = document.querySelector("#timeline");
     const fill = document.querySelector(".timeline-line-fill");
+    let isTicking = false;
 
     if (section && fill) {
       window.addEventListener(
         "scroll",
         () => {
-          const rect = section.getBoundingClientRect();
-          const startOffset = window.innerHeight / 2;
-          const dist = -rect.top + startOffset;
-          let percentage = (dist / section.offsetHeight) * 100;
-          percentage = Math.max(0, Math.min(100, percentage));
-          fill.style.height = `${percentage}%`;
+          if (!isTicking) {
+            window.requestAnimationFrame(() => {
+              const rect = section.getBoundingClientRect();
+              const startOffset = window.innerHeight / 2;
+              const dist = -rect.top + startOffset;
+              let percentage = (dist / section.offsetHeight) * 100;
+              percentage = Math.max(0, Math.min(100, percentage));
+              fill.style.height = `${percentage}%`;
+
+              isTicking = false;
+            });
+            isTicking = true;
+          }
         },
         { passive: true },
       );
