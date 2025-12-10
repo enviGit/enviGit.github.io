@@ -106,7 +106,7 @@
                             <div class="bar"></div>
                         </div>
                         <ul>
-                            <div class="marker"></div>
+                            <li class="marker" aria-hidden="true"></li>
                             <li>
                                 <a
                                     href="#home"
@@ -170,490 +170,504 @@
             </div>
         </section>
 
-        <section id="home">
-            <div class="home container hidden">
-                <div>
-                    <span class="topline">Hello</span>
-                    <h1>I'm a <span class="multiple-text"></span></h1>
-                    <a href="#projects" class="cta btn-hover"
-                        ><span>Portfolio</span></a
-                    >
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="hidden">
-            <div class="about container">
-                <div class="col-left">
-                    <div class="about-img">
-                        <img src="./assets/img/me.webp" alt="My photo" />
-                    </div>
-                </div>
-                <div class="col-right">
-                    <h2 class="section-title">About <span>me</span></h2>
-                    <p>
-                        I am a driven
-                        <strong
-                            >Junior Technical Implementation Specialist</strong
+        <main>
+            <section id="home">
+                <div class="home container hidden">
+                    <div>
+                        <span class="topline">Hello</span>
+                        <h1>I'm a <span class="multiple-text"></span></h1>
+                        <a href="#projects" class="cta btn-hover"
+                            ><span>Portfolio</span></a
                         >
-                        at Printbox, where I bridge the gap between complex
-                        technical solutions and client needs. My daily work
-                        involves troubleshooting, configuring systems, and
-                        ensuring seamless software delivery.
+                    </div>
+                </div>
+            </section>
+
+            <section id="about" class="hidden">
+                <div class="about container">
+                    <div class="col-left">
+                        <div class="about-img">
+                            <img src="./assets/img/me.webp" alt="My photo" />
+                        </div>
+                    </div>
+                    <div class="col-right">
+                        <h2 class="section-title">About <span>me</span></h2>
+                        <p>
+                            I am a driven
+                            <strong
+                                >Junior Technical Implementation
+                                Specialist</strong
+                            >
+                            at Printbox, where I bridge the gap between complex
+                            technical solutions and client needs. My daily work
+                            involves troubleshooting, configuring systems, and
+                            ensuring seamless software delivery.
+                        </p>
+                        <br />
+                        <p>
+                            Currently, I am finalizing my
+                            <strong>Master’s degree in Cybersecurity</strong>,
+                            which gives me a strong foundation in secure coding
+                            practices, data protection, and system analysis. I
+                            combine this academic knowledge with practical
+                            experience in <strong>C# (.NET)</strong> and
+                            <strong>Unity development</strong>.
+                        </p>
+                        <br />
+                        <p>
+                            Beyond code, I am passionate about hardware and
+                            gaming. I believe that understanding the full stack,
+                            <strong
+                                >ranging from hardware limitations to high-level
+                                software architecture</strong
+                            >, makes me a better developer. I am always eager to
+                            learn new frameworks and optimize existing
+                            workflows.
+                        </p>
+
+                        <div class="skills-list">
+                            <span>C# / .NET</span>
+                            <span>Unity3D</span>
+                            <span>C++</span>
+                            <span>Python</span>
+                            <span>Git</span>
+
+                            <span>SQL</span>
+                            <span>XML / JSON</span>
+                            <span>Frontend (HTML/CSS/JS)</span>
+                            <span>Cybersecurity</span>
+
+                            <span>UI/UX Design</span>
+                            <span>Figma</span>
+                            <span>Canva</span>
+                            <span>Blender</span>
+
+                            <span>Technical Support</span>
+                            <span>Project Management</span>
+                            <span>Excel</span>
+                        </div>
+
+                        <a
+                            href="./assets/files/cv.pdf"
+                            class="cta btn-hover"
+                            target="_blank"
+                            ><span>View Resume</span></a
+                        >
+                    </div>
+                </div>
+            </section>
+
+            <section id="timeline">
+                <div class="container timeline-container">
+                    <div class="projects-header">
+                        <h2 class="section-title hidden">
+                            My <span>Timeline</span>
+                        </h2>
+                    </div>
+
+                    <div class="timeline">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-line-fill"></div>
+
+                        <div class="timeline-item hidden left">
+                            <div class="timeline-icon">
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <span class="date">Jan 1999</span>
+                                <h3>Hello World!</h3>
+                                <p>Game Start. Paul has joined the server.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item hidden right">
+                            <div class="timeline-icon">
+                                <i class="fa fa-book"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <span class="date">Sep 2006 - Jun 2012</span>
+                                <h3>Primary School</h3>
+                                <h4>Szkoła Podstawowa w Grabiu</h4>
+                                <p>
+                                    Early stage education and developing general
+                                    interests.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item hidden left">
+                            <div class="timeline-icon">
+                                <i class="fa fa-puzzle-piece"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <span class="date">Sep 2012 - Jun 2015</span>
+                                <h3>Middle School</h3>
+                                <h4>Publiczne Gimnazjum w Łapanowie</h4>
+                                <p>
+                                    General education and exploring early
+                                    interests in IT.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item hidden right">
+                            <div class="timeline-icon">
+                                <i class="fa fa-wrench"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <span class="date">Sep 2015 - Apr 2019</span>
+                                <h3>IT Technician</h3>
+                                <h4>ZSTiO Limanowa</h4>
+                                <p>
+                                    Hardware diagnostics, networking basics, and
+                                    first steps in programming.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item hidden left">
+                            <div class="timeline-icon">
+                                <i class="fa fa-sitemap"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <span class="date">Apr 2019</span>
+                                <h3>CCNA Routing & Switching</h3>
+                                <h4>Introduction to Networks</h4>
+                                <p>
+                                    Cisco Certified Network Associate
+                                    fundamentals: network architecture, IP
+                                    addressing, and router configuration.
+                                </p>
+                                <span class="badge">Certified</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item hidden right">
+                            <div class="timeline-icon">
+                                <i class="fa fa-certificate"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <span class="date">Dec 2020</span>
+                                <h3>MTA: Database Admin</h3>
+                                <p>
+                                    Microsoft Technology Associate: Database
+                                    Administration Fundamentals (98-364).
+                                </p>
+                                <span class="badge">Certified</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item hidden left">
+                            <div class="timeline-icon">
+                                <i class="fa fa-code"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <span class="date">May - Jun 2021</span>
+                                <h3>MTA: Software Dev & HTML5</h3>
+                                <p>
+                                    Software Development Fundamentals (98-361) &
+                                    Intro to Programming using HTML and CSS
+                                    (98-383).
+                                </p>
+                                <span class="badge">Certified</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item hidden right">
+                            <div class="timeline-icon">
+                                <i class="fa fa-user-md"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <span class="date">May 2021 - Aug 2021</span>
+                                <h3>Medical Receptionist</h3>
+                                <h4>Punkt Szczepień Powszechnych Łapanów</h4>
+                                <p>
+                                    Learned communication, patience, and
+                                    problem-solving under pressure.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item hidden left">
+                            <div class="timeline-icon">
+                                <i class="fa fa-hospital-o"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <span class="date">Nov 2021 - Apr 2022</span>
+                                <h3>Medical Receptionist</h3>
+                                <h4>Przychodnia Bocheńska</h4>
+                                <p>
+                                    Patient registration and administrative
+                                    support in a fast-paced environment.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item hidden right">
+                            <div class="timeline-icon">
+                                <i class="fa fa-lock"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <span class="date">Dec 2021</span>
+                                <h3>MTA: Security Fundamentals</h3>
+                                <p>
+                                    Microsoft Technology Associate: Security
+                                    Fundamentals (98-367).
+                                </p>
+                                <span class="badge">Certified</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item hidden left">
+                            <div class="timeline-icon">
+                                <i class="fa fa-cloud"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <span class="date">Jan 2023</span>
+                                <h3>Azure Data Fundamentals</h3>
+                                <p>
+                                    Microsoft Certified: Azure Data Fundamentals
+                                    (DP-900).
+                                </p>
+                                <span class="badge">Certified</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item hidden right">
+                            <div class="timeline-icon">
+                                <i class="fa fa-gamepad"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <span class="date">Oct 2020 - Mar 2024</span>
+                                <h3>Bachelor's Degree</h3>
+                                <h4>WSEI Kraków</h4>
+                                <p>
+                                    Applied Computer Science (Games and
+                                    Multimedia).<br />Defended thesis
+                                    successfully.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item hidden left">
+                            <div class="timeline-icon">
+                                <i class="fa fa-briefcase"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <span class="date">May 2025 - Present</span>
+                                <h3>
+                                    Junior Technical Implementation Specialist
+                                </h3>
+                                <h4>Printbox</h4>
+                                <p>
+                                    Assisting clients with system configuration,
+                                    e-commerce integrations, and resolving
+                                    technical issues.
+                                </p>
+                                <span class="badge active">Current Job</span>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item hidden right">
+                            <div class="timeline-icon">
+                                <i class="fa fa-shield"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <span class="date">Oct 2024 - Present</span>
+                                <h3>Master's Degree</h3>
+                                <h4>WSEI Kraków</h4>
+                                <p>Applied Computer Science (Cybersecurity).</p>
+                                <span class="badge active">In Progress</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="stats">
+                <div class="stats-container container">
+                    <div class="stat-item hidden">
+                        <i class="fa fa-code"></i>
+                        <div class="counter" data-target="5">0</div>
+                        <p>Years of Coding</p>
+                    </div>
+
+                    <div class="stat-item hidden">
+                        <i class="fa fa-certificate"></i>
+                        <div class="counter" data-target="11">0</div>
+                        <p>Certifications</p>
+                    </div>
+
+                    <div class="stat-item hidden">
+                        <i class="fa fa-cubes"></i>
+                        <div class="counter" data-target="20">0</div>
+                        <p>Projects Completed</p>
+                    </div>
+
+                    <div class="stat-item hidden">
+                        <i class="fa fa-coffee"></i>
+                        <div class="counter" data-target="1000">0</div>
+                        <p>Coffees Consumed</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects">
+                <div class="projects container">
+                    <div class="projects-header">
+                        <h2 class="section-title">
+                            Recent <span>Projects</span>
+                        </h2>
+                    </div>
+                    <div class="all-projects">
+                        <div class="project-item hidden">
+                            <div class="project-info">
+                                <h3>NetSentry</h3>
+                                <h4>C# | .NET 10 | WPF | MVVM</h4>
+                                <p>
+                                    A futuristic dashboard featuring real-time
+                                    CPU/RAM visualization, network port
+                                    scanning, and process auditing.
+                                </p>
+                                <a
+                                    href="https://github.com/enviGit/net-sentry"
+                                    target="_blank"
+                                    class="ctaProjects btn-hover"
+                                    aria-label="GitHub Repository for NetSentry Dashboard"
+                                    ><span>GitHub Repo</span></a
+                                >
+                            </div>
+                            <div class="project-img">
+                                <img
+                                    src="./assets/img/netSentry.webp"
+                                    alt="NetSentry Dashboard"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+                        <div class="project-item hidden">
+                            <div class="project-info">
+                                <h3>App Store Reviews Extractor</h3>
+                                <h4>HTML5 | Tailwind CSS | Vanilla JS</h4>
+                                <p>
+                                    Useful tool that helps users analyze App
+                                    Store feedback by fetching the latest
+                                    reviews for any iOS app.
+                                </p>
+                                <a
+                                    href="https://envigit.github.io/appstore-reviews/"
+                                    target="_blank"
+                                    class="ctaProjects btn-hover"
+                                    aria-label="Visit App Store Reviews Extractor Website"
+                                    ><span>Visit Website</span></a
+                                >
+                            </div>
+                            <div class="project-img">
+                                <img
+                                    src="./assets/img/reviewExtractor.webp"
+                                    alt="App Store Reviews Extractor"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+                        <div class="project-item hidden">
+                            <div class="project-info">
+                                <h3>Vibrant Icons</h3>
+                                <h4>UnityEngine | C#</h4>
+                                <p>
+                                    A Unity Editor tool that streamlines
+                                    workflow and project organization by
+                                    enabling easy customization of script icons.
+                                </p>
+                                <a
+                                    href="https://assetstore.unity.com/packages/tools/gui/vibrant-icons-276821"
+                                    target="_blank"
+                                    class="ctaProjects btn-hover"
+                                    aria-label="Vibrant Icons on Unity Asset Store"
+                                    ><span>Unity Asset Store</span></a
+                                >
+                            </div>
+                            <div class="project-img">
+                                <img
+                                    src="./assets/img/vibrantIcons.webp"
+                                    alt="Vibrant Icons"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+                        <div class="project-item hidden">
+                            <div class="project-info">
+                                <h3>Operation Deratization</h3>
+                                <h4>UnityEngine | C# | AI NavMesh</h4>
+                                <p>
+                                    A low poly, first-person shooter game with a
+                                    battle royale theme. Play as a secret agent
+                                    in a prison.
+                                </p>
+                                <a
+                                    href="https://github.com/enviGit/OperationDeratization/tree/main"
+                                    target="_blank"
+                                    class="ctaProjects btn-hover"
+                                    aria-label="GitHub Repository for Operation Deratization"
+                                    ><span>GitHub Repo</span></a
+                                >
+                            </div>
+                            <div class="project-img">
+                                <img
+                                    src="./assets/img/operationDeratization.webp"
+                                    alt="OperationDeratization"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+                        <div class="project-item hidden">
+                            <div class="project-info">
+                                <h3>Weather Prophet</h3>
+                                <h4>C# | .NET 10 | WPF | MVVM | REST API</h4>
+                                <p>
+                                    Multilingual desktop application that allows
+                                    users to check the current weather and
+                                    forecast for a specific city.
+                                </p>
+                                <a
+                                    href="https://github.com/enviGit/WeatherProphet"
+                                    target="_blank"
+                                    class="ctaProjects btn-hover"
+                                    aria-label="GitHub Repository for Weather Prophet"
+                                    ><span>GitHub Repo</span></a
+                                >
+                            </div>
+                            <div class="project-img">
+                                <img
+                                    src="./assets/img/weatherProphet.webp"
+                                    alt="Weather Prophet"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <div class="container contact-container hidden">
+                    <p class="status-label">
+                        <span class="status-dot"></span> Open to connecting
                     </p>
-                    <br />
-                    <p>
-                        Currently, I am finalizing my
-                        <strong>Master’s degree in Cybersecurity</strong>, which
-                        gives me a strong foundation in secure coding practices,
-                        data protection, and system analysis. I combine this
-                        academic knowledge with practical experience in
-                        <strong>C# (.NET)</strong> and
-                        <strong>Unity development</strong>.
+
+                    <h1 class="contact-title">Let's stay in touch!</h1>
+
+                    <p class="contact-desc">
+                        Although I'm currently happily employed at
+                        <strong>Printbox</strong>, I'm always open to discussing
+                        new technologies, sharing knowledge, or just having a
+                        chat about <strong>Unity</strong> development and
+                        <strong>Cybersecurity</strong> trends. <br /><br />
+                        Find me on social media or drop me an email below ↓
                     </p>
-                    <br />
-                    <p>
-                        Beyond code, I am passionate about hardware and gaming.
-                        I believe that understanding the full stack,
-                        <strong
-                            >ranging from hardware limitations to high-level
-                            software architecture</strong
-                        >, makes me a better developer. I am always eager to
-                        learn new frameworks and optimize existing workflows.
-                    </p>
-
-                    <div class="skills-list">
-                        <span>C# / .NET</span>
-                        <span>Unity3D</span>
-                        <span>C++</span>
-                        <span>Python</span>
-                        <span>Git</span>
-
-                        <span>SQL</span>
-                        <span>XML / JSON</span>
-                        <span>Frontend (HTML/CSS/JS)</span>
-                        <span>Cybersecurity</span>
-
-                        <span>UI/UX Design</span>
-                        <span>Figma</span>
-                        <span>Canva</span>
-                        <span>Blender</span>
-
-                        <span>Technical Support</span>
-                        <span>Project Management</span>
-                        <span>Excel</span>
-                    </div>
-
-                    <a
-                        href="./assets/files/cv.pdf"
-                        class="cta btn-hover"
-                        target="_blank"
-                        ><span>View Resume</span></a
-                    >
                 </div>
-            </div>
-        </section>
-
-        <section id="timeline">
-            <div class="container timeline-container">
-                <div class="projects-header">
-                    <h2 class="section-title hidden">
-                        My <span>Timeline</span>
-                    </h2>
-                </div>
-
-                <div class="timeline">
-                    <div class="timeline-line"></div>
-                    <div class="timeline-line-fill"></div>
-
-                    <div class="timeline-item hidden left">
-                        <div class="timeline-icon">
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <span class="date">Jan 1999</span>
-                            <h3>Hello World!</h3>
-                            <p>Game Start. Paul has joined the server.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item hidden right">
-                        <div class="timeline-icon">
-                            <i class="fa fa-book"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <span class="date">Sep 2006 - Jun 2012</span>
-                            <h3>Primary School</h3>
-                            <h4>Szkoła Podstawowa w Grabiu</h4>
-                            <p>
-                                Early stage education and developing general
-                                interests.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item hidden left">
-                        <div class="timeline-icon">
-                            <i class="fa fa-puzzle-piece"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <span class="date">Sep 2012 - Jun 2015</span>
-                            <h3>Middle School</h3>
-                            <h4>Publiczne Gimnazjum w Łapanowie</h4>
-                            <p>
-                                General education and exploring early interests
-                                in IT.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item hidden right">
-                        <div class="timeline-icon">
-                            <i class="fa fa-wrench"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <span class="date">Sep 2015 - Apr 2019</span>
-                            <h3>IT Technician</h3>
-                            <h4>ZSTiO Limanowa</h4>
-                            <p>
-                                Hardware diagnostics, networking basics, and
-                                first steps in programming.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item hidden left">
-                        <div class="timeline-icon">
-                            <i class="fa fa-sitemap"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <span class="date">Apr 2019</span>
-                            <h3>CCNA Routing & Switching</h3>
-                            <h4>Introduction to Networks</h4>
-                            <p>
-                                Cisco Certified Network Associate fundamentals:
-                                network architecture, IP addressing, and router
-                                configuration.
-                            </p>
-                            <span class="badge">Certified</span>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item hidden right">
-                        <div class="timeline-icon">
-                            <i class="fa fa-certificate"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <span class="date">Dec 2020</span>
-                            <h3>MTA: Database Admin</h3>
-                            <p>
-                                Microsoft Technology Associate: Database
-                                Administration Fundamentals (98-364).
-                            </p>
-                            <span class="badge">Certified</span>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item hidden left">
-                        <div class="timeline-icon">
-                            <i class="fa fa-code"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <span class="date">May - Jun 2021</span>
-                            <h3>MTA: Software Dev & HTML5</h3>
-                            <p>
-                                Software Development Fundamentals (98-361) &
-                                Intro to Programming using HTML and CSS
-                                (98-383).
-                            </p>
-                            <span class="badge">Certified</span>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item hidden right">
-                        <div class="timeline-icon">
-                            <i class="fa fa-user-md"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <span class="date">May 2021 - Aug 2021</span>
-                            <h3>Medical Receptionist</h3>
-                            <h4>Punkt Szczepień Powszechnych Łapanów</h4>
-                            <p>
-                                Learned communication, patience, and
-                                problem-solving under pressure.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item hidden left">
-                        <div class="timeline-icon">
-                            <i class="fa fa-hospital-o"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <span class="date">Nov 2021 - Apr 2022</span>
-                            <h3>Medical Receptionist</h3>
-                            <h4>Przychodnia Bocheńska</h4>
-                            <p>
-                                Patient registration and administrative support
-                                in a fast-paced environment.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item hidden right">
-                        <div class="timeline-icon">
-                            <i class="fa fa-lock"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <span class="date">Dec 2021</span>
-                            <h3>MTA: Security Fundamentals</h3>
-                            <p>
-                                Microsoft Technology Associate: Security
-                                Fundamentals (98-367).
-                            </p>
-                            <span class="badge">Certified</span>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item hidden left">
-                        <div class="timeline-icon">
-                            <i class="fa fa-cloud"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <span class="date">Jan 2023</span>
-                            <h3>Azure Data Fundamentals</h3>
-                            <p>
-                                Microsoft Certified: Azure Data Fundamentals
-                                (DP-900).
-                            </p>
-                            <span class="badge">Certified</span>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item hidden right">
-                        <div class="timeline-icon">
-                            <i class="fa fa-gamepad"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <span class="date">Oct 2020 - Mar 2024</span>
-                            <h3>Bachelor's Degree</h3>
-                            <h4>WSEI Kraków</h4>
-                            <p>
-                                Applied Computer Science (Games and
-                                Multimedia).<br />Defended thesis successfully.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item hidden left">
-                        <div class="timeline-icon">
-                            <i class="fa fa-briefcase"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <span class="date">May 2025 - Present</span>
-                            <h3>Junior Technical Implementation Specialist</h3>
-                            <h4>Printbox</h4>
-                            <p>
-                                Assisting clients with system configuration,
-                                e-commerce integrations, and resolving technical
-                                issues.
-                            </p>
-                            <span class="badge active">Current Job</span>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item hidden right">
-                        <div class="timeline-icon">
-                            <i class="fa fa-shield"></i>
-                        </div>
-                        <div class="timeline-content">
-                            <span class="date">Oct 2024 - Present</span>
-                            <h3>Master's Degree</h3>
-                            <h4>WSEI Kraków</h4>
-                            <p>Applied Computer Science (Cybersecurity).</p>
-                            <span class="badge active">In Progress</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="stats">
-            <div class="stats-container container">
-                <div class="stat-item hidden">
-                    <i class="fa fa-code"></i>
-                    <div class="counter" data-target="5">0</div>
-                    <p>Years of Coding</p>
-                </div>
-
-                <div class="stat-item hidden">
-                    <i class="fa fa-certificate"></i>
-                    <div class="counter" data-target="11">0</div>
-                    <p>Certifications</p>
-                </div>
-
-                <div class="stat-item hidden">
-                    <i class="fa fa-cubes"></i>
-                    <div class="counter" data-target="20">0</div>
-                    <p>Projects Completed</p>
-                </div>
-
-                <div class="stat-item hidden">
-                    <i class="fa fa-coffee"></i>
-                    <div class="counter" data-target="1000">0</div>
-                    <p>Coffees Consumed</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects">
-            <div class="projects container">
-                <div class="projects-header">
-                    <h2 class="section-title">Recent <span>Projects</span></h2>
-                </div>
-                <div class="all-projects">
-                    <div class="project-item hidden">
-                        <div class="project-info">
-                            <h3>NetSentry</h3>
-                            <h4>C# | .NET 10 | WPF | MVVM</h4>
-                            <p>
-                                A futuristic dashboard featuring real-time
-                                CPU/RAM visualization, network port scanning,
-                                and process auditing.
-                            </p>
-                            <a
-                                href="https://github.com/enviGit/net-sentry"
-                                target="_blank"
-                                class="ctaProjects btn-hover"
-                                ><span>GitHub Repo</span></a
-                            >
-                        </div>
-                        <div class="project-img">
-                            <img
-                                src="./assets/img/netSentry.webp"
-                                alt="NetSentry Dashboard"
-                                loading="lazy"
-                            />
-                        </div>
-                    </div>
-                    <div class="project-item hidden">
-                        <div class="project-info">
-                            <h3>App Store Reviews Extractor</h3>
-                            <h4>HTML5 | Tailwind CSS | Vanilla JS</h4>
-                            <p>
-                                Useful tool that helps users analyze App Store
-                                feedback by fetching the latest reviews for any
-                                iOS app.
-                            </p>
-                            <a
-                                href="https://envigit.github.io/appstore-reviews/"
-                                target="_blank"
-                                class="ctaProjects btn-hover"
-                                ><span>Visit Website</span></a
-                            >
-                        </div>
-                        <div class="project-img">
-                            <img
-                                src="./assets/img/reviewExtractor.webp"
-                                alt="App Store Reviews Extractor"
-                                loading="lazy"
-                            />
-                        </div>
-                    </div>
-                    <div class="project-item hidden">
-                        <div class="project-info">
-                            <h3>Vibrant Icons</h3>
-                            <h4>UnityEngine | C#</h4>
-                            <p>
-                                A Unity Editor tool that streamlines workflow
-                                and project organization by enabling easy
-                                customization of script icons.
-                            </p>
-                            <a
-                                href="https://assetstore.unity.com/packages/tools/gui/vibrant-icons-276821"
-                                target="_blank"
-                                class="ctaProjects btn-hover"
-                                ><span>Unity Asset Store</span></a
-                            >
-                        </div>
-                        <div class="project-img">
-                            <img
-                                src="./assets/img/vibrantIcons.webp"
-                                alt="Vibrant Icons"
-                                loading="lazy"
-                            />
-                        </div>
-                    </div>
-                    <div class="project-item hidden">
-                        <div class="project-info">
-                            <h3>Operation Deratization</h3>
-                            <h4>UnityEngine | C# | AI NavMesh</h4>
-                            <p>
-                                A low poly, first-person shooter game with a
-                                battle royale theme. Play as a secret agent in a
-                                prison.
-                            </p>
-                            <a
-                                href="https://github.com/enviGit/OperationDeratization/tree/main"
-                                target="_blank"
-                                class="ctaProjects btn-hover"
-                                ><span>GitHub Repo</span></a
-                            >
-                        </div>
-                        <div class="project-img">
-                            <img
-                                src="./assets/img/operationDeratization.webp"
-                                alt="OperationDeratization"
-                                loading="lazy"
-                            />
-                        </div>
-                    </div>
-                    <div class="project-item hidden">
-                        <div class="project-info">
-                            <h3>Weather Prophet</h3>
-                            <h4>C# | .NET 10 | WPF | MVVM | REST API</h4>
-                            <p>
-                                Multilingual desktop application that allows
-                                users to check the current weather and forecast
-                                for a specific city.
-                            </p>
-                            <a
-                                href="https://github.com/enviGit/WeatherProphet"
-                                target="_blank"
-                                class="ctaProjects btn-hover"
-                                ><span>GitHub Repo</span></a
-                            >
-                        </div>
-                        <div class="project-img">
-                            <img
-                                src="./assets/img/weatherProphet.webp"
-                                alt="Weather Prophet"
-                                loading="lazy"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact">
-            <div class="container contact-container hidden">
-                <p class="status-label">
-                    <span class="status-dot"></span> Open to connecting
-                </p>
-
-                <h1 class="contact-title">Let's stay in touch!</h1>
-
-                <p class="contact-desc">
-                    Although I'm currently happily employed at
-                    <strong>Printbox</strong>, I'm always open to discussing new
-                    technologies, sharing knowledge, or just having a chat about
-                    <strong>Unity</strong> development and
-                    <strong>Cybersecurity</strong> trends. <br /><br />
-                    Find me on social media or drop me an email below ↓
-                </p>
-            </div>
-        </section>
+            </section>
+        </main>
 
         <section id="footer">
             <div class="footer-container">
