@@ -5,13 +5,14 @@ document.addEventListener("DOMContentLoaded", () => {
   safeInit(initDynamicYear);
   safeInit(initMobileMenu);
   safeInit(initNavigationMarker);
-  safeInit(initCursorSystem); // Single Dot Cursor
-  safeInit(initButtonHoverEffect); // Directional Hover
+  safeInit(initCursorSystem);
+  safeInit(initButtonHoverEffect);
   safeInit(initScrollReveal);
   safeInit(initStatsCounter);
   safeInit(initTimelineProgress);
   safeInit(initBackToTop);
   safeInit(initCopyEmail);
+  safeInit(initTerminal);
 
   function safeInit(func) {
     try {
@@ -23,7 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- 2. LOGIC DEFINITIONS ---
 
-  // --- Custom Cursor (Single Dot Version) ---
   function initCursorSystem() {
     if (window.matchMedia("(hover: none)").matches) return;
 
@@ -31,19 +31,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!cursor) return;
 
-    // 1. Basic Movement (Instant position update for precision)
     document.addEventListener("mousemove", (e) => {
-      // Show cursor on first movement if hidden
       if (!cursor.classList.contains("visible")) {
         cursor.classList.add("visible");
       }
 
-      // Direct position assignment
       cursor.style.left = e.clientX + "px";
       cursor.style.top = e.clientY + "px";
     });
 
-    // 2. Hide/Show on window leave/enter
     document.addEventListener("mouseleave", () =>
       cursor.classList.remove("visible"),
     );
@@ -51,7 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
       cursor.classList.add("visible"),
     );
 
-    // 3. Click Interaction (Shrink effect)
     document.addEventListener("mousedown", () =>
       document.body.classList.add("click-active"),
     );
@@ -59,10 +54,9 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.remove("click-active"),
     );
 
-    // 4. Hover Interaction (Expand effect on interactive elements)
     const expandSelectors = `
             a:not(.cta):not(.ctaProjects),
-            button:not(#back-to-top),
+            button:not(#back-to-top):not(#terminal-toggle),
             .nav-link
         `;
     const expandElements = document.querySelectorAll(expandSelectors);
@@ -88,9 +82,9 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     });
 
-    // 5. Contrast Interaction
     const contrastSelectors = `
             #back-to-top,
+            #terminal-toggle,
             .timeline-icon,
             .skills-list span
         `;
@@ -105,7 +99,6 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     });
 
-    // 6. Image Interaction
     const allImages = document.querySelectorAll("img");
     allImages.forEach((img) => {
       img.addEventListener("mouseenter", () =>
@@ -205,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
     next();
   }
 
-  // --- Direction Aware Buttons (Hover Effect) ---
+  // --- Direction Aware Buttons ---
   function initButtonHoverEffect() {
     const buttons = document.querySelectorAll(".btn-hover");
 
@@ -213,13 +206,9 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.addEventListener("mouseenter", function (e) {
         const directions = getDirection(e, btn);
 
-        // Disable transition to set start position instantly
         btn.style.setProperty("--transition", "none");
-        setCoords(btn, directions); // Enter state
-
-        btn.offsetHeight; // Force reflow
-
-        // Enable transition and move to center
+        setCoords(btn, directions);
+        btn.offsetHeight;
         btn.style.setProperty(
           "--transition",
           "transform 0.3s cubic-bezier(0.215, 0.610, 0.355, 1.000)",
@@ -234,7 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
           "--transition",
           "transform 0.3s cubic-bezier(0.215, 0.610, 0.355, 1.000)",
         );
-        setCoords(btn, directions, true); // Exit state
+        setCoords(btn, directions, true);
       });
     });
 
@@ -242,13 +231,11 @@ document.addEventListener("DOMContentLoaded", () => {
       let tx = "0%",
         ty = "0%";
       if (!exit) {
-        // Entry logic
         if (dir === 0) ty = "-100%";
         else if (dir === 1) tx = "100%";
         else if (dir === 2) ty = "100%";
         else tx = "-100%";
       } else {
-        // Exit logic
         if (dir === 0) ty = "-100%";
         else if (dir === 1) tx = "100%";
         else if (dir === 2) ty = "100%";
@@ -281,13 +268,11 @@ document.addEventListener("DOMContentLoaded", () => {
       "(prefers-color-scheme: light)",
     ).matches;
 
-    // Apply saved or system theme on load
     if (currentTheme === "light" || (!currentTheme && systemPrefersLight)) {
       document.body.classList.add("light-mode");
       updateIcon(true);
     }
 
-    // Toggle click handler
     themeBtn.addEventListener("click", () => {
       this.blur();
       document.body.classList.toggle("light-mode");
@@ -296,7 +281,6 @@ document.addEventListener("DOMContentLoaded", () => {
       updateIcon(isLight);
     });
 
-    // Listen for system preference changes
     window
       .matchMedia("(prefers-color-scheme: light)")
       .addEventListener("change", (e) => {
@@ -342,7 +326,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.classList.toggle("no-scroll");
       });
 
-      // Close menu when a link is clicked
       menuItems.forEach((item) => {
         item.addEventListener("click", () => {
           hamburger.classList.remove("active");
@@ -353,7 +336,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // --- Navigation Marker (Optimized with RAF) ---
+  // --- Navigation Marker ---
   function initNavigationMarker() {
     const marker = document.querySelector(".marker");
     const navLinks = document.querySelectorAll(".nav-link");
@@ -372,11 +355,9 @@ document.addEventListener("DOMContentLoaded", () => {
       marker.style.width = element.offsetWidth + "px";
     }
 
-    // Set initial position
     const homeLink = document.querySelector('a[data-section="home"]');
     if (homeLink) moveMarker(homeLink);
 
-    // Click Handler
     navLinks.forEach((link) => {
       link.addEventListener("click", () => {
         isManualScrolling = true;
@@ -398,7 +379,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let isTicking = false;
 
-    // Scroll Handler
     window.addEventListener(
       "scroll",
       () => {
@@ -491,7 +471,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (statsSection) statsObserver.observe(statsSection);
   }
 
-  // --- Timeline Progress Bar (Optimized with RAF) ---
+  // --- Timeline Progress Bar ---
   function initTimelineProgress() {
     const section = document.querySelector("#timeline");
     const fill = document.querySelector(".timeline-line-fill");
@@ -549,14 +529,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let isToastActive = false;
 
-    // Helper: Create and show toast
     function showToast(message) {
       const toast = document.createElement("div");
       toast.className = "toast-notification";
       toast.innerHTML = `<i class="fa fa-check-circle"></i> <span>${message}</span>`;
       document.body.appendChild(toast);
 
-      // Reflow
       toast.offsetHeight;
       toast.classList.add("show");
 
@@ -604,5 +582,299 @@ document.addEventListener("DOMContentLoaded", () => {
           });
       });
     });
+  }
+
+  // --- TERMINAL ---
+  function initTerminal() {
+    const openBtn = document.getElementById("terminal-toggle");
+    const closeBtn = document.getElementById("close-terminal");
+    const overlay = document.getElementById("terminal-overlay");
+    const header = document.getElementById("terminal-header");
+    const input = document.getElementById("terminal-input");
+    const body = document.getElementById("terminal-body");
+
+    if (!openBtn || !overlay || !input) return;
+
+    let isFirstOpen = true;
+
+    // --- HISTORY SYSTEM ---
+    const commandHistory = [];
+    let historyIndex = -1;
+
+    // --- FILE SYSTEM ---
+    const fileSystem = {
+      "about.txt":
+        "Junior Technical Implementation Specialist & Cybersecurity student. Passionate about C#, .NET, and breaking things to fix them.",
+      "skills.md": "C# | .NET | Unity | Python | SQL | Git | Cybersecurity",
+      "contact.info":
+        "Email: paweltrojanski@gmail.com | LinkedIn: /in/ptrojanski",
+      "projects/":
+        "Dir: [NetSentry, WeatherProphet, OperationDeratization, VibrantIcons]",
+      "cv.pdf": "Binary file. Use command 'open cv.pdf' to view.",
+    };
+
+    openBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      if (overlay.classList.contains("hidden-terminal")) {
+        overlay.classList.remove("hidden-terminal");
+
+        if (isFirstOpen) {
+          const viewportWidth = window.innerWidth;
+          const viewportHeight = window.innerHeight;
+          const terminalWidth = overlay.offsetWidth;
+          const terminalHeight = overlay.offsetHeight;
+
+          overlay.style.transform = "none";
+          overlay.style.left = `${(viewportWidth - terminalWidth) / 2}px`;
+          overlay.style.top = `${(viewportHeight - terminalHeight) / 2}px`;
+
+          isFirstOpen = false;
+        }
+
+        input.focus();
+      } else {
+        overlay.classList.add("hidden-terminal");
+      }
+    });
+
+    closeBtn.addEventListener("click", () => {
+      overlay.classList.add("hidden-terminal");
+    });
+
+    body.addEventListener("click", () => {
+      if (window.getSelection().toString().length === 0) {
+        input.focus();
+      }
+    });
+
+    // --- DRAG LOGIC ---
+    let isDragging = false;
+    let startX, startY, initialLeft, initialTop;
+
+    header.addEventListener("mousedown", (e) => {
+      isDragging = true;
+      startX = e.clientX;
+      startY = e.clientY;
+
+      const rect = overlay.getBoundingClientRect();
+      initialLeft = rect.left;
+      initialTop = rect.top;
+
+      overlay.style.transform = "none";
+      overlay.style.left = initialLeft + "px";
+      overlay.style.top = initialTop + "px";
+
+      document.body.style.userSelect = "none";
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (!isDragging) return;
+
+      const deltaX = e.clientX - startX;
+      const deltaY = e.clientY - startY;
+
+      let newLeft = initialLeft + deltaX;
+      let newTop = initialTop + deltaY;
+
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
+      const elWidth = overlay.offsetWidth;
+      const elHeight = overlay.offsetHeight;
+
+      if (newLeft < 0) newLeft = 0;
+      if (newLeft + elWidth > windowWidth) newLeft = windowWidth - elWidth;
+      if (newTop < 0) newTop = 0;
+      if (newTop + elHeight > windowHeight) newTop = windowHeight - elHeight;
+
+      overlay.style.left = `${newLeft}px`;
+      overlay.style.top = `${newTop}px`;
+    });
+
+    document.addEventListener("mouseup", () => {
+      isDragging = false;
+      document.body.style.userSelect = "";
+    });
+
+    // --- INPUT HANDLING ---
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        const rawValue = this.value.trim();
+
+        if (rawValue !== "") {
+          commandHistory.push(rawValue);
+          historyIndex = commandHistory.length;
+        }
+
+        const args = rawValue.split(/\s+/);
+        const cmd = args[0].toLowerCase();
+
+        processCommand(cmd, args.slice(1), rawValue);
+        this.value = "";
+      }
+      // --- HISTORY NAVIGATION ---
+      else if (e.key === "ArrowUp") {
+        e.preventDefault();
+        if (historyIndex > 0) {
+          historyIndex--;
+          this.value = commandHistory[historyIndex];
+        }
+      } else if (e.key === "ArrowDown") {
+        e.preventDefault();
+        if (historyIndex < commandHistory.length - 1) {
+          historyIndex++;
+          this.value = commandHistory[historyIndex];
+        } else {
+          historyIndex = commandHistory.length;
+          this.value = "";
+        }
+      }
+    });
+
+    function processCommand(cmd, args, rawValue) {
+      const line = document.createElement("div");
+      line.innerHTML = `<span class="prompt-text" style="color:#aaa;">[guest@ptrojanski ~]$</span> ${escapeHtml(rawValue)}`;
+      body.insertBefore(line, body.lastElementChild);
+
+      let response = "";
+      let isHtml = false;
+
+      switch (cmd) {
+        case "help":
+          response = `Available commands:
+            <br>&nbsp;&nbsp;<span style="color:#fff">ls</span>       - List directory contents
+            <br>&nbsp;&nbsp;<span style="color:#fff">cat [file]</span> - Display file content
+            <br>&nbsp;&nbsp;<span style="color:#fff">cd [dir]</span>  - Change directory (navigation)
+            <br>&nbsp;&nbsp;<span style="color:#fff">whoami</span>    - Display current user
+            <br>&nbsp;&nbsp;<span style="color:#fff">date</span>      - Display current date/time
+            <br>&nbsp;&nbsp;<span style="color:#fff">theme</span>     - Switch theme (usage: theme light/dark)
+            <br>&nbsp;&nbsp;<span style="color:#fff">clear</span>     - Clear terminal screen
+            <br>&nbsp;&nbsp;<span style="color:#fff">exit</span>      - Close terminal`;
+          isHtml = true;
+          break;
+
+        case "ls":
+        case "ll":
+          const files = Object.keys(fileSystem)
+            .map((f) => {
+              if (f.endsWith("/"))
+                return `<span style="color:#4d4dff; font-weight:bold;">${f}</span>`;
+              if (f.endsWith(".pdf") || f.endsWith(".zip"))
+                return `<span style="color:#ff5f56;">${f}</span>`;
+              return `<span style="color:#ccc;">${f}</span>`;
+            })
+            .join("&nbsp;&nbsp;&nbsp;");
+          response = files;
+          isHtml = true;
+          break;
+
+        case "cat":
+          if (args.length === 0) {
+            response = "usage: cat [file]";
+          } else {
+            const fileName = args[0];
+            if (fileSystem[fileName]) {
+              response = fileSystem[fileName];
+            } else {
+              response = `cat: ${escapeHtml(fileName)}: No such file or directory`;
+            }
+          }
+          break;
+
+        case "whoami":
+          response = "root (Paweł Trojański)";
+          break;
+
+        case "date":
+          response = new Date().toString();
+          break;
+
+        case "cd":
+        case "open":
+          if (args.length === 0) {
+            response = "usage: cd [directory] or open [file]";
+          } else {
+            const target = args[0].toLowerCase();
+            if (target === "projects" || target === "projects/") {
+              response = "Navigating to Projects section...";
+              document
+                .querySelector("#projects")
+                .scrollIntoView({ behavior: "smooth" });
+              if (window.innerWidth < 768)
+                overlay.classList.add("hidden-terminal");
+            } else if (target === "cv.pdf") {
+              response = "Opening CV...";
+              window.open("./assets/files/cv.pdf", "_blank");
+            } else {
+              response = `cd: ${escapeHtml(target)}: No such directory (Try 'projects')`;
+            }
+          }
+          break;
+
+        case "theme":
+          if (args.length === 0) {
+            response = "usage: theme [light|dark]";
+          } else {
+            const mode = args[0].toLowerCase();
+            const themeBtn = document.getElementById("theme-toggle");
+            if (mode === "light") {
+              if (!document.body.classList.contains("light-mode"))
+                themeBtn.click();
+              response = "Theme set to LIGHT.";
+            } else if (mode === "dark") {
+              if (document.body.classList.contains("light-mode"))
+                themeBtn.click();
+              response = "Theme set to DARK.";
+            } else {
+              response = `theme: unknown argument '${escapeHtml(mode)}'`;
+            }
+          }
+          break;
+
+        case "sudo":
+          response = `<span style="color:red">guest is not in the sudoers file. This incident will be reported.</span>`;
+          isHtml = true;
+          break;
+
+        case "exit":
+          overlay.classList.add("hidden-terminal");
+          return;
+
+        case "clear":
+          while (body.children.length > 1) {
+            body.removeChild(body.firstChild);
+          }
+          return;
+
+        case "":
+          return;
+
+        default:
+          response = `Command not found: ${escapeHtml(cmd)}. Type 'help' for options.`;
+      }
+
+      const respLine = document.createElement("div");
+      respLine.style.marginBottom = "10px";
+      respLine.style.color = "#ccc";
+
+      if (isHtml) {
+        respLine.innerHTML = response;
+      } else {
+        respLine.textContent = response;
+      }
+
+      body.insertBefore(respLine, body.lastElementChild);
+
+      body.scrollTop = body.scrollHeight;
+    }
+
+    function escapeHtml(text) {
+      return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
   }
 });

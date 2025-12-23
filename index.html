@@ -97,7 +97,12 @@
                     <div class="brand">
                         <a href="#home">
                             <div class="brand-text">
-                                <span>P</span>aweł <span>T</span>rojański
+                                <span class="glitch-effect" data-text="P"
+                                    >P</span
+                                >aweł
+                                <span class="glitch-effect" data-text="T"
+                                    >T</span
+                                >rojański
                             </div>
                         </a>
                     </div>
@@ -174,8 +179,17 @@
             <section id="home">
                 <div class="home container hidden">
                     <div>
-                        <span class="topline">Hello</span>
-                        <h1>I'm a <span class="multiple-text"></span></h1>
+                        <div class="cmd-line">
+                            <span class="cmd-prompt"
+                                >[guest@ptrojanski ~]$</span
+                            >
+                            <span class="cmd-command">whoami</span>
+                        </div>
+                        <h1 class="console-output">
+                            <span class="multiple-text"></span
+                            ><span class="cursor-blink">_</span>
+                        </h1>
+
                         <a href="#projects" class="cta btn-hover"
                             ><span>Portfolio</span></a
                         >
@@ -273,7 +287,7 @@
                             <div class="timeline-icon">
                                 <i class="fa fa-star"></i>
                             </div>
-                            <div class="timeline-content">
+                            <div class="timeline-content glass-card">
                                 <span class="date">Jan 1999</span>
                                 <h3>Hello World!</h3>
                                 <p>Game Start. Paul has joined the server.</p>
@@ -284,7 +298,7 @@
                             <div class="timeline-icon">
                                 <i class="fa fa-book"></i>
                             </div>
-                            <div class="timeline-content">
+                            <div class="timeline-content glass-card">
                                 <span class="date">Sep 2006 - Jun 2012</span>
                                 <h3>Primary School</h3>
                                 <h4>Szkoła Podstawowa w Grabiu</h4>
@@ -299,7 +313,7 @@
                             <div class="timeline-icon">
                                 <i class="fa fa-puzzle-piece"></i>
                             </div>
-                            <div class="timeline-content">
+                            <div class="timeline-content glass-card">
                                 <span class="date">Sep 2012 - Jun 2015</span>
                                 <h3>Middle School</h3>
                                 <h4>Publiczne Gimnazjum w Łapanowie</h4>
@@ -314,7 +328,7 @@
                             <div class="timeline-icon">
                                 <i class="fa fa-wrench"></i>
                             </div>
-                            <div class="timeline-content">
+                            <div class="timeline-content glass-card">
                                 <span class="date">Sep 2015 - Apr 2019</span>
                                 <h3>IT Technician</h3>
                                 <h4>ZSTiO Limanowa</h4>
@@ -329,7 +343,7 @@
                             <div class="timeline-icon">
                                 <i class="fa fa-sitemap"></i>
                             </div>
-                            <div class="timeline-content">
+                            <div class="timeline-content glass-card">
                                 <span class="date">Apr 2019</span>
                                 <h3>CCNA Routing & Switching</h3>
                                 <h4>Introduction to Networks</h4>
@@ -346,7 +360,7 @@
                             <div class="timeline-icon">
                                 <i class="fa fa-certificate"></i>
                             </div>
-                            <div class="timeline-content">
+                            <div class="timeline-content glass-card">
                                 <span class="date">Dec 2020</span>
                                 <h3>MTA: Database Admin</h3>
                                 <p>
@@ -361,7 +375,7 @@
                             <div class="timeline-icon">
                                 <i class="fa fa-code"></i>
                             </div>
-                            <div class="timeline-content">
+                            <div class="timeline-content glass-card">
                                 <span class="date">May - Jun 2021</span>
                                 <h3>MTA: Software Dev & HTML5</h3>
                                 <p>
@@ -377,7 +391,7 @@
                             <div class="timeline-icon">
                                 <i class="fa fa-user-md"></i>
                             </div>
-                            <div class="timeline-content">
+                            <div class="timeline-content glass-card">
                                 <span class="date">May 2021 - Aug 2021</span>
                                 <h3>Medical Receptionist</h3>
                                 <h4>Punkt Szczepień Powszechnych Łapanów</h4>
@@ -392,7 +406,7 @@
                             <div class="timeline-icon">
                                 <i class="fa fa-hospital-o"></i>
                             </div>
-                            <div class="timeline-content">
+                            <div class="timeline-content glass-card">
                                 <span class="date">Nov 2021 - Apr 2022</span>
                                 <h3>Medical Receptionist</h3>
                                 <h4>Przychodnia Bocheńska</h4>
@@ -407,7 +421,7 @@
                             <div class="timeline-icon">
                                 <i class="fa fa-lock"></i>
                             </div>
-                            <div class="timeline-content">
+                            <div class="timeline-content glass-card">
                                 <span class="date">Dec 2021</span>
                                 <h3>MTA: Security Fundamentals</h3>
                                 <p>
@@ -422,7 +436,7 @@
                             <div class="timeline-icon">
                                 <i class="fa fa-cloud"></i>
                             </div>
-                            <div class="timeline-content">
+                            <div class="timeline-content glass-card">
                                 <span class="date">Jan 2023</span>
                                 <h3>Azure Data Fundamentals</h3>
                                 <p>
@@ -437,7 +451,7 @@
                             <div class="timeline-icon">
                                 <i class="fa fa-gamepad"></i>
                             </div>
-                            <div class="timeline-content">
+                            <div class="timeline-content glass-card">
                                 <span class="date">Oct 2020 - Mar 2024</span>
                                 <h3>Bachelor's Degree</h3>
                                 <h4>WSEI Kraków</h4>
@@ -453,7 +467,7 @@
                             <div class="timeline-icon">
                                 <i class="fa fa-briefcase"></i>
                             </div>
-                            <div class="timeline-content">
+                            <div class="timeline-content glass-card">
                                 <span class="date">May 2025 - Present</span>
                                 <h3>
                                     Junior Technical Implementation Specialist
@@ -472,7 +486,7 @@
                             <div class="timeline-icon">
                                 <i class="fa fa-shield"></i>
                             </div>
-                            <div class="timeline-content">
+                            <div class="timeline-content glass-card">
                                 <span class="date">Oct 2024 - Present</span>
                                 <h3>Master's Degree</h3>
                                 <h4>WSEI Kraków</h4>
@@ -486,25 +500,25 @@
 
             <section id="stats">
                 <div class="stats-container container">
-                    <div class="stat-item hidden">
+                    <div class="stat-item glass-card hidden">
                         <i class="fa fa-code"></i>
                         <div class="counter" data-target="5">0</div>
                         <p>Years of Coding</p>
                     </div>
 
-                    <div class="stat-item hidden">
+                    <div class="stat-item glass-card hidden">
                         <i class="fa fa-certificate"></i>
                         <div class="counter" data-target="11">0</div>
                         <p>Certifications</p>
                     </div>
 
-                    <div class="stat-item hidden">
+                    <div class="stat-item glass-card hidden">
                         <i class="fa fa-cubes"></i>
                         <div class="counter" data-target="20">0</div>
                         <p>Projects Completed</p>
                     </div>
 
-                    <div class="stat-item hidden">
+                    <div class="stat-item glass-card hidden">
                         <i class="fa fa-coffee"></i>
                         <div class="counter" data-target="1000">0</div>
                         <p>Coffees Consumed</p>
@@ -520,7 +534,7 @@
                         </h2>
                     </div>
                     <div class="all-projects">
-                        <div class="project-item hidden">
+                        <div class="project-item glass-card hidden">
                             <div class="project-info">
                                 <h3>NetSentry</h3>
                                 <h4>C# | .NET 10 | WPF | MVVM</h4>
@@ -545,7 +559,7 @@
                                 />
                             </div>
                         </div>
-                        <div class="project-item hidden">
+                        <div class="project-item glass-card hidden">
                             <div class="project-info">
                                 <h3>App Store Reviews Extractor</h3>
                                 <h4>HTML5 | Tailwind CSS | Vanilla JS</h4>
@@ -570,7 +584,7 @@
                                 />
                             </div>
                         </div>
-                        <div class="project-item hidden">
+                        <div class="project-item glass-card hidden">
                             <div class="project-info">
                                 <h3>Vibrant Icons</h3>
                                 <h4>UnityEngine | C#</h4>
@@ -595,7 +609,7 @@
                                 />
                             </div>
                         </div>
-                        <div class="project-item hidden">
+                        <div class="project-item glass-card hidden">
                             <div class="project-info">
                                 <h3>Operation Deratization</h3>
                                 <h4>UnityEngine | C# | AI NavMesh</h4>
@@ -620,7 +634,32 @@
                                 />
                             </div>
                         </div>
-                        <div class="project-item hidden">
+                        <div class="project-item glass-card hidden">
+                            <div class="project-info">
+                                <h3>Pomodoro Timer</h3>
+                                <h4>C# | .NET 10 | WPF | MVVM</h4>
+                                <p>
+                                    Desktop application that helps users apply
+                                    the Pomodoro technique by providing a timer
+                                    for the work and break sessions.
+                                </p>
+                                <a
+                                    href="https://github.com/enviGit/PomodoroTimer"
+                                    target="_blank"
+                                    class="ctaProjects btn-hover"
+                                    aria-label="GitHub Repository for Pomodoro Timer"
+                                    ><span>GitHub Repo</span></a
+                                >
+                            </div>
+                            <div class="project-img">
+                                <img
+                                    src="./assets/img/pomodoroTimer.webp"
+                                    alt="Pomodoro Timer"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+                        <div class="project-item glass-card hidden">
                             <div class="project-info">
                                 <h3>Weather Prophet</h3>
                                 <h4>C# | .NET 10 | WPF | MVVM | REST API</h4>
@@ -733,6 +772,41 @@
         <button id="back-to-top" aria-label="Back to top">
             <i class="fa fa-arrow-up"></i>
         </button>
+
+        <button id="terminal-toggle" aria-label="Open Terminal">
+            <i class="fa fa-terminal"></i>
+        </button>
+
+        <div id="terminal-overlay" class="hidden-terminal">
+            <div class="terminal-window" id="terminal-window">
+                <div class="terminal-header" id="terminal-header">
+                    <span class="terminal-title">guest@ptrojanski: ~</span>
+                    <button id="close-terminal" class="close-btn">
+                        &times;
+                    </button>
+                </div>
+                <div class="terminal-body" id="terminal-body">
+                    <div class="output">
+                        <p>Welcome to Paweł Trojański's Terminal v1.0.0</p>
+                        <p>
+                            Type <span class="cmd-highlight">'help'</span> to
+                            see available commands.
+                        </p>
+                        <br />
+                    </div>
+                    <div class="input-line">
+                        <span class="prompt-text">[guest@ptrojanski ~]$</span>
+                        <input
+                            type="text"
+                            id="terminal-input"
+                            autocomplete="off"
+                            spellcheck="false"
+                            autofocus
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <script src="./assets/js/script.min.js"></script>
     </body>
