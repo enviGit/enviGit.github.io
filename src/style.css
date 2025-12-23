@@ -13,6 +13,13 @@
     --home-bg-1: rgba(0, 0, 0, 0.8);
     --home-bg-2: rgba(0, 0, 0, 0.9);
     --glass-bg: rgba(30, 30, 30, 0.6);
+
+    --term-bg: rgba(10, 10, 10, 0.95);
+    --term-header-bg: #222;
+    --term-border: #333;
+    --term-text: #fff;
+    --term-text-muted: #ccc;
+    --term-shadow: rgba(0, 0, 0, 0.5);
 }
 
 @keyframes pageFadeIn {
@@ -47,6 +54,13 @@ body.light-mode {
     --home-bg-1: rgba(255, 255, 255, 0.8);
     --home-bg-2: rgba(243, 244, 246, 0.9);
     --glass-bg: rgba(255, 255, 255, 0.7);
+
+    --term-bg: rgba(255, 255, 255, 0.95);
+    --term-header-bg: #e5e7eb;
+    --term-border: #d1d5db;
+    --term-text: #1f2937;
+    --term-text-muted: #6b7280;
+    --term-shadow: rgba(0, 0, 0, 0.15);
 }
 
 /* --- LIGHT MODE CURSOR FIXES --- */
@@ -1190,10 +1204,10 @@ body.light-mode .marker::before {
 .terminal-window {
     width: 100%;
     height: 100%;
-    background-color: rgba(10, 10, 10, 0.95);
-    border: 1px solid #333;
+    background-color: var(--term-bg);
+    border: 1px solid var(--term-border);
     border-radius: 6px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px var(--term-shadow);
     display: flex;
     flex-direction: column;
     font-family: "Courier New", monospace;
@@ -1201,18 +1215,18 @@ body.light-mode .marker::before {
 }
 
 .terminal-header {
-    background-color: #222;
+    background-color: var(--term-header-bg);
     padding: 5px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid var(--term-border);
     user-select: none;
 }
 
 .terminal-title {
     font-size: 1.2rem;
-    color: #ccc;
+    color: var(--term-text-muted);
 }
 
 .close-btn {
@@ -1239,12 +1253,15 @@ body.light-mode .marker::before {
 .prompt-text {
     margin-right: 8px;
     white-space: nowrap;
+    color: var(--accent);
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(74, 222, 128, 0.3);
 }
 
 #terminal-input {
     background: transparent;
     border: none;
-    color: #fff;
+    color: var(--term-text);
     font-family: "Courier New", monospace;
     font-size: 1.4rem;
     flex: 1;
@@ -1252,8 +1269,33 @@ body.light-mode .marker::before {
 }
 
 .cmd-highlight {
-    color: #fff;
+    color: var(--term-text);
     font-weight: bold;
+}
+
+body.light-mode .terminal-body span[style*="color:#fff"],
+body.light-mode .terminal-body span[style*="color: #fff"] {
+    color: #111 !important;
+}
+body.light-mode .terminal-body div[style*="color:#ccc"],
+body.light-mode .terminal-body div[style*="color: #ccc"] {
+    color: #4b5563 !important;
+}
+body.light-mode .terminal-body span[style*="color:#ccc"],
+body.light-mode .terminal-body span[style*="color: #ccc"] {
+    color: #374151 !important;
+}
+
+/* --- MATRIX EFFECT --- */
+#matrix-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999998;
+    background-color: black;
+    display: none;
 }
 
 /* --- Scroll Animation Classes --- */
@@ -1344,7 +1386,7 @@ body.light-mode .marker::before {
     padding: 12px 25px;
     border-radius: 50px;
     box-shadow: 0 5px 20px var(--shadow-color);
-    z-index: 99999999;
+    z-index: 9999998;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -1381,16 +1423,7 @@ body.light-mode .marker::before {
 }
 
 .terminal-window {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(10, 10, 10, 0.95);
-    border: 1px solid #333;
-    border-radius: 6px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-    display: flex;
-    flex-direction: column;
-    font-family: "Courier New", monospace;
-    overflow: hidden;
+    box-shadow: 0 20px 50px var(--term-shadow);
 }
 
 @media only screen and (min-width: 768px) {

@@ -597,41 +597,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let isFirstOpen = true;
 
-    // --- HISTORY SYSTEM ---
     const commandHistory = [];
     let historyIndex = -1;
 
-    // --- FILE SYSTEM ---
     const fileSystem = {
       "about.txt":
         "Junior Technical Implementation Specialist & Cybersecurity student. Passionate about C#, .NET, and breaking things to fix them.",
-      "skills.md": "C# | .NET | Unity | Python | SQL | Git | Cybersecurity",
+      "skills.md":
+        "C# | .NET | Unity | Python | SQL | Frontend | Git | Cybersecurity",
       "contact.info":
         "Email: paweltrojanski@gmail.com | LinkedIn: /in/ptrojanski",
       "projects/":
-        "Dir: [NetSentry, WeatherProphet, OperationDeratization, VibrantIcons]",
+        "Dir: [NetSentry, App Store Reviews Extractor, Vibrant Icons, Operation Deratization, Pomodoro Timer, WeatherProphet]",
       "cv.pdf": "Binary file. Use command 'open cv.pdf' to view.",
     };
 
+    // --- TOGGLE LOGIC ---
     openBtn.addEventListener("click", (e) => {
       e.preventDefault();
-
       if (overlay.classList.contains("hidden-terminal")) {
         overlay.classList.remove("hidden-terminal");
-
         if (isFirstOpen) {
           const viewportWidth = window.innerWidth;
           const viewportHeight = window.innerHeight;
           const terminalWidth = overlay.offsetWidth;
           const terminalHeight = overlay.offsetHeight;
-
           overlay.style.transform = "none";
           overlay.style.left = `${(viewportWidth - terminalWidth) / 2}px`;
           overlay.style.top = `${(viewportHeight - terminalHeight) / 2}px`;
-
           isFirstOpen = false;
         }
-
         input.focus();
       } else {
         overlay.classList.add("hidden-terminal");
@@ -656,24 +651,19 @@ document.addEventListener("DOMContentLoaded", () => {
       isDragging = true;
       startX = e.clientX;
       startY = e.clientY;
-
       const rect = overlay.getBoundingClientRect();
       initialLeft = rect.left;
       initialTop = rect.top;
-
       overlay.style.transform = "none";
       overlay.style.left = initialLeft + "px";
       overlay.style.top = initialTop + "px";
-
       document.body.style.userSelect = "none";
     });
 
     document.addEventListener("mousemove", (e) => {
       if (!isDragging) return;
-
       const deltaX = e.clientX - startX;
       const deltaY = e.clientY - startY;
-
       let newLeft = initialLeft + deltaX;
       let newTop = initialTop + deltaY;
 
@@ -681,7 +671,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const windowHeight = window.innerHeight;
       const elWidth = overlay.offsetWidth;
       const elHeight = overlay.offsetHeight;
-
       if (newLeft < 0) newLeft = 0;
       if (newLeft + elWidth > windowWidth) newLeft = windowWidth - elWidth;
       if (newTop < 0) newTop = 0;
@@ -700,20 +689,15 @@ document.addEventListener("DOMContentLoaded", () => {
     input.addEventListener("keydown", function (e) {
       if (e.key === "Enter") {
         const rawValue = this.value.trim();
-
         if (rawValue !== "") {
           commandHistory.push(rawValue);
           historyIndex = commandHistory.length;
         }
-
         const args = rawValue.split(/\s+/);
         const cmd = args[0].toLowerCase();
-
         processCommand(cmd, args.slice(1), rawValue);
         this.value = "";
-      }
-      // --- HISTORY NAVIGATION ---
-      else if (e.key === "ArrowUp") {
+      } else if (e.key === "ArrowUp") {
         e.preventDefault();
         if (historyIndex > 0) {
           historyIndex--;
@@ -744,11 +728,12 @@ document.addEventListener("DOMContentLoaded", () => {
           response = `Available commands:
             <br>&nbsp;&nbsp;<span style="color:#fff">ls</span>       - List directory contents
             <br>&nbsp;&nbsp;<span style="color:#fff">cat [file]</span> - Display file content
-            <br>&nbsp;&nbsp;<span style="color:#fff">cd [dir]</span>  - Change directory (navigation)
+            <br>&nbsp;&nbsp;<span style="color:#fff">cd [dir]</span>  - Change directory
             <br>&nbsp;&nbsp;<span style="color:#fff">whoami</span>    - Display current user
-            <br>&nbsp;&nbsp;<span style="color:#fff">date</span>      - Display current date/time
-            <br>&nbsp;&nbsp;<span style="color:#fff">theme</span>     - Switch theme (usage: theme light/dark)
-            <br>&nbsp;&nbsp;<span style="color:#fff">clear</span>     - Clear terminal screen
+            <br>&nbsp;&nbsp;<span style="color:#fff">matrix</span>    - Enter the Matrix
+            <br>&nbsp;&nbsp;<span style="color:#fff">reboot</span>    - Restart system
+            <br>&nbsp;&nbsp;<span style="color:#fff">theme</span>     - Switch theme [light/dark]
+            <br>&nbsp;&nbsp;<span style="color:#fff">clear</span>     - Clear terminal
             <br>&nbsp;&nbsp;<span style="color:#fff">exit</span>      - Close terminal`;
           isHtml = true;
           break;
@@ -769,20 +754,49 @@ document.addEventListener("DOMContentLoaded", () => {
           break;
 
         case "cat":
-          if (args.length === 0) {
-            response = "usage: cat [file]";
-          } else {
-            const fileName = args[0];
-            if (fileSystem[fileName]) {
-              response = fileSystem[fileName];
-            } else {
-              response = `cat: ${escapeHtml(fileName)}: No such file or directory`;
-            }
-          }
+          if (args.length === 0) response = "usage: cat [file]";
+          else
+            response = fileSystem[args[0]]
+              ? fileSystem[args[0]]
+              : `cat: ${escapeHtml(args[0])}: No such file or directory`;
           break;
 
         case "whoami":
-          response = "root (Paweł Trojański)";
+          response = `<pre style="font-size: 0.5rem; line-height: 1; color: var(--accent); margin-bottom: 10px; margin-top: 5px;">
+          ██████╗  █████╗ ██╗    ██╗███████╗██╗
+          ██╔══██╗██╔══██╗██║    ██║██╔════╝██║
+          ██████╔╝███████║██║ █╗ ██║█████╗  ██║
+          ██╔═══╝ ██╔══██║██║███╗██║██╔══╝  ██║
+          ██║     ██║  ██║╚███╔███╔╝███████╗███████╗
+          ╚═╝     ╚═╝  ╚═╝ ╚══╝╚══╝ ╚══════╝╚══════╝
+
+          ████████╗██████╗  ██████╗      ██╗ █████╗ ███╗   ██╗███████╗██╗  ██╗██╗
+          ╚══██╔══╝██╔══██╗██╔═══██╗     ██║██╔══██╗████╗  ██║██╔════╝██║ ██╔╝██║
+             ██║   ██████╔╝██║   ██║     ██║███████║██╔██╗ ██║███████╗█████╔╝ ██║
+             ██║   ██╔══██╗██║   ██║██   ██║██╔══██║██║╚██╗██║╚════██║██╔═██╗ ██║
+             ██║   ██║  ██║╚██████╔╝╚█████╔╝██║  ██║██║ ╚████║███████║██║  ██╗██║
+             ╚═╝   ╚═╝  ╚═╝ ╚═════╝  ╚════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝
+                      </pre>
+                      <div style="margin-top: -5px;">
+                          User: <strong>Paweł Trojański</strong> (root)<br>
+                          Role: Implementation Spec & .NET Dev
+                      </div>`;
+          isHtml = true;
+          break;
+
+        case "matrix":
+          response = "Wake up, Neo...";
+          startMatrixEffect();
+          overlay.classList.add("hidden-terminal");
+          break;
+
+        case "reboot":
+          response = "Rebooting system...";
+          setTimeout(() => {
+            document.body.style.transition = "opacity 1s";
+            document.body.style.opacity = "0";
+            setTimeout(() => location.reload(), 1000);
+          }, 1000);
           break;
 
         case "date":
@@ -795,8 +809,8 @@ document.addEventListener("DOMContentLoaded", () => {
             response = "usage: cd [directory] or open [file]";
           } else {
             const target = args[0].toLowerCase();
-            if (target === "projects" || target === "projects/") {
-              response = "Navigating to Projects section...";
+            if (target.includes("project")) {
+              response = "Navigating to Projects...";
               document
                 .querySelector("#projects")
                 .scrollIntoView({ behavior: "smooth" });
@@ -806,7 +820,7 @@ document.addEventListener("DOMContentLoaded", () => {
               response = "Opening CV...";
               window.open("./assets/files/cv.pdf", "_blank");
             } else {
-              response = `cd: ${escapeHtml(target)}: No such directory (Try 'projects')`;
+              response = `cd: ${escapeHtml(target)}: No such directory`;
             }
           }
           break;
@@ -857,14 +871,10 @@ document.addEventListener("DOMContentLoaded", () => {
       respLine.style.marginBottom = "10px";
       respLine.style.color = "#ccc";
 
-      if (isHtml) {
-        respLine.innerHTML = response;
-      } else {
-        respLine.textContent = response;
-      }
+      if (isHtml) respLine.innerHTML = response;
+      else respLine.textContent = response;
 
       body.insertBefore(respLine, body.lastElementChild);
-
       body.scrollTop = body.scrollHeight;
     }
 
@@ -875,6 +885,67 @@ document.addEventListener("DOMContentLoaded", () => {
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
+    }
+
+    // --- MATRIX EFFECT ---
+    function startMatrixEffect() {
+      const canvas = document.getElementById("matrix-canvas");
+      if (!canvas) {
+        console.error("Matrix canvas not found in HTML!");
+        alert("Error: <canvas id='matrix-canvas'> missing in HTML.");
+        return;
+      }
+
+      const ctx = canvas.getContext("2d");
+
+      canvas.style.display = "block";
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const chars = "01";
+      const fontSize = 16;
+      const columns = canvas.width / fontSize;
+      const drops = [];
+
+      for (let x = 0; x < columns; x++) {
+        drops[x] = 1;
+      }
+
+      const draw = () => {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = "#0F0";
+        ctx.font = fontSize + "px monospace";
+
+        for (let i = 0; i < drops.length; i++) {
+          const text = chars.charAt(Math.floor(Math.random() * chars.length));
+          ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+          if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+          }
+          drops[i]++;
+        }
+      };
+
+      const matrixInterval = setInterval(draw, 33);
+
+      const exitMatrix = () => {
+        clearInterval(matrixInterval);
+        canvas.style.display = "none";
+        document
+          .getElementById("terminal-overlay")
+          .classList.remove("hidden-terminal");
+        canvas.removeEventListener("click", exitMatrix);
+      };
+
+      canvas.addEventListener("click", exitMatrix);
+
+      window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
     }
   }
 });
