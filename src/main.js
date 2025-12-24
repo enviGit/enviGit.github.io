@@ -178,6 +178,9 @@ document.addEventListener("DOMContentLoaded", () => {
       startY = e.clientY;
       startScrollTop = document.body.scrollTop;
       document.body.style.userSelect = "none";
+      document.body.style.webkitUserSelect = "none";
+      document.body.style.MozUserSelect = "none";
+      document.body.style.msUserSelect = "none";
     });
 
     window.addEventListener("mousemove", (e) => {
@@ -202,6 +205,9 @@ document.addEventListener("DOMContentLoaded", () => {
       isDragging = false;
       scrollbar.classList.remove("dragging");
       document.body.style.userSelect = "";
+      document.body.style.webkitUserSelect = "";
+      document.body.style.MozUserSelect = "";
+      document.body.style.msUserSelect = "";
     });
 
     // --- SCROLL & RESIZE LOGIC ---

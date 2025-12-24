@@ -1234,6 +1234,9 @@ body.light-mode .marker::before {
     align-items: center;
     border-bottom: 1px solid var(--term-border);
     user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .terminal-title {
