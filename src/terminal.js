@@ -286,21 +286,43 @@ function initTerminalSystem() {
     },
 
     open: (args) => {
-      if (args.length !== 1) return "usage: open [file]";
-      const fileName = args[0];
+      if (args.length !== 1) return "usage: open [file | url]";
+
+      let target = args[0];
+
+      if (
+        target.startsWith("http://") ||
+        target.startsWith("https://") ||
+        target.startsWith("www.")
+      ) {
+        let urlToOpen = target;
+
+        if (target.startsWith("www.")) {
+          urlToOpen = "https://" + target;
+        }
+
+        window.open(urlToOpen, "_blank");
+        return `Opening external link: ${urlToOpen}...`;
+      }
+
       const dir = getDirFromPathArray(state.currentPath);
 
-      if (!dir.children[fileName]) return `open: ${fileName}: No such file`;
+      if (!dir.children[target]) {
+        return `open: ${target}: No such file or directory`;
+      }
 
-      if (fileName === "cv.pdf") {
+      const file = dir.children[target];
+
+      if (file.type === "dir") {
+        return `open: ${target}: Is a directory`;
+      }
+
+      if (target === "cv.pdf") {
         window.open("./assets/files/cv.pdf", "_blank");
         return "Opening CV...";
       }
 
-      if (dir.children[fileName].type === "dir")
-        return `open: ${fileName}: Is a directory`;
-
-      return `open: ${fileName}: This is a text file. Use <span style="color:var(--term-text); font-weight:bold;">cat ${fileName}</span> to read it.`;
+      return `open: ${target}: This is a text file. Use <span style="color:var(--term-text); font-weight:bold;">cat ${target}</span> to read it.`;
     },
 
     mkdir: (args) => {
