@@ -1,4 +1,6 @@
 :root {
+    color-scheme: dark;
+
     --bg-color: #111111;
     --header-bg: rgba(17, 17, 17, 0.9);
     --text-color: #f0f0f0;
@@ -17,9 +19,15 @@
     --term-bg: rgba(10, 10, 10, 0.95);
     --term-header-bg: #222;
     --term-border: #333;
-    --term-text: #fff;
+    --term-text: #e0e0e0;
     --term-text-muted: #ccc;
-    --term-shadow: rgba(0, 0, 0, 0.5);
+    --term-text-dim: #888888;
+    --term-gray: #aaaaaa;
+    --term-dir: #5c5cff;
+    --term-error: #ff5f56;
+    --term-path: #cccccc;
+    --term-prompt-brackets: #666;
+    --term-history: #888;
 }
 
 @keyframes pageFadeIn {
@@ -40,6 +48,8 @@ body.no-scroll {
 
 /* --- LIGHT MODE  --- */
 body.light-mode {
+    color-scheme: light;
+
     --bg-color: #f3f4f6;
     --header-bg: rgba(245, 245, 245, 0.9);
     --text-color: #1f2937;
@@ -55,12 +65,21 @@ body.light-mode {
     --home-bg-2: rgba(243, 244, 246, 0.9);
     --glass-bg: rgba(255, 255, 255, 0.7);
 
-    --term-bg: rgba(255, 255, 255, 0.95);
+    --term-bg: rgba(250, 250, 250, 0.95);
     --term-header-bg: #e5e7eb;
     --term-border: #d1d5db;
-    --term-text: #1f2937;
-    --term-text-muted: #6b7280;
+    --term-text: #1a1a1a;
+    --term-text-dim: #666666;
+    --term-gray: #666666;
+    --term-dir: #0056b3;
+    --term-error: #d32f2f;
+    --term-path: #555555;
+    --term-prompt-brackets: #999;
+    --term-history: #bbb;
     --term-shadow: rgba(0, 0, 0, 0.15);
+
+    --scrollbar-bg: #e5e7eb;
+    --scrollbar-thumb: #9ca3af;
 }
 
 /* --- LIGHT MODE CURSOR FIXES --- */
@@ -371,6 +390,10 @@ html,
 body,
 a,
 button,
+input,
+textarea,
+.terminal-window,
+.terminal-body,
 .cta,
 .ctaProjects {
     cursor: none !important;
@@ -1261,7 +1284,8 @@ body.light-mode .marker::before {
 #terminal-input {
     background: transparent;
     border: none;
-    color: var(--term-text);
+    color: var(--term-text) !important;
+    caret-color: var(--accent);
     font-family: "Courier New", monospace;
     font-size: 1.4rem;
     flex: 1;
