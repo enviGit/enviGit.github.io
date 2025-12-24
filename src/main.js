@@ -6,13 +6,13 @@ document.addEventListener("DOMContentLoaded", () => {
   safeInit(initMobileMenu);
   safeInit(initNavigationMarker);
   safeInit(initCursorSystem);
+  safeInit(initCustomScrollbar);
   safeInit(initButtonHoverEffect);
   safeInit(initScrollReveal);
   safeInit(initStatsCounter);
   safeInit(initTimelineProgress);
   safeInit(initBackToTop);
   safeInit(initCopyEmail);
-  safeInit(initTerminal);
 
   function safeInit(func) {
     try {
@@ -31,14 +31,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!cursor) return;
 
-    document.addEventListener("mousemove", (e) => {
-      if (!cursor.classList.contains("visible")) {
-        cursor.classList.add("visible");
-      }
+    const updateCursorPos = (e) => {
+      requestAnimationFrame(() => {
+        cursor.style.left = e.clientX + "px";
+        cursor.style.top = e.clientY + "px";
+      });
+    };
 
-      cursor.style.left = e.clientX + "px";
-      cursor.style.top = e.clientY + "px";
-    });
+    window.addEventListener("mousemove", updateCursorPos);
 
     document.addEventListener("mouseleave", () =>
       cursor.classList.remove("visible"),
@@ -47,12 +47,15 @@ document.addEventListener("DOMContentLoaded", () => {
       cursor.classList.add("visible"),
     );
 
-    document.addEventListener("mousedown", () =>
-      document.body.classList.add("click-active"),
-    );
-    document.addEventListener("mouseup", () =>
-      document.body.classList.remove("click-active"),
-    );
+    window.addEventListener("mousedown", () => {
+      document.body.classList.add("click-active");
+      document.documentElement.style.cursor = "none";
+    });
+
+    window.addEventListener("mouseup", () => {
+      document.body.classList.remove("click-active");
+      document.documentElement.style.cursor = "";
+    });
 
     const expandSelectors = `
             a:not(.cta):not(.ctaProjects),
@@ -108,6 +111,122 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.classList.remove("image-hover"),
       );
     });
+  }
+
+  function initCustomScrollbar() {
+    const scrollbar = document.createElement("div");
+    scrollbar.id = "custom-scrollbar";
+    const thumb = document.createElement("div");
+    thumb.id = "custom-thumb";
+    scrollbar.appendChild(thumb);
+    document.body.appendChild(scrollbar);
+
+    let isDragging = false;
+    let startY, startScrollTop;
+    let hideTimeout;
+
+    function updateScrollbar() {
+      const windowHeight = window.innerHeight;
+      const docHeight = document.body.scrollHeight;
+      const scrollTop = document.body.scrollTop;
+
+      if (docHeight <= windowHeight + 1) {
+        scrollbar.style.opacity = "0";
+        scrollbar.style.pointerEvents = "none";
+        return;
+      } else {
+        scrollbar.style.pointerEvents = "auto";
+        if (isDragging || scrollbar.matches(":hover")) {
+          scrollbar.style.opacity = "1";
+        }
+      }
+
+      const scrollPercent = scrollTop / (docHeight - windowHeight);
+      const thumbHeight = Math.max(
+        50,
+        (windowHeight / docHeight) * windowHeight,
+      );
+      const maxThumbTop = windowHeight - thumbHeight;
+      const thumbTop = scrollPercent * maxThumbTop;
+
+      thumb.style.height = `${thumbHeight}px`;
+      thumb.style.transform = `translateY(${thumbTop}px)`;
+    }
+
+    // --- JUMP TO ---
+    scrollbar.addEventListener("mousedown", (e) => {
+      if (e.target === thumb) return;
+
+      const windowHeight = window.innerHeight;
+      const docHeight = document.body.scrollHeight;
+      const clickY = e.clientY;
+
+      const clickPercent = clickY / windowHeight;
+      const targetScroll = clickPercent * (docHeight - windowHeight);
+
+      document.body.scrollTo({
+        top: targetScroll,
+        behavior: "smooth",
+      });
+    });
+
+    // --- DRAG LOGIC ---
+    thumb.addEventListener("mousedown", (e) => {
+      e.stopPropagation();
+      isDragging = true;
+      scrollbar.classList.add("dragging");
+      startY = e.clientY;
+      startScrollTop = document.body.scrollTop;
+      document.body.style.userSelect = "none";
+    });
+
+    window.addEventListener("mousemove", (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+
+      const windowHeight = window.innerHeight;
+      const docHeight = document.body.scrollHeight;
+      const thumbHeight = thumb.offsetHeight;
+      const maxThumbTop = windowHeight - thumbHeight;
+
+      const deltaY = e.clientY - startY;
+
+      const movePercent = deltaY / maxThumbTop;
+
+      const scrollAmount = movePercent * (docHeight - windowHeight);
+
+      document.body.scrollTop = startScrollTop + scrollAmount;
+    });
+
+    window.addEventListener("mouseup", () => {
+      isDragging = false;
+      scrollbar.classList.remove("dragging");
+      document.body.style.userSelect = "";
+    });
+
+    // --- SCROLL & RESIZE LOGIC ---
+    document.body.addEventListener(
+      "scroll",
+      () => {
+        requestAnimationFrame(updateScrollbar);
+        scrollbar.classList.add("visible");
+
+        clearTimeout(hideTimeout);
+        hideTimeout = setTimeout(() => {
+          if (!scrollbar.matches(":hover") && !isDragging) {
+            scrollbar.classList.remove("visible");
+          }
+        }, 1000);
+      },
+      { passive: true },
+    );
+
+    window.addEventListener("resize", updateScrollbar);
+
+    const resizeObserver = new ResizeObserver(() => updateScrollbar());
+    resizeObserver.observe(document.body);
+
+    updateScrollbar();
   }
 
   // --- CYBER SCRAMBLE EFFECT ---

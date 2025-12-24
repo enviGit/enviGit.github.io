@@ -59,8 +59,6 @@ body.light-mode {
     --border-color: rgba(0, 0, 0, 0.15);
     --shadow-color: rgba(0, 0, 0, 0.1);
     --timeline-line: #e5e7eb;
-    --scrollbar-bg: #f3f4f6;
-    --scrollbar-thumb: #d1d5db;
     --home-bg-1: rgba(255, 255, 255, 0.8);
     --home-bg-2: rgba(243, 244, 246, 0.9);
     --glass-bg: rgba(255, 255, 255, 0.7);
@@ -150,16 +148,20 @@ body.light-mode.contrast-active .cursor {
 html {
     font-size: 10px;
     font-family: "Montserrat", sans-serif;
-    scroll-behavior: smooth;
-    scrollbar-width: thin;
-    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-bg);
     background-color: var(--bg-color);
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
 }
 
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
+    overflow-y: auto;
     overflow-x: hidden;
+    height: 100%;
+    width: 100%;
+
     transition:
         background-color 0.3s ease,
         color 0.3s ease;
@@ -338,7 +340,7 @@ p {
     top: 0;
     left: 0;
     pointer-events: none;
-    z-index: 9999999;
+    z-index: 99999999;
     mix-blend-mode: difference;
     box-shadow: 0 0 10px var(--accent);
     transition:
@@ -384,19 +386,6 @@ body.click-active .cursor {
     transform: translate(-50%, -50%) scale(0.8);
     background-color: var(--accent);
     border: none;
-}
-
-html,
-body,
-a,
-button,
-input,
-textarea,
-.terminal-window,
-.terminal-body,
-.cta,
-.ctaProjects {
-    cursor: none !important;
 }
 
 /* --- GLASSMORPHISM --- */
@@ -798,7 +787,7 @@ textarea,
     z-index: 1000;
     left: 0;
     top: 0;
-    width: 100vw;
+    width: 100%;
     height: auto;
 }
 
@@ -1809,20 +1798,84 @@ body.light-mode .terminal-body span[style*="color: #ccc"] {
 }
 
 /* --- Custom Scrollbar --- */
+html,
+body {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+/* Chrome/Edge/Safari */
 ::-webkit-scrollbar {
-    width: 10px;
-    background-color: var(--scrollbar-bg);
+    display: none;
 }
 
-::-webkit-scrollbar-thumb {
+.terminal-body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.terminal-body::-webkit-scrollbar {
+    display: none;
+}
+
+#custom-scrollbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 12px;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.02);
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 9999999;
+    opacity: 0;
+    transition:
+        opacity 0.3s ease,
+        background-color 0.3s;
+    pointer-events: none;
+}
+
+body.light-mode #custom-scrollbar {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-left: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body:hover #custom-scrollbar,
+#custom-scrollbar:hover,
+#custom-scrollbar.visible,
+#custom-scrollbar.dragging {
+    opacity: 1 !important;
+}
+
+#custom-thumb {
+    position: absolute;
+    top: 0;
+    right: 3px;
+    width: 6px;
     background-color: var(--scrollbar-thumb);
-    border-radius: 5px;
-    border: 2px solid var(--scrollbar-bg);
-    transition: background-color 0.3s;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition:
+        background-color 0.2s,
+        transform 0.2s;
 }
 
-::-webkit-scrollbar-thumb:hover {
+#custom-thumb:hover,
+#custom-scrollbar.dragging #custom-thumb {
     background-color: var(--accent);
+    transform: scaleX(1.2);
+}
+
+body.light-mode #custom-thumb:hover,
+body.light-mode #custom-scrollbar.dragging #custom-thumb {
+    background-color: #000000 !important;
+    border-color: #000000;
+    transform: scaleX(1.2);
+}
+
+html,
+body,
+* {
+    cursor: none !important;
 }
 
 /* --- PREMIUM SELECTION STYLE --- */
