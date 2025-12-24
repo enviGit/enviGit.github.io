@@ -461,7 +461,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const navLinks = document.querySelectorAll(".nav-link");
     const sections = document.querySelectorAll("section");
     const header = document.querySelector(".header.container");
-
     const hamburger = document.querySelector(".hamburger");
     const mobileMenu = document.querySelector(".nav-list ul");
 
@@ -498,21 +497,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let isTicking = false;
 
-    window.addEventListener(
+    document.body.addEventListener(
       "scroll",
       () => {
         if (isTicking) return;
 
         window.requestAnimationFrame(() => {
+          const currentScroll = document.body.scrollTop;
+
           if (header) {
             header.style.backgroundColor =
-              window.scrollY > 50 ? "var(--header-bg)" : "var(--header-bg)";
+              currentScroll > 50 ? "var(--header-bg)" : "transparent";
+            header.style.borderBottom =
+              currentScroll > 50 ? "1px solid var(--border-color)" : "none";
+            header.style.boxShadow =
+              currentScroll > 50 ? "0 5px 20px var(--shadow-color)" : "none";
           }
 
           if (!isManualScrolling) {
             let current = "";
             sections.forEach((section) => {
-              if (window.pageYOffset >= section.offsetTop - 200) {
+              if (currentScroll >= section.offsetTop - 200) {
                 current = section.getAttribute("id");
               }
             });
@@ -525,12 +530,10 @@ document.addEventListener("DOMContentLoaded", () => {
               }
             });
 
-            if (window.scrollY < 100 && homeLink) moveMarker(homeLink);
+            if (currentScroll < 100 && homeLink) moveMarker(homeLink);
           }
-
           isTicking = false;
         });
-
         isTicking = true;
       },
       { passive: true },
@@ -594,29 +597,37 @@ document.addEventListener("DOMContentLoaded", () => {
   function initTimelineProgress() {
     const section = document.querySelector("#timeline");
     const fill = document.querySelector(".timeline-line-fill");
+
+    if (!section || !fill) return;
+
     let isTicking = false;
 
-    if (section && fill) {
-      window.addEventListener(
-        "scroll",
-        () => {
-          if (!isTicking) {
-            window.requestAnimationFrame(() => {
-              const rect = section.getBoundingClientRect();
-              const startOffset = window.innerHeight / 2;
-              const dist = -rect.top + startOffset;
-              let percentage = (dist / section.offsetHeight) * 100;
-              percentage = Math.max(0, Math.min(100, percentage));
-              fill.style.height = `${percentage}%`;
+    function updateProgress() {
+      const rect = section.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const startOffset = windowHeight / 2;
+      const totalDist = section.offsetHeight;
+      const scrolledDist = windowHeight / 2 - rect.top;
+      let percentage = (scrolledDist / totalDist) * 100;
 
-              isTicking = false;
-            });
-            isTicking = true;
-          }
-        },
-        { passive: true },
-      );
+      percentage = Math.max(0, Math.min(100, percentage));
+
+      fill.style.height = `${percentage}%`;
+      isTicking = false;
     }
+
+    document.body.addEventListener(
+      "scroll",
+      () => {
+        if (!isTicking) {
+          window.requestAnimationFrame(updateProgress);
+          isTicking = true;
+        }
+      },
+      { passive: true },
+    );
+
+    updateProgress();
   }
 
   // --- Back To Top Button ---
@@ -624,10 +635,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const btn = document.getElementById("back-to-top");
     if (!btn) return;
 
-    window.addEventListener(
+    document.body.addEventListener(
       "scroll",
       () => {
-        if (window.scrollY > 500) {
+        if (document.body.scrollTop > 500) {
           btn.classList.add("visible");
         } else {
           btn.classList.remove("visible");
@@ -638,7 +649,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     btn.addEventListener("click", () => {
       this.blur();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      document.body.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
 

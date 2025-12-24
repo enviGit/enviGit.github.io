@@ -1797,6 +1797,17 @@ body.light-mode .terminal-body span[style*="color: #ccc"] {
     }
 }
 
+@media only screen and (max-width: 1024px),
+    (hover: none),
+    (pointer: coarse),
+    only screen and (max-height: 600px) and (orientation: landscape) {
+    #custom-scrollbar {
+        display: none !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+}
+
 /* --- Custom Scrollbar --- */
 html,
 body {
