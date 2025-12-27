@@ -1908,3 +1908,14 @@ body,
 .theme-btn:focus-visible {
     border-radius: 50%;
 }
+
+/* SAFARI DARK MODE: CUSTOM CURSOR FIX */
+body.safari .cursor {
+    mix-blend-mode: normal !important;
+    opacity: 0.9;
+}
+
+body.safari.hover-active .cursor,
+body.safari.cta-hover-active .cursor {
+    mix-blend-mode: normal !important;
+}

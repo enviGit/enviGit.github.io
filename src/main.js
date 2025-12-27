@@ -31,11 +31,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!cursor) return;
 
+    let cursorX = 0,
+      cursorY = 0;
+    let isCursorRendered = false;
+
     const updateCursorPos = (e) => {
-      requestAnimationFrame(() => {
-        cursor.style.left = e.clientX + "px";
-        cursor.style.top = e.clientY + "px";
-      });
+      cursorX = e.clientX;
+      cursorY = e.clientY;
+
+      if (!isCursorRendered) {
+        window.requestAnimationFrame(() => {
+          cursor.style.left = cursorX + "px";
+          cursor.style.top = cursorY + "px";
+          isCursorRendered = false;
+        });
+        isCursorRendered = true;
+      }
     };
 
     window.addEventListener("mousemove", updateCursorPos);
@@ -398,8 +409,8 @@ document.addEventListener("DOMContentLoaded", () => {
       updateIcon(true);
     }
 
-    themeBtn.addEventListener("click", () => {
-      this.blur();
+    themeBtn.addEventListener("click", (e) => {
+      e.currentTarget.blur();
       document.body.classList.toggle("light-mode");
       const isLight = document.body.classList.contains("light-mode");
       localStorage.setItem("theme", isLight ? "light" : "dark");
@@ -653,8 +664,8 @@ document.addEventListener("DOMContentLoaded", () => {
       { passive: true },
     );
 
-    btn.addEventListener("click", () => {
-      this.blur();
+    btn.addEventListener("click", (e) => {
+      e.currentTarget.blur();
       document.body.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
