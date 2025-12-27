@@ -6,7 +6,7 @@
 
 > **Live Demo:** [envigit.github.io](https://envigit.github.io/)
 
-![image](https://github.com/user-attachments/assets/91c990de-831c-4039-bb56-eff414588442)
+![Paweł Trojański Portfolio Preview](https://github.com/user-attachments/assets/91c990de-831c-4039-bb56-eff414588442)
 
 ## ⚡ Overview
 
@@ -39,19 +39,39 @@ A fully functional, simulated terminal environment accessible via the UI. It's n
 - **Lazy Loading & Reveal:** Sections animate in using the `Intersection Observer API` only when needed.
 - **Zero Dependencies:** Removed jQuery and external animation libraries to minimize payload.
 - **Accessibility:** Semantic HTML structure, ARIA labels, and keyboard navigation support.
+- **Cross-Browser Compatibility:** Solved complex CSS blending mode issues on Safari and implemented custom scrollbar logic to ensure a consistent experience across Chrome, Firefox, and Safari.
 
 ## 📂 Project Structure
 
-The project separates source code (`src`) from minified production assets (`assets`).
+The project utilizes a clean structure within the `assets` directory, organizing styles into modular components and sections for better maintainability.
 
 ```text
 /
 ├── assets/
-│   ├── css/
-│   │   └── style.min.css       # Minified production styles
+│   ├── css/                        # Modular & Minified Styles
+│   │   ├── base/                   # Global definitions
+│   │   │   ├── reset.min.css       # CSS Reset & typography
+│   │   │   ├── utils.min.css       # Helper classes
+│   │   │   └── variables.min.css   # Colors & CSS variables
+│   │   ├── components/             # UI Components
+│   │   │   ├── buttons.min.css     # Buttons & CTA styles
+│   │   │   ├── cursor.min.css      # Custom cursor logic
+│   │   │   ├── navigation.min.css  # Header, nav & hamburger
+│   │   │   ├── scrollbar.min.css   # Custom scrollbar logic
+│   │   │   ├── stats.min.css       # Statistics counters
+│   │   │   ├── terminal.min.css    # Terminal overlay styling
+│   │   │   └── timeline.min.css    # Experience timeline
+│   │   ├── sections/               # Specific page sections
+│   │   │   ├── about.min.css
+│   │   │   ├── contact.min.css
+│   │   │   ├── footer.min.css
+│   │   │   ├── home.min.css
+│   │   │   └── projects.min.css
+│   │   ├── main.min.css            # Main entry point
+│   │   └── responsive.min.css      # Global media queries
 │   ├── files/
-│   │   └── cv.pdf              # Downloadable resume
-│   ├── img/                    # Optimized WebP images
+│   │   └── cv.pdf                  # Downloadable resume
+│   ├── img/                        # Optimized WebP images
 │   │   ├── me.webp
 │   │   ├── netSentry.webp
 │   │   ├── operationDeratization.webp
@@ -59,24 +79,40 @@ The project separates source code (`src`) from minified production assets (`asse
 │   │   ├── reviewExtractor.webp
 │   │   ├── vibrantIcons.webp
 │   │   └── weatherProphet.webp
-│   └── js/                     # Minified production scripts
-│       ├── main.min.js
-│       └── terminal.min.js
-├── src/                        # Source code (Development)
-│   ├── main.js                 # Core logic (Scroll, Theme, UI interactions)
-│   ├── style.css               # Main stylesheet (Variables, Animations)
-│   └── terminal.js             # Terminal emulator logic & command parsing
+│   └── js/                         # Minified production scripts
+│       ├── main.min.js             # Core logic & initializers
+│       └── terminal.min.js         # Terminal emulator logic
 ├── .gitignore
-├── 404.html                    # Custom Error Page
-├── index.html                  # Main entry point
+├── 404.html                        # Custom Error Page
+├── index.html                      # Main entry point
 └── README.md
 ```
 
 ## 📬 Contact
+
 If you have any questions or feedback, feel free to reach out:
 
 - **Email:** [paweltrojanski@gmail.com](mailto:paweltrojanski@gmail.com)
 - **LinkedIn:** [Paweł Trojański](https://www.linkedin.com/in/ptrojanski/)
+
+## 📄 License & Copyright
+
+This repository operates under a **Dual License** model to allow learning while protecting personal identity.
+
+### 💻 Source Code
+The underlying source code (HTML, CSS, JS logic) is open source and available under the **[MIT License](LICENSE.md)**.
+You are free to use the code structure, logic, and techniques for your own projects.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+### 🎨 Design & Content
+The content, including personal photos, the specific visual design/layout, resume (`cv.pdf`), and autobiographical text, is licensed under **[CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)**.
+
+**What this means:**
+- ✅ **You can:** View the code, learn from it, and fork the repo for educational purposes.
+- ❌ **You cannot:** Clone this site to use as your own portfolio, use my photos/CV, or sell this design.
+
+[![License: CC BY-NC-ND 4.0](https://licensebuttons.net/l/by-nc-nd/4.0/80x15.png)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 ---
 *© 2025 Paweł Trojański. Built with coffee and code.*
