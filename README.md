@@ -68,7 +68,6 @@ The project utilizes a clean structure within the `assets` directory, organizing
 │   │   │   ├── home.min.css
 │   │   │   └── projects.min.css
 │   │   ├── main.min.css            # Main entry point
-│   │   └── responsive.min.css      # Global media queries
 │   ├── files/
 │   │   └── cv.pdf                  # Downloadable resume
 │   ├── img/                        # Optimized WebP images
