@@ -101,21 +101,103 @@
         <div class="cursor"></div>
 
         <section id="header">
-            <div class="header container">
+            <nav class="glass-nav desktop-only">
+                <div class="glass-nav-list">
+                    <div class="marker"></div>
+
+                    <a
+                        href="#home"
+                        class="glass-link nav-link active-link"
+                        data-section="home"
+                    >
+                        <span class="link-content">
+                            <span class="text">Home</span>
+                            <span class="icon"><i class="fa fa-home"></i></span>
+                        </span>
+                    </a>
+                    <a
+                        href="#about"
+                        class="glass-link nav-link"
+                        data-section="about"
+                    >
+                        <span class="link-content">
+                            <span class="text">About</span>
+                            <span class="icon"><i class="fa fa-user"></i></span>
+                        </span>
+                    </a>
+                    <a
+                        href="#timeline"
+                        class="glass-link nav-link"
+                        data-section="timeline"
+                    >
+                        <span class="link-content">
+                            <span class="text">Timeline</span>
+                            <span class="icon"
+                                ><i class="fa fa-history"></i
+                            ></span>
+                        </span>
+                    </a>
+                    <a
+                        href="#stats"
+                        class="glass-link nav-link"
+                        data-section="stats"
+                    >
+                        <span class="link-content">
+                            <span class="text">Stats</span>
+                            <span class="icon"
+                                ><i class="fa fa-bar-chart"></i
+                            ></span>
+                        </span>
+                    </a>
+                    <a
+                        href="#projects"
+                        class="glass-link nav-link"
+                        data-section="projects"
+                    >
+                        <span class="link-content">
+                            <span class="text">Projects</span>
+                            <span class="icon"><i class="fa fa-code"></i></span>
+                        </span>
+                    </a>
+                    <a
+                        href="#contact"
+                        class="glass-link nav-link"
+                        data-section="contact"
+                    >
+                        <span class="link-content">
+                            <span class="text">Contact</span>
+                            <span class="icon"
+                                ><i class="fa fa-envelope"></i
+                            ></span>
+                        </span>
+                    </a>
+
+                    <button
+                        class="theme-btn glass-btn"
+                        aria-label="Toggle Theme"
+                    >
+                        <i class="fa fa-sun-o"></i>
+                    </button>
+                </div>
+            </nav>
+
+            <div class="header container mobile-only">
                 <div class="nav-bar">
                     <div class="brand">
-                        <h1 class="hero-title">
-                            <span class="animate-text-image"
-                                >Paweł Trojański</span
-                            >
-                        </h1>
+                        <a href="#home">
+                            <h1 class="brand-text">
+                                <span class="animate-text-image"
+                                    >Paweł Trojański</span
+                                >
+                            </h1>
+                        </a>
                     </div>
+
                     <div class="nav-list">
                         <div class="hamburger">
                             <div class="bar"></div>
                         </div>
                         <ul>
-                            <li class="marker" aria-hidden="true"></li>
                             <li>
                                 <a
                                     href="#home"
@@ -142,14 +224,6 @@
                             </li>
                             <li>
                                 <a
-                                    href="#stats"
-                                    class="nav-link"
-                                    data-section="stats"
-                                    >Stats</a
-                                >
-                            </li>
-                            <li>
-                                <a
                                     href="#projects"
                                     class="nav-link"
                                     data-section="projects"
@@ -166,9 +240,8 @@
                             </li>
                             <li>
                                 <button
-                                    id="theme-toggle"
                                     class="theme-btn"
-                                    aria-label="Toggle Dark/Light Mode"
+                                    aria-label="Toggle Theme"
                                 >
                                     <i class="fa fa-sun-o"></i>
                                 </button>
