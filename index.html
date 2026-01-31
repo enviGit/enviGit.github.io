@@ -44,6 +44,7 @@
                      }
       </script>
       <script>const isSafari=/^((?!chrome|android).)*safari/i.test(navigator.userAgent);isSafari&&document.documentElement.classList.add("safari")</script>
+      <link rel=preload href=./assets/css/main.min.css as=style>
       <link rel=preconnect href=https://fonts.googleapis.com>
       <link rel=preconnect href=https://fonts.gstatic.com crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel=stylesheet>
@@ -59,53 +60,53 @@
    <body>
       <div class=cursor></div>
       <header id="header">
-         <nav class="glass-nav">
-            <ul class="glass-nav-list">
-               <li class="marker"></li>
-               <li>
-                  <a href="#home" class="glass-link nav-link active-link" data-section="home">
-                  <span class="text">Home</span>
-                  <i class="fa fa-home icon"></i>
-                  </a>
-               </li>
-               <li>
-                  <a href="#about" class="glass-link nav-link" data-section="about">
-                  <span class="text">About</span>
-                  <i class="fa fa-user icon"></i>
-                  </a>
-               </li>
-               <li>
-                  <a href="#timeline" class="glass-link nav-link" data-section="timeline">
-                  <span class="text">History</span>
-                  <i class="fa fa-history icon"></i>
-                  </a>
-               </li>
-               <li>
-                  <a href="#stats" class="glass-link nav-link" data-section="stats">
-                  <span class="text">Stats</span>
-                  <i class="fa fa-bar-chart icon"></i>
-                  </a>
-               </li>
-               <li>
-                  <a href="#projects" class="glass-link nav-link" data-section="projects">
-                  <span class="text">Projects</span>
-                  <i class="fa fa-code icon"></i>
-                  </a>
-               </li>
-               <li>
-                  <a href="#contact" class="glass-link nav-link" data-section="contact">
-                  <span class="text">Contact</span>
-                  <i class="fa fa-envelope icon"></i>
-                  </a>
-               </li>
-               <li class="nav-separator"></li>
-               <li>
-                  <button class="theme-btn glass-btn">
-                  <i class="fa fa-sun-o"></i>
-                  </button>
-               </li>
-            </ul>
-         </nav>
+          <nav class="glass-nav">
+              <ul class="glass-nav-list">
+                  <li class="marker"></li>
+                  <li>
+                      <a href="#home" class="glass-link nav-link active-link" data-section="home" aria-label="Go to Home Section">
+                          <span class="text">Home</span>
+                          <i class="fa fa-home icon" aria-hidden="true"></i>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#about" class="glass-link nav-link" data-section="about" aria-label="Go to About Section">
+                          <span class="text">About</span>
+                          <i class="fa fa-user icon" aria-hidden="true"></i>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#timeline" class="glass-link nav-link" data-section="timeline" aria-label="Go to Timeline Section">
+                          <span class="text">Timeline</span>
+                          <i class="fa fa-history icon" aria-hidden="true"></i>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#stats" class="glass-link nav-link" data-section="stats" aria-label="Go to Statistics Section">
+                          <span class="text">Stats</span>
+                          <i class="fa fa-bar-chart icon" aria-hidden="true"></i>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#projects" class="glass-link nav-link" data-section="projects" aria-label="Go to Projects Section">
+                          <span class="text">Projects</span>
+                          <i class="fa fa-code icon" aria-hidden="true"></i>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="#contact" class="glass-link nav-link" data-section="contact" aria-label="Go to Contact Section">
+                          <span class="text">Contact</span>
+                          <i class="fa fa-envelope icon" aria-hidden="true"></i>
+                      </a>
+                  </li>
+                  <li class="nav-separator"></li>
+                  <li>
+                      <button class="theme-btn glass-btn" aria-label="Toggle Dark and Light Mode">
+                          <i class="fa fa-sun-o" aria-hidden="true"></i>
+                      </button>
+                  </li>
+              </ul>
+          </nav>
       </header>
       <main>
          <section id=home>
@@ -130,7 +131,7 @@
                   </div>
                </div>
                <div class=col-right>
-                  <h2 class=section-title>About <span>me</span></h2>
+                  <h2 class=section-title>About <span>Me</span></h2>
                   <p>
                      I am a driven
                      <strong>Junior Technical Implementation Specialist</strong>
@@ -524,10 +525,10 @@
          </div>
       </section>
       <button id=back-to-top aria-label="Back to top">
-      <i class="fa fa-arrow-up"></i>
+          <i class="fa fa-arrow-up" aria-hidden="true"></i>
       </button>
       <button id=terminal-toggle aria-label="Open Terminal">
-      <i class="fa fa-terminal"></i>
+          <i class="fa fa-terminal" aria-hidden="true"></i>
       </button>
       <div id=terminal-overlay class=hidden-terminal>
          <div class=terminal-window id=terminal-window>
