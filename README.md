@@ -16,9 +16,9 @@ This project has been completely refactored from a jQuery-heavy template to a **
 
 ## 🛠 Tech Stack
 
-- **Core:** HTML5, CSS3 (Variables, Flexbox/Grid), Vanilla JavaScript (ES6+).
+- **Core:** HTML5, CSS3, Vanilla JavaScript (ES6+).
 - **Icons:** Font Awesome.
-- **Tools:** Git, VS Code.
+- **Tools:** Git, Zed.
 - **Philosophy:** No frameworks, no bloat. Just clean, semantic code.
 
 ## 🌟 Key Features
@@ -72,12 +72,12 @@ The project utilizes a clean structure within the `assets` directory, organizing
 │   │   └── cv.pdf                  # Downloadable resume
 │   ├── img/                        # Optimized WebP images
 │   │   ├── me.webp
-│   │   ├── netSentry.webp
 │   │   ├── operationDeratization.webp
 │   │   ├── pomodoroTimer.webp
-│   │   ├── reviewExtractor.webp
+│   │   ├── psCatch.webp
 │   │   ├── vibrantIcons.webp
-│   │   └── weatherProphet.webp
+│   │   ├── weatherProphet.webp
+│   │   └── wingetPortable.webp
 │   └── js/                         # Minified production scripts
 │       ├── main.min.js             # Core logic & initializers
 │       └── terminal.min.js         # Terminal emulator logic
@@ -114,4 +114,4 @@ The content, including personal photos, the specific visual design/layout, resum
 [![License: CC BY-NC-ND 4.0](https://licensebuttons.net/l/by-nc-nd/4.0/80x15.png)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 ---
-*© 2025 Paweł Trojański. Built with coffee and code.*
+*© 2023-2026 Paweł Trojański. Built with coffee and code.*
