@@ -75,7 +75,8 @@ The project utilizes a clean structure within the `assets` directory, organizing
 │   │   ├── Montserrat-Italic.woff2
 │   │   ├── Montserrat-Light.woff2
 │   │   ├── Montserrat-Medium.woff2
-│   │   └── Montserrat-Regular.woff2
+│   │   ├── Montserrat-Regular.woff2
+│   │   └── Montserrat-SemiBold.woff2
 │   ├── img/
 │   │   ├── me.webp
 │   │   ├── operationDeratization.webp
