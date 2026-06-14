@@ -10,36 +10,35 @@
 
 ## ⚡ Overview
 
-Welcome to my personal portfolio website.
-
-This project has been completely refactored from a jQuery-heavy template to a **performance-oriented, Vanilla JavaScript** application. The goal was to achieve a modern cyber aesthetic without sacrificing speed or accessibility. It features a custom-built digital resume, a virtual file system terminal, and interactive UI elements built from scratch.
+Personal portfolio built from scratch — no frameworks, no jQuery, no bloat. A performance-first Vanilla JS application with a cyber aesthetic, interactive terminal, and polished UI details that most portfolios skip.
 
 ## 🛠 Tech Stack
 
-- **Core:** HTML5, CSS3, Vanilla JavaScript (ES6+).
-- **Icons:** Font Awesome.
-- **Tools:** Git, Zed.
-- **Philosophy:** No frameworks, no bloat. Just clean, semantic code.
+- **Core:** HTML5, CSS3, Vanilla JavaScript (ES6+)
+- **Icons:** Inline SVG sprite
+- **Tools:** Git, Zed
+- **Philosophy:** Zero dependencies. Every interaction hand-crafted.
 
 ## 🌟 Key Features
 
 ### 🖥️ Interactive Terminal
-A fully functional, simulated terminal environment accessible via the UI. It's not just an animation - it parses commands!
-- **Virtual File System (VFS):** Navigate directories and read files.
-- **Commands:** Try typing `help`, `ls -la`, `whoami`, `cat about.txt`, or even `reboot`.
+A simulated terminal with a real command parser and virtual file system. Not a gimmick — it actually works.
+- Navigate directories, read files, switch themes, change accent colors
+- Persistent accent color with per-theme preset resolution
+- Drag to reposition, command history with arrow navigation
 
 ### 🎨 UI/UX & Animations
-- **Text Scramble Effect:** Custom cybersecurity themed text decoding on load.
-- **Context-Aware Cursor:** A custom cursor that reacts to hover states with blend modes and size changes.
-- **Smart Custom Scrollbar:** A JS-driven scrollbar that hides the system cursor for immersion, and adapts to Light/Dark themes.
-- **Direction-Aware Buttons:** Hover fills that track your mouse entry/exit angle.
-- **Light/Dark Mode:** Instant theme switching using CSS Variables and LocalStorage persistence.
+- **3D Project Slider:** Scroll-driven on desktop, swipe-driven on mobile with gesture intent detection
+- **Text Scramble Effect:** Cyberpunk-style character decoding on load
+- **Context-Aware Cursor:** Reacts to hover states, blend modes, element types
+- **Direction-Aware Buttons:** Hover fills that track mouse entry/exit angle
+- **Light/Dark Mode:** CSS variable-based theming with LocalStorage persistence
 
-### ⚡ Performance & SEO
-- **Lazy Loading & Reveal:** Sections animate in using the `Intersection Observer API` only when needed.
-- **Zero Dependencies:** Removed jQuery and external animation libraries to minimize payload.
-- **Accessibility:** Semantic HTML structure, ARIA labels, and keyboard navigation support.
-- **Cross-Browser Compatibility:** Solved complex CSS blending mode issues on Safari and implemented custom scrollbar logic to ensure a consistent experience across Chrome, Firefox, and Safari.
+### ⚡ Performance
+- **Zero Dependencies:** Pure Vanilla JS — no jQuery, no animation libraries
+- **Intersection Observer:** Lazy reveal animations, timeline fill, counter triggers
+- **SVG Sprite:** Single inline sprite for all icons, zero network requests
+- **WebP Images:** All assets optimized for web delivery
 
 ## 📂 Project Structure
 
@@ -48,29 +47,36 @@ The project utilizes a clean structure within the `assets` directory, organizing
 ```text
 /
 ├── assets/
-│   ├── css/                        # Modular & Minified Styles
-│   │   ├── base/                   # Global definitions
-│   │   │   ├── reset.min.css       # CSS Reset & typography
-│   │   │   ├── utils.min.css       # Helper classes
-│   │   │   └── variables.min.css   # Colors & CSS variables
-│   │   ├── components/             # UI Components
-│   │   │   ├── buttons.min.css     # Buttons & CTA styles
-│   │   │   ├── cursor.min.css      # Custom cursor logic
-│   │   │   ├── navigation.min.css  # Header, nav & hamburger
-│   │   │   ├── scrollbar.min.css   # Custom scrollbar logic
-│   │   │   ├── stats.min.css       # Statistics counters
-│   │   │   ├── terminal.min.css    # Terminal overlay styling
-│   │   │   └── timeline.min.css    # Experience timeline
-│   │   ├── sections/               # Specific page sections
+│   ├── css/
+│   │   ├── base/
+│   │   │   ├── reset.min.css
+│   │   │   ├── utils.min.css
+│   │   │   └── variables.min.css
+│   │   ├── components/
+│   │   │   ├── buttons.min.css
+│   │   │   ├── cursor.min.css
+│   │   │   ├── navigation.min.css 
+│   │   │   ├── scrollbar.min.css
+│   │   │   ├── stats.min.css
+│   │   │   ├── terminal.min.css
+│   │   │   └── timeline.min.css
+│   │   ├── sections/
 │   │   │   ├── about.min.css
 │   │   │   ├── contact.min.css
 │   │   │   ├── footer.min.css
 │   │   │   ├── home.min.css
 │   │   │   └── projects.min.css
-│   │   ├── main.min.css            # Main entry point
+│   │   ├── main.min.css
 │   ├── files/
-│   │   └── cv.pdf                  # Downloadable resume
-│   ├── img/                        # Optimized WebP images
+│   │   └── cv.pdf
+│   ├── fonts/
+│   │   ├── JetBrainsMono-Bold.woff2
+│   │   ├── Montserrat-Bold.woff2
+│   │   ├── Montserrat-Italic.woff2
+│   │   ├── Montserrat-Light.woff2
+│   │   ├── Montserrat-Medium.woff2
+│   │   └── Montserrat-Regular.woff2
+│   ├── img/
 │   │   ├── me.webp
 │   │   ├── operationDeratization.webp
 │   │   ├── pomodoroTimer.webp
@@ -78,12 +84,13 @@ The project utilizes a clean structure within the `assets` directory, organizing
 │   │   ├── vibrantIcons.webp
 │   │   ├── weatherProphet.webp
 │   │   └── wingetPortable.webp
-│   └── js/                         # Minified production scripts
-│       ├── main.min.js             # Core logic & initializers
-│       └── terminal.min.js         # Terminal emulator logic
+│   └── js/
+│       ├── main.min.js
+│       └── terminal.min.js
 ├── .gitignore
-├── 404.html                        # Custom Error Page
-├── index.html                      # Main entry point
+├── 404.html
+├── index.html
+├── LICENSE.md
 └── README.md
 ```
 
@@ -96,20 +103,18 @@ If you have any questions or feedback, feel free to reach out:
 
 ## 📄 License & Copyright
 
-This repository operates under a **Dual License** model to allow learning while protecting personal identity.
+Dual license model — code is open, identity is not.
 
-### 💻 Source Code
-The underlying source code (HTML, CSS, JS logic) is open source and available under the **[MIT License](LICENSE.md)**.
-You are free to use the code structure, logic, and techniques for your own projects.
+### 💻 Source Code — **[MIT](LICENSE.md)**
+The HTML, CSS, and JS logic are open source. Use the structure, patterns, and techniques freely.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-### 🎨 Design & Content
-The content, including personal photos, the specific visual design/layout, resume (`cv.pdf`), and autobiographical text, is licensed under **[CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)**.
+### 🎨 Design & Content — **[CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)**
+Personal photos, visual design, resume, and autobiographical content are protected.
 
-**What this means:**
-- ✅ **You can:** View the code, learn from it, and fork the repo for educational purposes.
-- ❌ **You cannot:** Clone this site to use as your own portfolio, use my photos/CV, or sell this design.
+- ✅ View, learn, fork for educational purposes
+- ❌ Don't clone as your own portfolio, use my assets, or sell the design
 
 [![License: CC BY-NC-ND 4.0](https://licensebuttons.net/l/by-nc-nd/4.0/80x15.png)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
