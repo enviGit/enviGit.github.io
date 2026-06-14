@@ -6,7 +6,8 @@
 
 > **Live Demo:** [envigit.github.io](https://envigit.github.io/)
 
-![Paweł Trojański Portfolio Preview](https://github.com/user-attachments/assets/91c990de-831c-4039-bb56-eff414588442)
+![Paweł Trojański Portfolio Preview](https://github.com/user-attachments/assets/4fae1204-d912-4bde-b869-1f6122e8cac2)
+
 
 ## ⚡ Overview
 
