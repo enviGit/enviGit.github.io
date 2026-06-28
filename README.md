@@ -35,11 +35,14 @@ A simulated terminal with a real command parser and virtual file system. Not a g
 - **Direction-Aware Buttons:** Hover fills that track mouse entry/exit angle
 - **Light/Dark Mode:** CSS variable-based theming with LocalStorage persistence
 
-### ⚡ Performance
-- **Zero Dependencies:** Pure Vanilla JS — no jQuery, no animation libraries
-- **Intersection Observer:** Lazy reveal animations, timeline fill, counter triggers
-- **SVG Sprite:** Single inline sprite for all icons, zero network requests
-- **WebP Images:** All assets optimized for web delivery
+### ⚡ Performance & Optimization
+- **Zero Dependencies:** Pure Vanilla JS — no jQuery, no animation libraries, minimal footprint.
+- **Intersection Observer:** Lazy-loaded animations, timeline progress tracking, and on-scroll triggers to keep the main thread lightweight.
+- **Frame-Budgeted Animations:** Smooth interaction and 3D slider logic using `requestAnimationFrame`, minimizing layout thrashing.
+- **Resource Preloading:** Strategic use of `rel="preload"` for critical assets (fonts, main CSS) to prevent FOIT/FOUT.
+- **Eco-Friendly Logic:** Automatic animation pausing via `VisibilityChange` API when the tab is inactive to preserve CPU and battery.
+- **Optimized Asset Pipeline:** WebP format for all imagery and inlined SVG sprites for instant icon rendering.
+- **Passive Event Listeners:** Optimized scroll handling using `{ passive: true }` to maximize scroll performance and responsiveness.
 
 ## 📂 Project Structure
 
@@ -79,7 +82,9 @@ The project utilizes a clean structure within the `assets` directory, organizing
 │   │   ├── Montserrat-Regular.woff2
 │   │   └── Montserrat-SemiBold.woff2
 │   ├── img/
-│   │   ├── me.webp
+│   │   ├── me-large.webp
+│   │   ├── me-medium.webp
+│   │   ├── me-small.webp
 │   │   ├── operationDeratization.webp
 │   │   ├── pomodoroTimer.webp
 │   │   ├── psCatch.webp
@@ -88,7 +93,11 @@ The project utilizes a clean structure within the `assets` directory, organizing
 │   │   └── wingetPortable.webp
 │   └── js/
 │       ├── main.min.js
-│       └── terminal.min.js
+│       ├── navigation.min.js
+│       ├── slider.min.js
+│       ├── terminal.min.js
+│       ├── ui-effects.min.js
+│       └── utils.min.js
 ├── .gitignore
 ├── 404.html
 ├── index.html
