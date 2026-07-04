@@ -1,1 +1,153 @@
-.container{min-height:100vh;width:100%;display:flex;align-items:center;justify-content:center}.section-title{font-size:3.5rem;font-weight:700;color:var(--text-color);margin-bottom:20px;text-transform:uppercase;letter-spacing:2rem;line-height:1.1;text-align:center}.section-title span{color:var(--accent);text-shadow:0 0 25px color-mix(in srgb,var(--accent),transparent 60%)}.glass-card{background-color:var(--glass-bg);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--border-color);box-shadow:0 8px 32px 0 rgba(0,0,0,.2);will-change:transform}.hidden{opacity:0;transform:translateY(50px);filter:blur(5px);transition:opacity 1s ease-out,transform 1s ease-out,filter 1s ease-out}.show{opacity:1;transform:translateY(0);filter:blur(0)}.toast-notification{position:fixed;bottom:30px;left:50%;transform:translate(-50%,100px);background-color:var(--card-bg);color:var(--text-color);border:1px solid var(--accent);padding:12px 25px;border-radius:50px;box-shadow:0 5px 20px color-mix(in srgb,var(--accent),transparent 85%);z-index:9999998;display:flex;align-items:center;gap:12px;font-size:1.4rem;font-weight:500;opacity:0;pointer-events:none;white-space:nowrap;transition:transform .3s cubic-bezier(.34, 1.56, .64, 1),opacity .3s}.toast-notification.show{transform:translate(-50%,0);opacity:1}.toast-notification svg.icon{color:var(--accent);font-size:1.6rem}svg.icon{width:1.5em;height:1.5em;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none;display:inline-block;vertical-align:middle}.glass-social-link svg.icon,.slider-btn svg.icon{width:1.6em;height:1.6em}.stat-item svg.icon{width:3.5rem;height:3.5rem;color:var(--accent);margin-bottom:10px}.pause-animations,.pause-animations *{animation-play-state:paused!important}@media only screen and (max-width:767px){body{animation:none!important;opacity:1!important}.section-title{font-size:2.8rem;letter-spacing:.5rem;margin-bottom:15px}.toast-notification{font-size:1.2rem;padding:10px 20px;bottom:20px;width:90%;max-width:400px;text-align:center}.glass-card{backdrop-filter:none;background-color:var(--card-bg)}}@media only screen and (max-width:900px) and (orientation:landscape) and (max-height:500px){body{animation:none!important;opacity:1!important}.section-title{font-size:2.2rem;letter-spacing:.2rem}.container{min-height:auto;padding:40px 0}}
+.container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.section-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2rem;
+    line-height: 1.1;
+    text-align: center;
+}
+.section-title span {
+    color: var(--accent);
+    text-shadow: 0 0 25px color-mix(in srgb, var(--accent), transparent 60%);
+}
+.glass-card {
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    will-change: transform;
+}
+section {
+    perspective: 1500px;
+    overflow: hidden; /* Zapobiega pojawianiu się paska scrolla przy obrotach */
+}
+
+/* Nowa, zaawansowana ukryta klasa */
+.hidden {
+    opacity: 0;
+    /* Przesunięcie w dół, lekkie pomniejszenie i odchylenie w tył (rotateX) */
+    transform: translateY(80px) scale(0.92) rotateX(-15deg);
+    transform-origin: center bottom;
+    filter: blur(12px);
+    will-change: transform, opacity, filter;
+}
+
+/* Płynne, sprężyste wejście */
+.show {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0);
+    filter: blur(0);
+    /* Używamy cubic-bezier dla efektu płynnego wyhamowywania na końcu */
+    transition:
+        opacity 0.8s ease-out,
+        transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1),
+        filter 0.8s ease-out;
+
+    /* Obsługa opóźnień kaskadowych (domyślnie 0) */
+    transition-delay: var(--delay, 0s);
+}
+.toast-notification {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translate(-50%, 100px);
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--accent);
+    padding: 12px 25px;
+    border-radius: 50px;
+    box-shadow: 0 5px 20px color-mix(in srgb, var(--accent), transparent 85%);
+    z-index: 9999998;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    transition:
+        transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+        opacity 0.3s;
+}
+.toast-notification.show {
+    transform: translate(-50%, 0);
+    opacity: 1;
+}
+.toast-notification svg.icon {
+    color: var(--accent);
+    font-size: 1.6rem;
+}
+svg.icon {
+    width: 1.5em;
+    height: 1.5em;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    display: inline-block;
+    vertical-align: middle;
+}
+.glass-social-link svg.icon,
+.slider-btn svg.icon {
+    width: 1.6em;
+    height: 1.6em;
+}
+.stat-item svg.icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+.pause-animations,
+.pause-animations * {
+    animation-play-state: paused !important;
+}
+@media only screen and (max-width: 767px) {
+    body {
+        animation: none !important;
+        opacity: 1 !important;
+    }
+    .section-title {
+        font-size: 2.8rem;
+        letter-spacing: 0.5rem;
+        margin-bottom: 15px;
+    }
+    .toast-notification {
+        font-size: 1.2rem;
+        padding: 10px 20px;
+        bottom: 20px;
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+    }
+    .glass-card {
+        backdrop-filter: none;
+        background-color: var(--card-bg);
+    }
+}
+@media only screen and (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+    body {
+        animation: none !important;
+        opacity: 1 !important;
+    }
+    .section-title {
+        font-size: 2.2rem;
+        letter-spacing: 0.2rem;
+    }
+    .container {
+        min-height: auto;
+        padding: 40px 0;
+    }
+}

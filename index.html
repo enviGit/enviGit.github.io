@@ -1,24 +1,26 @@
 <!doctype html>
-<html lang=en>
+<html lang="en">
 
 <head>
-   <meta charset=UTF-8>
-   <meta name=viewport content="width=device-width,initial-scale=1">
-   <meta name=description
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width,initial-scale=1">
+   <meta name="description"
       content="Paweł Trojański - Portfolio. Implementation Specialist & Unity Developer specializing in C#, .NET, and Cybersecurity.">
-   <meta name=keywords
+   <meta name="keywords"
       content="Paweł Trojański, Portfolio, Unity Developer, C#, .NET, Cybersecurity, Frontend, Web Development">
-   <meta name=author content="Paweł Trojański">
-   <meta property=og:type content=website>
-   <meta property=og:url content=https://envigit.github.io />
-   <meta property=og:title content="Paweł Trojański | Portfolio">
-   <meta property=og:description
+   <meta name="author" content="Paweł Trojański">
+   <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
+   <meta name="theme-color" content="#f3f4f6" media="(prefers-color-scheme: light)">
+   <meta property="og:type" content="website">
+   <meta property="og:url" content="https://envigit.github.io" />
+   <meta property="og:title" content="Paweł Trojański | Portfolio">
+   <meta property="og:description"
       content="Implementation Specialist & Unity Developer. Check out my projects and timeline.">
-   <meta property=og:image content=./assets/img/me-large.webp>
-   <meta property=twitter:card content=summary_large_image>
-   <meta property=twitter:url content=https://envigit.github.io />
-   <meta property=twitter:title content="Paweł Trojański | Portfolio">
-   <meta property=twitter:description content="Implementation Specialist & Unity Developer.">
+   <meta property="og:image" content="./assets/img/me-large.webp">
+   <meta property="twitter:card" content="summary_large_image">
+   <meta property="twitter:url" content="https://envigit.github.io" />
+   <meta property="twitter:title" content="Paweł Trojański | Portfolio">
+   <meta property="twitter:description" content="Implementation Specialist & Unity Developer.">
    <script type=application/ld+json>
          {
                          "@context": "http://schema.org",
@@ -48,19 +50,19 @@
                      }
       </script>
    <script>const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent); isSafari && document.documentElement.classList.add("safari")</script>
-   <link rel=preload href=./assets/css/main.min.css as=style>
-   <link rel=preload href=./assets/fonts/Montserrat-Regular.woff2 as=font type=font/woff2 crossorigin>
-   <link rel=stylesheet href=./assets/css/main.min.css>
-   <link rel=icon
+   <link rel="preload" href="./assets/css/main.min.css" as="style">
+   <link rel="preload" href="./assets/fonts/Montserrat-Regular.woff2" as="font" type="font/woff2" crossorigin>
+   <link rel="stylesheet" href="./assets/css/main.min.css">
+   <link rel="icon"
       href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23111111'/><rect x='5' y='5' width='90' height='90' rx='15' fill='none' stroke='%234ade80' stroke-width='5'><animate attributeName='opacity' values='1;0.3;1' dur='2s' repeatCount='indefinite'/></rect><text x='50' y='75' font-family='Arial, sans-serif' font-weight='bold' font-size='65' fill='%234ade80' text-anchor='middle'>P<animate attributeName='opacity' values='1;0.5;1' dur='2s' repeatCount='indefinite'/></text></svg>">
    <title>Paweł Trojański | Portfolio</title>
-   <link rel=canonical href=https://envigit.github.io />
+   <link rel="canonical" href="https://envigit.github.io" />
 </head>
 
 <body>
-   <div class=cursor></div>
+   <div class="cursor"></div>
 
-   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+   <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true">
          <defs>
             <symbol id="icon-home" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></symbol>
             <symbol id="icon-user" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></symbol>
@@ -170,24 +172,24 @@
       </nav>
    </header>
    <main>
-      <section id=home>
-         <div class="home container hidden">
+      <section id="home">
+         <div class="home container">
             <div>
-               <div class=cmd-line>
-                  <span class=cmd-prompt>[root@ptrojanski ~]#</span>
-                  <span class=cmd-command>whoami</span>
+               <div class="cmd-line hidden" style="--delay: 0s">
+                  <span class="cmd-prompt">[root@ptrojanski ~]#</span>
+                  <span class="cmd-command">whoami</span>
                </div>
-               <h1 class=console-output>
-                  <span class=multiple-text></span>
+               <h1 class="console-output hidden" style="--delay: 0.15s">
+                  <span class="multiple-text"></span>
                </h1>
-               <a href=#projects class="cta btn-hover"><span>Portfolio</span></a>
+               <a href="#projects" class="cta btn-hover hidden" style="--delay: 0.3s"><span>Portfolio</span></a>
             </div>
          </div>
       </section>
-      <section id=about class=hidden>
+      <section id="about">
          <div class="about container">
-            <div class=col-left>
-               <div class=about-img>
+            <div class="col-left hidden" style="--delay: 0s">
+               <div class="about-img">
                    <img
                      src="./assets/img/me-medium.webp"
                      srcset="./assets/img/me-small.webp 500w,
@@ -200,20 +202,20 @@
                      loading="lazy">
                </div>
             </div>
-            <div class=col-right>
-               <h2 class=section-title>About <span>Me</span></h2>
-               <p>
+            <div class="col-right">
+               <h2 class="section-title hidden" style="--delay: 0.1s">About <span>Me</span></h2>
+               <p class="hidden" style="--delay: 0.2s">
                    I’m an <strong>Implementation Specialist</strong> at Printbox, where I tackle complex technical challenges and turn them into reliable solutions for our clients. My day-to-day is all about troubleshooting, system configuration, and making sure the software actually does what it’s supposed to do—without the extra headaches.
                </p>
                <br>
-               <p>
+               <p class="hidden" style="--delay: 0.3s">
                    I hold a <strong>Master’s degree in Cybersecurity</strong>, which gave me a deep appreciation for secure coding and solid system architecture. I balance that background with a hands-on approach to <strong>C# (.NET)</strong> and <strong>Unity development</strong>, always focusing on writing clean, efficient, and functional code.
                </p>
                <br>
-               <p>
+               <p class="hidden" style="--delay: 0.4s">
                    Beyond the screen, I’m a hardware enthusiast and a gamer at heart. I believe that understanding the full stack—<strong>from low-level hardware constraints to high-level software architecture</strong>—is what makes for a truly great developer. I’m always looking to pick up new frameworks and find smarter ways to optimize my workflow.
                </p>
-               <div class=skills-list>
+               <div class="skills-list hidden" style="--delay: 0.5s">
                   <span>C# / .NET</span>
                   <span>Rust</span>
                   <span>React</span>
@@ -230,26 +232,26 @@
                   <span>Technical Support</span>
                   <span>Agile Workflows</span>
                </div>
-               <a href=./assets/files/cv.pdf class="cta btn-hover" target=_blank><span>View Resume</span></a>
+               <a href="./assets/files/cv.pdf" class="cta btn-hover hidden" style="--delay: 0.6s" target="_blank" rel="noopener noreferrer"><span>View Resume</span></a>
             </div>
          </div>
       </section>
-      <section id=timeline>
+      <section id="timeline">
          <div class="container timeline-container">
-            <div class=projects-header>
-               <h2 class="section-title hidden">
+            <div class="projects-header">
+                <h2 class="section-title hidden" style="--delay: 0s">
                   My <span>Timeline</span>
                </h2>
             </div>
-            <div class=timeline>
-               <div class=timeline-line></div>
-               <div class=timeline-line-fill></div>
+            <div class="timeline">
+               <div class="timeline-line"></div>
+               <div class="timeline-line-fill"></div>
                <div class="timeline-item hidden left">
-                  <div class=timeline-icon>
+                  <div class="timeline-icon">
                       <svg class="icon"><use href="#icon-wrench"></use></svg>
                   </div>
                   <div class="timeline-content glass-card">
-                     <span class=date>Sep 2015 - Apr 2019</span>
+                     <span class="date">Sep 2015 - Apr 2019</span>
                      <h3>IT Technician</h3>
                      <h4>ZSTiO Limanowa</h4>
                      <p>
@@ -258,51 +260,51 @@
                   </div>
                </div>
                <div class="timeline-item hidden right">
-                  <div class=timeline-icon>
+                  <div class="timeline-icon">
                       <svg class="icon"><use href="#icon-sitemap"></use></svg>
                   </div>
                   <div class="timeline-content glass-card">
-                     <span class=date>Apr 2019</span>
+                     <span class="date">Apr 2019</span>
                      <h3>CCNA Routing & Switching</h3>
                      <h4>Introduction to Networks</h4>
                      <p>
                         Mastered Cisco networking fundamentals, including network architecture, IP addressing models, and core router configurations.
                      </p>
-                     <span class=badge>Certified</span>
+                     <span class="badge">Certified</span>
                   </div>
                </div>
                <div class="timeline-item hidden left">
-                  <div class=timeline-icon>
+                  <div class="timeline-icon">
                       <svg class="icon"><use href="#icon-certificate"></use></svg>
                   </div>
                   <div class="timeline-content glass-card">
-                     <span class=date>Dec 2020</span>
+                     <span class="date">Dec 2020</span>
                      <h3>MTA: Database Admin</h3>
                      <p>
                         Validated core knowledge of relational database concepts, security, and data manipulation using SQL.
                      </p>
-                     <span class=badge>Certified</span>
+                     <span class="badge">Certified</span>
                   </div>
                </div>
                <div class="timeline-item hidden right">
-                  <div class=timeline-icon>
+                  <div class="timeline-icon">
                       <svg class="icon"><use href="#icon-code"></use></svg>
                   </div>
                   <div class="timeline-content glass-card">
-                     <span class=date>May - Jun 2021</span>
+                     <span class="date">May - Jun 2021</span>
                      <h3>MTA: Software Dev & HTML5</h3>
                      <p>
                         Earned foundational certifications covering core programming logic, object-oriented concepts, and web design basics.
                      </p>
-                     <span class=badge>Certified</span>
+                     <span class="badge">Certified</span>
                   </div>
                </div>
                <div class="timeline-item hidden left">
-                  <div class=timeline-icon>
+                  <div class="timeline-icon">
                       <svg class="icon"><use href="#icon-user"></use></svg>
                   </div>
                   <div class="timeline-content glass-card">
-                     <span class=date>May 2021 - Aug 2021</span>
+                     <span class="date">May 2021 - Aug 2021</span>
                      <h3>Medical Receptionist</h3>
                      <h4>Punkt Szczepień Powszechnych Łapanów</h4>
                      <p>
@@ -311,11 +313,11 @@
                   </div>
                </div>
                <div class="timeline-item hidden right">
-                  <div class=timeline-icon>
+                  <div class="timeline-icon">
                       <svg class="icon"><use href="#icon-hospital"></use></svg>
                   </div>
                   <div class="timeline-content glass-card">
-                     <span class=date>Nov 2021 - Apr 2022</span>
+                     <span class="date">Nov 2021 - Apr 2022</span>
                      <h3>Medical Receptionist</h3>
                      <h4>Przychodnia Bocheńska</h4>
                      <p>
@@ -324,37 +326,37 @@
                   </div>
                </div>
                <div class="timeline-item hidden left">
-                  <div class=timeline-icon>
+                  <div class="timeline-icon">
                       <svg class="icon"><use href="#icon-lock"></use></svg>
                   </div>
                   <div class="timeline-content glass-card">
-                     <span class=date>Dec 2021</span>
+                     <span class="date">Dec 2021</span>
                      <h3>MTA: Security Fundamentals</h3>
                      <p>
                         Validated expertise in core security principles, operating system security, network protection, and secure software concepts.
                      </p>
-                     <span class=badge>Certified</span>
+                     <span class="badge">Certified</span>
                   </div>
                </div>
                <div class="timeline-item hidden right">
-                  <div class=timeline-icon>
+                  <div class="timeline-icon">
                       <svg class="icon"><use href="#icon-cloud"></use></svg>
                   </div>
                   <div class="timeline-content glass-card">
-                     <span class=date>Jan 2023</span>
+                     <span class="date">Jan 2023</span>
                      <h3>Azure Data Fundamentals</h3>
                      <p>
                         Certified in Microsoft cloud data services, validating foundational knowledge of core data concepts and relational/non-relational data options on Azure.
                      </p>
-                     <span class=badge>Certified</span>
+                     <span class="badge">Certified</span>
                   </div>
                </div>
                <div class="timeline-item hidden left">
-                  <div class=timeline-icon>
+                  <div class="timeline-icon">
                       <svg class="icon"><use href="#icon-gamepad"></use></svg>
                   </div>
                   <div class="timeline-content glass-card">
-                     <span class=date>Oct 2020 - Jul 2024</span>
+                     <span class="date">Oct 2020 - Jul 2024</span>
                      <h3>Bachelor's Degree</h3>
                      <h4>WSEI Kraków</h4>
                      <p>
@@ -363,25 +365,25 @@
                   </div>
                </div>
                <div class="timeline-item hidden right">
-                  <div class=timeline-icon>
+                  <div class="timeline-icon">
                       <svg class="icon"><use href="#icon-server"></use></svg>
                   </div>
                   <div class="timeline-content glass-card">
-                     <span class=date>Jan 2026</span>
+                     <span class="date">Jan 2026</span>
                      <h3>CCNP Core & DevNet</h3>
                      <h4>Credly by Pearson</h4>
                      <p>
                         Completed advanced training in core enterprise infrastructure, automation workflows, and infrastructure-as-code concepts.
                      </p>
-                     <span class=badge>Certified</span>
+                     <span class="badge">Certified</span>
                   </div>
                </div>
                <div class="timeline-item hidden left">
-                  <div class=timeline-icon>
+                  <div class="timeline-icon">
                       <svg class="icon"><use href="#icon-shield"></use></svg>
                   </div>
                   <div class="timeline-content glass-card">
-                     <span class=date>Oct 2024 - Mar 2026</span>
+                     <span class="date">Oct 2024 - Mar 2026</span>
                      <h3>Master's Degree</h3>
                      <h4>WSEI Kraków</h4>
                      <p>
@@ -390,11 +392,11 @@
                   </div>
                </div>
                <div class="timeline-item hidden right">
-                  <div class=timeline-icon>
+                  <div class="timeline-icon">
                       <svg class="icon"><use href="#icon-briefcase"></use></svg>
                   </div>
                   <div class="timeline-content glass-card">
-                     <span class=date>May 2025 - Present</span>
+                     <span class="date">May 2025 - Present</span>
                      <h3>Technical Implementation Specialist</h3>
                      <h4>Printbox</h4>
                      <p>
@@ -408,8 +410,7 @@
       </section>
       <section id="stats">
           <div class="stats-container">
-
-              <div class="stat-item glass-card hidden">
+              <div class="stat-item glass-card hidden" style="--delay: 0s">
                   <svg class="icon"><use href="#icon-code"></use></svg>
                   <div class="stat-info">
                       <div class="counter" data-target="5">0</div>
@@ -417,7 +418,7 @@
                   </div>
               </div>
 
-              <div class="stat-item glass-card hidden">
+              <div class="stat-item glass-card hidden" style="--delay: 0.15s">
                   <svg class="icon"><use href="#icon-certificate"></use></svg>
                   <div class="stat-info">
                       <div class="counter" data-target="11">0</div>
@@ -425,7 +426,7 @@
                   </div>
               </div>
 
-              <div class="stat-item glass-card hidden">
+              <div class="stat-item glass-card hidden" style="--delay: 0.3s">
                   <svg class="icon"><use href="#icon-cubes"></use></svg>
                   <div class="stat-info">
                       <div class="counter" data-target="22">0</div>
@@ -433,7 +434,7 @@
                   </div>
               </div>
 
-              <div class="stat-item glass-card hidden">
+              <div class="stat-item glass-card hidden" style="--delay: 0.45s">
                   <svg class="icon"><use href="#icon-coffee"></use></svg>
                   <div class="stat-info">
                       <div class="counter" data-target="1000">0</div>
@@ -447,7 +448,7 @@
           <div class="projects-slider-container">
               <div class="projects-orbit-wrapper">
                   <div class="projects-header">
-                      <h2 class="section-title">
+                      <h2 class="section-title hidden" style="--delay: 0s">
                           Highlighted <span>Projects</span>
                       </h2>
                   </div>
@@ -471,7 +472,7 @@
                               <div class="hidden-content">
                                   <div>
                                   <p>A lightweight Windows utility that automates software updates via Winget. Features regex terminal output filtering.</p>
-                                  <a href="https://github.com/enviGit/winget-portable" target="_blank" class="ctaProjects btn-hover"><span>GitHub Repo</span></a>
+                                  <a href="https://github.com/enviGit/winget-portable" target="_blank" rel="noopener noreferrer" class="ctaProjects btn-hover"><span>GitHub Repo</span></a>
                                   </div>
                               </div>
                           </div>
@@ -488,7 +489,7 @@
                               <div class="hidden-content">
                                   <div>
                                   <p>A high-end PlayStation price tracker with multi-region support. Features real-time wishlist sync and a custom python scraper.</p>
-                                  <a href="https://envigit.github.io/ps-catch/" target="_blank" class="ctaProjects btn-hover"><span>Visit Website</span></a>
+                                  <a href="https://envigit.github.io/ps-catch/" target="_blank" rel="noopener noreferrer" class="ctaProjects btn-hover"><span>Visit Website</span></a>
                                   </div>
                               </div>
                           </div>
@@ -505,7 +506,7 @@
                               <div class="hidden-content">
                                   <div>
                                   <p>A curated Unity Editor tool published on the Asset Store that streamlines workflows by enabling customization of script icons.</p>
-                                  <a href="https://assetstore.unity.com/packages/tools/gui/vibrant-icons-276821" target="_blank" class="ctaProjects btn-hover"><span>Unity Store</span></a>
+                                  <a href="https://assetstore.unity.com/packages/tools/gui/vibrant-icons-276821" target="_blank" rel="noopener noreferrer" class="ctaProjects btn-hover"><span>Unity Store</span></a>
                                   </div>
                               </div>
                           </div>
@@ -522,7 +523,7 @@
                               <div class="hidden-content">
                                   <div>
                                   <p>A low-poly, first-person shooter game with a battle royale theme. Features state-driven agent behaviors leveraging NavMesh.</p>
-                                  <a href="https://github.com/enviGit/OperationDeratization/tree/main" target="_blank" class="ctaProjects btn-hover"><span>GitHub Repo</span></a>
+                                  <a href="https://github.com/enviGit/OperationDeratization/tree/main" target="_blank" rel="noopener noreferrer" class="ctaProjects btn-hover"><span>GitHub Repo</span></a>
                                   </div>
                               </div>
                           </div>
@@ -539,7 +540,7 @@
                               <div class="hidden-content">
                                   <div>
                                   <p>A clean desktop productivity utility designed to implement the Pomodoro workflow. Features decoupled components.</p>
-                                  <a href="https://github.com/enviGit/PomodoroTimer" target="_blank" class="ctaProjects btn-hover"><span>GitHub Repo</span></a>
+                                  <a href="https://github.com/enviGit/PomodoroTimer" target="_blank" rel="noopener noreferrer" class="ctaProjects btn-hover"><span>GitHub Repo</span></a>
                                   </div>
                               </div>
                           </div>
@@ -556,7 +557,7 @@
                               <div class="hidden-content">
                                   <div>
                                   <p>A multilingual desktop client delivering real-time localized forecasts. Built on native Windows UI patterns.</p>
-                                  <a href="https://github.com/enviGit/WeatherProphet" target="_blank" class="ctaProjects btn-hover"><span>GitHub Repo</span></a>
+                                  <a href="https://github.com/enviGit/WeatherProphet" target="_blank" rel="noopener noreferrer" class="ctaProjects btn-hover"><span>GitHub Repo</span></a>
                                   </div>
                               </div>
                           </div>
@@ -573,13 +574,13 @@
               </div>
           </div>
       </section>
-      <section id=contact>
-         <div class="contact-container hidden">
-            <p class=status-label>
-               <span class=status-dot></span> Open to connecting
+      <section id="contact">
+         <div class="contact-container">
+             <p class="status-label hidden" style="--delay: 0s">
+               <span class="status-dot"></span> Open to connecting
             </p>
-            <h1 class=contact-title>Let's stay in touch!</h1>
-            <p class=contact-desc>
+            <h1 class="contact-title hidden" style="--delay: 0.15s">Let's stay in touch!</h1>
+            <p class="contact-desc hidden" style="--delay: 0.3s">
                Although I'm currently happily employed at
                <strong>Printbox</strong>, I'm always open to discussing new technologies, sharing knowledge, or just
                having a chat about <strong>Unity</strong> development and
@@ -589,65 +590,65 @@
          </div>
       </section>
    </main>
-   <section id=footer>
-      <div class=footer-container>
-         <div class=social-icons>
-            <a href=# class="glass-social-link copy-email" data-email=paweltrojanski@gmail.com
-               style=--color:var(--accent)>
+   <section id="footer">
+      <div class="footer-container">
+         <div class="social-icons">
+            <a href="#" class="glass-social-link copy-email" data-email="paweltrojanski@gmail.com"
+               style="--color:var(--accent)">
                 <svg class="icon"><use href="#icon-envelope"></use></svg>
-               <span class=social-tooltip>Email</span>
+               <span class="social-tooltip">Email</span>
             </a>
-            <a href=https://github.com/enviGit target=_blank rel="noopener noreferrer" class=glass-social-link style=--color:#6e5494>
+            <a href="https://github.com/enviGit" target="_blank" rel="noopener noreferrer" class="glass-social-link" style="--color:#6e5494">
                 <svg class="icon"><use href="#icon-github"></use></svg>
-               <span class=social-tooltip>GitHub</span>
+               <span class="social-tooltip">GitHub</span>
             </a>
-            <a href=https://www.linkedin.com/in/ptrojanski/ target=_blank rel="noopener noreferrer"class=glass-social-link style=--color:#0077b5>
+            <a href="https://www.linkedin.com/in/ptrojanski/" target="_blank" rel="noopener noreferrer"class="glass-social-link" style="--color:#0077b5">
                 <svg class="icon"><use href="#icon-linkedin"></use></svg>
-               <span class=social-tooltip>LinkedIn</span>
+               <span class="social-tooltip">LinkedIn</span>
             </a>
-            <a href=https://www.facebook.com/Envixoxo target=_blank rel="noopener noreferrer" class=glass-social-link style=--color:#1877f2>
+            <a href="https://www.facebook.com/Envixoxo" target="_blank" rel="noopener noreferrer" class="glass-social-link" style="--color:#1877f2">
                 <svg class="icon"><use href="#icon-facebook"></use></svg>
-               <span class=social-tooltip>Facebook</span>
+               <span class="social-tooltip">Facebook</span>
             </a>
-            <a href=https://www.instagram.com/envixoxo/ target=_blank rel="noopener noreferrer" class=glass-social-link style=--color:#e4405f>
+            <a href="https://www.instagram.com/envixoxo/" target="_blank" rel="noopener noreferrer" class="glass-social-link" style="--color:#e4405f">
                 <svg class="icon"><use href="#icon-instagram"></use></svg>
-               <span class=social-tooltip>Instagram</span>
+               <span class="social-tooltip">Instagram</span>
             </a>
-            <a href=https://www.youtube.com/@env1YT target=_blank rel="noopener noreferrer"class=glass-social-link style=--color:#ff0000>
+            <a href="https://www.youtube.com/@env1YT" target="_blank" rel="noopener noreferrer"class="glass-social-link" style="--color:#ff0000">
                 <svg class="icon"><use href="#icon-youtube"></use></svg>
-               <span class=social-tooltip>YouTube</span>
+               <span class="social-tooltip">YouTube</span>
             </a>
          </div>
          <p>
-            © <span class=year></span> Paweł Trojański. All rights reserved.
+            © <span class="year"></span> Paweł Trojański. All rights reserved.
          </p>
       </div>
    </section>
-   <button id=back-to-top aria-label="Back to top">
+   <button id="back-to-top" aria-label="Back to top">
        <svg class="icon"><use href="#icon-arrow-up"></use></svg>
    </button>
-   <button id=terminal-toggle aria-label="Open Terminal">
+   <button id="terminal-toggle" aria-label="Open Terminal">
        <svg class="icon"><use href="#icon-terminal"></use></svg>
    </button>
-   <div id=terminal-overlay class=hidden-terminal>
-      <div class=terminal-window id=terminal-window>
-         <div class=terminal-header id=terminal-header>
-            <span class=terminal-title>guest@ptrojanski: ~</span>
-            <button id=close-terminal class=close-btn>
+   <div id="terminal-overlay" class="hidden-terminal">
+      <div class="terminal-window" id="terminal-window">
+         <div class="terminal-header" id="terminal-header">
+            <span class="terminal-title">guest@ptrojanski: ~</span>
+            <button id="close-terminal" class="close-btn">
                &times;
             </button>
          </div>
-         <div class=terminal-body id=terminal-body>
-            <div class=output>
+         <div class="terminal-body" id="terminal-body">
+            <div class="output">
                <p>Welcome to Paweł Trojański's Terminal v1.0.0</p>
                <p>
-                  Type <span class=cmd-highlight>'help'</span> to see available commands.
+                  Type <span class="cmd-highlight">'help'</span> to see available commands.
                </p>
                <br>
             </div>
-            <div class=input-line>
-               <span class=prompt-text>[guest@ptrojanski ~]$</span>
-               <input id=terminal-input autocomplete=off spellcheck=false autofocus>
+            <div class="input-line">
+               <span class="prompt-text">[guest@ptrojanski ~]$</span>
+               <input id="terminal-input" autocomplete="off" spellcheck="false" autofocus>
             </div>
          </div>
       </div>
