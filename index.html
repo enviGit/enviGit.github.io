@@ -144,12 +144,6 @@
                </a>
             </li>
             <li>
-               <a href="#stats" class="glass-link nav-link" data-section="stats" aria-label="Go to Statistics Section">
-                  <span class="text">Stats</span>
-                  <svg class="icon"><use href="#icon-bar-chart"></use></svg>
-               </a>
-            </li>
-            <li>
                <a href="#projects" class="glass-link nav-link" data-section="projects"
                   aria-label="Go to Projects Section">
                   <span class="text">Projects</span>
@@ -174,65 +168,106 @@
    <main>
       <section id="home">
          <div class="home container">
-            <div>
-               <div class="cmd-line hidden" style="--delay: 0s">
-                  <span class="cmd-prompt">[root@ptrojanski ~]#</span>
-                  <span class="cmd-command">whoami</span>
+            <div class="home-grid">
+               <div class="home-copy">
+                  <div class="cmd-line hidden" style="--delay: 0s">
+                     <span class="cmd-prompt">[root@ptrojanski ~]#</span>
+                     <span class="cmd-command">whoami</span>
+                  </div>
+                  <h1 class="console-output hidden" style="--delay: 0.1s">
+                     <span class="hero-name">Paweł Trojański</span>
+                     <span class="multiple-text"></span>
+                  </h1>
+                  <a href="#projects" class="cta btn-hover hidden" style="--delay: 0.25s"><span>Portfolio</span></a>
                </div>
-               <h1 class="console-output hidden" style="--delay: 0.15s">
-                  <span class="multiple-text"></span>
-               </h1>
-               <a href="#projects" class="cta btn-hover hidden" style="--delay: 0.3s"><span>Portfolio</span></a>
+               <div class="hero-terminal-wrap hidden" style="--delay: 0.2s">
+                  <div class="hero-terminal" id="hero-terminal">
+                     <div class="hero-terminal-header">
+                        <span class="hero-terminal-dot red"></span>
+                        <span class="hero-terminal-dot yellow"></span>
+                        <span class="hero-terminal-dot green"></span>
+                        <span class="hero-terminal-title">whoami.sh</span>
+                     </div>
+                     <div class="hero-terminal-body">
+                        <p><span class="hero-prompt">$</span> whoami</p>
+                        <p class="hero-out">Paweł Trojański</p>
+                        <p><span class="hero-prompt">$</span> cat role.txt</p>
+                        <p class="hero-out">Implementation Specialist @ Printbox</p>
+                        <p><span class="hero-prompt">$</span> status --check</p>
+                        <p class="hero-out hero-accent">[OK] Available for new projects<span class="cursor-blink">_</span></p>
+                     </div>
+                  </div>
+               </div>
             </div>
          </div>
       </section>
       <section id="about">
          <div class="about container">
-            <div class="col-left hidden" style="--delay: 0s">
-               <div class="about-img">
-                   <img
-                     src="./assets/img/me-medium.webp"
-                     srcset="./assets/img/me-small.webp 500w,
-                             ./assets/img/me-medium.webp 800w,
-                             ./assets/img/me-large.webp 1300w"
-                     sizes="(max-width: 600px) 480px,
-                            (max-width: 1200px) 800px,
-                            1300px"
-                     alt="Paweł Trojański"
-                     loading="lazy">
+            <h2 class="section-title hidden" style="--delay: 0s">About <span>Me</span></h2>
+            <div class="about-bento">
+               <div class="bento-tile glass-card bento-bio hidden" style="--delay: 0.1s">
+                  <div class="about-img">
+                      <img
+                        src="./assets/img/me-medium.webp"
+                        srcset="./assets/img/me-small.webp 500w,
+                                ./assets/img/me-medium.webp 800w,
+                                ./assets/img/me-large.webp 1300w"
+                        sizes="(max-width: 600px) 480px,
+                               (max-width: 1200px) 800px,
+                               1300px"
+                        alt="Paweł Trojański"
+                        loading="lazy">
+                  </div>
+                  <div class="bento-bio-text">
+                     <p>
+                         I’m an <strong>Implementation Specialist</strong> at Printbox, where I tackle complex technical challenges and turn them into reliable solutions for our clients. My day-to-day is all about troubleshooting, system configuration, and making sure the software actually does what it’s supposed to do, without the extra headaches.
+                     </p>
+                     <p>
+                         I hold a <strong>Master’s degree in Cybersecurity</strong>, which gave me a deep appreciation for secure coding and solid system architecture. I balance that background with a hands-on approach to <strong>C# (.NET)</strong> and <strong>Unity development</strong>.
+                     </p>
+                     <p>
+                         Beyond the screen, I’m a hardware enthusiast and a gamer at heart. Understanding the full stack, from low-level hardware to high-level architecture, is what drives me to keep learning.
+                     </p>
+                     <a href="./assets/files/cv.pdf" class="cta btn-hover" target="_blank" rel="noopener noreferrer"><span>View Resume</span></a>
+                  </div>
                </div>
-            </div>
-            <div class="col-right">
-               <h2 class="section-title hidden" style="--delay: 0.1s">About <span>Me</span></h2>
-               <p class="hidden" style="--delay: 0.2s">
-                   I’m an <strong>Implementation Specialist</strong> at Printbox, where I tackle complex technical challenges and turn them into reliable solutions for our clients. My day-to-day is all about troubleshooting, system configuration, and making sure the software actually does what it’s supposed to do—without the extra headaches.
-               </p>
-               <br>
-               <p class="hidden" style="--delay: 0.3s">
-                   I hold a <strong>Master’s degree in Cybersecurity</strong>, which gave me a deep appreciation for secure coding and solid system architecture. I balance that background with a hands-on approach to <strong>C# (.NET)</strong> and <strong>Unity development</strong>, always focusing on writing clean, efficient, and functional code.
-               </p>
-               <br>
-               <p class="hidden" style="--delay: 0.4s">
-                   Beyond the screen, I’m a hardware enthusiast and a gamer at heart. I believe that understanding the full stack—<strong>from low-level hardware constraints to high-level software architecture</strong>—is what makes for a truly great developer. I’m always looking to pick up new frameworks and find smarter ways to optimize my workflow.
-               </p>
-               <div class="skills-list hidden" style="--delay: 0.5s">
-                  <span>C# / .NET</span>
-                  <span>Rust</span>
-                  <span>React</span>
-                  <span>Python</span>
-                  <span>C++</span>
-                  <span>SQL</span>
-                  <span>Unity3D</span>
-                  <span>Cybersecurity</span>
-                  <span>Network Automation</span>
-                  <span>Linux Administration</span>
-                  <span>Git</span>
-                  <span>XML / JSON</span>
-                  <span>Technical Integration</span>
-                  <span>Technical Support</span>
-                  <span>Agile Workflows</span>
+               <div class="bento-tile glass-card bento-stack hidden" style="--delay: 0.2s">
+                  <h3 class="bento-title">Tech Stack</h3>
+                  <div class="skills-list">
+                     <span>C# / .NET</span>
+                     <span>Rust</span>
+                     <span>React</span>
+                     <span>Python</span>
+                     <span>C++</span>
+                     <span>SQL</span>
+                     <span>Unity3D</span>
+                     <span>Cybersecurity</span>
+                     <span>Network Automation</span>
+                     <span>Linux Administration</span>
+                     <span>Git</span>
+                     <span>XML / JSON</span>
+                     <span>Technical Integration</span>
+                     <span>Technical Support</span>
+                     <span>Agile Workflows</span>
+                  </div>
                </div>
-               <a href="./assets/files/cv.pdf" class="cta btn-hover hidden" style="--delay: 0.6s" target="_blank" rel="noopener noreferrer"><span>View Resume</span></a>
+               <div class="bento-tile glass-card bento-metrics hidden" style="--delay: 0.3s">
+                  <h3 class="bento-title">Experience</h3>
+                  <ul class="metrics-list">
+                     <li><strong class="counter" data-target="5">0</strong><span>Years in the game</span></li>
+                     <li><strong class="counter" data-target="11">0</strong><span>Certifications earned</span></li>
+                     <li><strong class="counter" data-target="22">0</strong><span>Projects shipped</span></li>
+                     <li><strong class="counter" data-target="1000">0</strong><span>Coffees brewed</span></li>
+                  </ul>
+               </div>
+               <div class="bento-tile glass-card bento-tools hidden" style="--delay: 0.4s">
+                  <h3 class="bento-title">Built With</h3>
+                  <ul class="tools-list">
+                     <li><svg class="icon"><use href="#icon-code"></use></svg> Zed Editor</li>
+                     <li><svg class="icon"><use href="#icon-sitemap"></use></svg> Git</li>
+                     <li><svg class="icon"><use href="#icon-cubes"></use></svg> Vanilla JS (zero deps)</li>
+                  </ul>
+               </div>
             </div>
          </div>
       </section>
@@ -408,42 +443,6 @@
             </div>
          </div>
       </section>
-      <section id="stats">
-          <div class="stats-container">
-              <div class="stat-item glass-card hidden" style="--delay: 0s">
-                  <svg class="icon"><use href="#icon-code"></use></svg>
-                  <div class="stat-info">
-                      <div class="counter" data-target="5">0</div>
-                      <p>Years in the Game</p>
-                  </div>
-              </div>
-
-              <div class="stat-item glass-card hidden" style="--delay: 0.15s">
-                  <svg class="icon"><use href="#icon-certificate"></use></svg>
-                  <div class="stat-info">
-                      <div class="counter" data-target="11">0</div>
-                      <p>Certs Earned</p>
-                  </div>
-              </div>
-
-              <div class="stat-item glass-card hidden" style="--delay: 0.3s">
-                  <svg class="icon"><use href="#icon-cubes"></use></svg>
-                  <div class="stat-info">
-                      <div class="counter" data-target="22">0</div>
-                      <p>Projects Shipped</p>
-                  </div>
-              </div>
-
-              <div class="stat-item glass-card hidden" style="--delay: 0.45s">
-                  <svg class="icon"><use href="#icon-coffee"></use></svg>
-                  <div class="stat-info">
-                      <div class="counter" data-target="1000">0</div>
-                      <p>Coffees Brewed</p>
-                  </div>
-              </div>
-
-          </div>
-      </section>
       <section id="projects">
           <div class="projects-slider-container">
               <div class="projects-orbit-wrapper">
@@ -464,7 +463,7 @@
                       <div class="project-item glass-card">
                           <div class="card-glow"></div>
                           <div class="project-img">
-                              <img src="./assets/img/wingetPortable.webp" alt="Winget" loading="lazy">
+                              <img src="./assets/img/wingetPortable.webp" alt="Winget">
                           </div>
                           <div class="project-info">
                               <h3>Winget Portable</h3>
@@ -481,7 +480,7 @@
                       <div class="project-item glass-card">
                           <div class="card-glow"></div>
                           <div class="project-img">
-                              <img src="./assets/img/psCatch.webp" alt="PSCatch" loading="lazy">
+                              <img src="./assets/img/psCatch.webp" alt="PSCatch">
                           </div>
                           <div class="project-info">
                               <h3>PSCatch</h3>
@@ -498,7 +497,7 @@
                       <div class="project-item glass-card">
                           <div class="card-glow"></div>
                           <div class="project-img">
-                              <img src="./assets/img/vibrantIcons.webp" alt="Icons" loading="lazy">
+                              <img src="./assets/img/vibrantIcons.webp" alt="Icons">
                           </div>
                           <div class="project-info">
                               <h3>Vibrant Icons</h3>
@@ -515,7 +514,7 @@
                       <div class="project-item glass-card">
                           <div class="card-glow"></div>
                           <div class="project-img">
-                              <img src="./assets/img/operationDeratization.webp" alt="Game" loading="lazy">
+                              <img src="./assets/img/operationDeratization.webp" alt="Game">
                           </div>
                           <div class="project-info">
                               <h3>Operation Deratization</h3>
@@ -532,7 +531,7 @@
                       <div class="project-item glass-card">
                           <div class="card-glow"></div>
                           <div class="project-img">
-                              <img src="./assets/img/pomodoroTimer.webp" alt="Timer" loading="lazy">
+                              <img src="./assets/img/pomodoroTimer.webp" alt="Timer">
                           </div>
                           <div class="project-info">
                               <h3>Pomodoro Timer</h3>
@@ -549,7 +548,7 @@
                       <div class="project-item glass-card">
                           <div class="card-glow"></div>
                           <div class="project-img">
-                              <img src="./assets/img/weatherProphet.webp" alt="Weather" loading="lazy">
+                              <img src="./assets/img/weatherProphet.webp" alt="Weather">
                           </div>
                           <div class="project-info">
                               <h3>Weather Prophet</h3>
@@ -584,41 +583,39 @@
                Although I'm currently happily employed at
                <strong>Printbox</strong>, I'm always open to discussing new technologies, sharing knowledge, or just
                having a chat about <strong>Unity</strong> development and
-               <strong>Cybersecurity</strong> trends. <br><br>
-               Find me on social media or drop me an email below ↓
+               <strong>Cybersecurity</strong> trends.
             </p>
+            <div class="social-icons hidden" style="--delay: 0.4s">
+               <button type="button" class="glass-social-link copy-email" data-email="paweltrojanski@gmail.com" style="--color:var(--accent)" aria-label="Copy email address to clipboard">
+                   <svg class="icon"><use href="#icon-envelope"></use></svg>
+                  <span class="social-tooltip">Email</span>
+               </button>
+               <a href="https://github.com/enviGit" target="_blank" rel="noopener noreferrer" class="glass-social-link" style="--color:#6e5494">
+                   <svg class="icon"><use href="#icon-github"></use></svg>
+                  <span class="social-tooltip">GitHub</span>
+               </a>
+               <a href="https://www.linkedin.com/in/ptrojanski/" target="_blank" rel="noopener noreferrer"class="glass-social-link" style="--color:#0077b5">
+                   <svg class="icon"><use href="#icon-linkedin"></use></svg>
+                  <span class="social-tooltip">LinkedIn</span>
+               </a>
+               <a href="https://www.facebook.com/Envixoxo" target="_blank" rel="noopener noreferrer" class="glass-social-link" style="--color:#1877f2">
+                   <svg class="icon"><use href="#icon-facebook"></use></svg>
+                  <span class="social-tooltip">Facebook</span>
+               </a>
+               <a href="https://www.instagram.com/envixoxo/" target="_blank" rel="noopener noreferrer" class="glass-social-link" style="--color:#e4405f">
+                   <svg class="icon"><use href="#icon-instagram"></use></svg>
+                  <span class="social-tooltip">Instagram</span>
+               </a>
+               <a href="https://www.youtube.com/@env1YT" target="_blank" rel="noopener noreferrer"class="glass-social-link" style="--color:#ff0000">
+                   <svg class="icon"><use href="#icon-youtube"></use></svg>
+                  <span class="social-tooltip">YouTube</span>
+               </a>
+            </div>
          </div>
       </section>
    </main>
    <section id="footer">
       <div class="footer-container">
-         <div class="social-icons">
-            <a href="#" class="glass-social-link copy-email" data-email="paweltrojanski@gmail.com"
-               style="--color:var(--accent)">
-                <svg class="icon"><use href="#icon-envelope"></use></svg>
-               <span class="social-tooltip">Email</span>
-            </a>
-            <a href="https://github.com/enviGit" target="_blank" rel="noopener noreferrer" class="glass-social-link" style="--color:#6e5494">
-                <svg class="icon"><use href="#icon-github"></use></svg>
-               <span class="social-tooltip">GitHub</span>
-            </a>
-            <a href="https://www.linkedin.com/in/ptrojanski/" target="_blank" rel="noopener noreferrer"class="glass-social-link" style="--color:#0077b5">
-                <svg class="icon"><use href="#icon-linkedin"></use></svg>
-               <span class="social-tooltip">LinkedIn</span>
-            </a>
-            <a href="https://www.facebook.com/Envixoxo" target="_blank" rel="noopener noreferrer" class="glass-social-link" style="--color:#1877f2">
-                <svg class="icon"><use href="#icon-facebook"></use></svg>
-               <span class="social-tooltip">Facebook</span>
-            </a>
-            <a href="https://www.instagram.com/envixoxo/" target="_blank" rel="noopener noreferrer" class="glass-social-link" style="--color:#e4405f">
-                <svg class="icon"><use href="#icon-instagram"></use></svg>
-               <span class="social-tooltip">Instagram</span>
-            </a>
-            <a href="https://www.youtube.com/@env1YT" target="_blank" rel="noopener noreferrer"class="glass-social-link" style="--color:#ff0000">
-                <svg class="icon"><use href="#icon-youtube"></use></svg>
-               <span class="social-tooltip">YouTube</span>
-            </a>
-         </div>
          <p>
             © <span class="year"></span> Paweł Trojański. All rights reserved.
          </p>
