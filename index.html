@@ -630,10 +630,12 @@
    <div id="terminal-overlay" class="hidden-terminal">
       <div class="terminal-window" id="terminal-window">
          <div class="terminal-header" id="terminal-header">
+            <div class="term-traffic-lights">
+               <button id="close-terminal" class="term-dot term-dot-red" aria-label="Close terminal"></button>
+               <button id="minimize-terminal" class="term-dot term-dot-yellow" aria-label="Minimize terminal"></button>
+               <button id="maximize-terminal" class="term-dot term-dot-green" aria-label="Maximize terminal"></button>
+            </div>
             <span class="terminal-title">guest@ptrojanski: ~</span>
-            <button id="close-terminal" class="close-btn">
-               &times;
-            </button>
          </div>
          <div class="terminal-body" id="terminal-body">
             <div class="output">
