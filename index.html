@@ -12,11 +12,14 @@
    <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)">
    <meta name="theme-color" content="#f3f4f6" media="(prefers-color-scheme: light)">
    <meta property="og:type" content="website">
+   <meta property="og:site_name" content="Paweł Trojański | Portfolio">
    <meta property="og:url" content="https://envigit.github.io" />
    <meta property="og:title" content="Paweł Trojański | Portfolio">
    <meta property="og:description"
       content="Implementation Specialist & Unity Developer. Check out my projects and timeline.">
    <meta property="og:image" content="./assets/img/me-large.webp">
+   <meta property="og:image:width" content="1300">
+   <meta property="og:image:height" content="1734">
    <meta property="twitter:card" content="summary_large_image">
    <meta property="twitter:url" content="https://envigit.github.io" />
    <meta property="twitter:title" content="Paweł Trojański | Portfolio">
@@ -50,9 +53,22 @@
                      }
       </script>
    <script>const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent); isSafari && document.documentElement.classList.add("safari")</script>
-   <link rel="preload" href="./assets/css/main.min.css" as="style">
    <link rel="preload" href="./assets/fonts/Montserrat-Regular.woff2" as="font" type="font/woff2" crossorigin>
-   <link rel="stylesheet" href="./assets/css/main.min.css">
+   <link rel="preload" href="./assets/fonts/JetBrainsMono-Bold.woff2" as="font" type="font/woff2" crossorigin>
+   <link rel="stylesheet" href="./assets/css/base/variables.min.css">
+   <link rel="stylesheet" href="./assets/css/base/reset.min.css">
+   <link rel="stylesheet" href="./assets/css/base/utils.min.css">
+   <link rel="stylesheet" href="./assets/css/components/navigation.min.css">
+   <link rel="stylesheet" href="./assets/css/components/buttons.min.css">
+   <link rel="stylesheet" href="./assets/css/components/cursor.min.css" media="(hover: hover) and (pointer: fine)">
+   <link rel="stylesheet" href="./assets/css/components/terminal.min.css">
+   <link rel="stylesheet" href="./assets/css/components/timeline.min.css">
+   <link rel="stylesheet" href="./assets/css/components/scrollbar.min.css" media="(hover: hover) and (pointer: fine)">
+   <link rel="stylesheet" href="./assets/css/sections/home.min.css">
+   <link rel="stylesheet" href="./assets/css/sections/about.min.css">
+   <link rel="stylesheet" href="./assets/css/sections/projects.min.css">
+   <link rel="stylesheet" href="./assets/css/sections/contact.min.css">
+   <link rel="stylesheet" href="./assets/css/sections/footer.min.css">
    <link rel="icon"
       href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23111111'/><rect x='5' y='5' width='90' height='90' rx='15' fill='none' stroke='%234ade80' stroke-width='5'><animate attributeName='opacity' values='1;0.3;1' dur='2s' repeatCount='indefinite'/></rect><text x='50' y='75' font-family='Arial, sans-serif' font-weight='bold' font-size='65' fill='%234ade80' text-anchor='middle'>P<animate attributeName='opacity' values='1;0.5;1' dur='2s' repeatCount='indefinite'/></text></svg>">
    <title>Paweł Trojański | Portfolio</title>
@@ -60,6 +76,7 @@
 </head>
 
 <body>
+   <a href="#main-content" class="skip-link">Skip to main content</a>
    <div class="cursor"></div>
 
    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;" aria-hidden="true">
@@ -165,7 +182,7 @@
          </ul>
       </nav>
    </header>
-   <main>
+   <main id="main-content">
       <section id="home">
          <div class="home container">
             <div class="home-grid">
@@ -216,6 +233,7 @@
                                (max-width: 1200px) 800px,
                                1300px"
                         alt="Paweł Trojański"
+                        width="800" height="1067"
                         loading="lazy">
                   </div>
                   <div class="bento-bio-text">
@@ -463,7 +481,7 @@
                       <div class="project-item glass-card">
                           <div class="card-glow"></div>
                           <div class="project-img">
-                              <img src="./assets/img/wingetPortable.webp" alt="Winget">
+                              <img src="./assets/img/wingetPortable.webp" alt="Winget Portable app icon" width="960" height="710">
                           </div>
                           <div class="project-info">
                               <h3>Winget Portable</h3>
@@ -480,7 +498,7 @@
                       <div class="project-item glass-card">
                           <div class="card-glow"></div>
                           <div class="project-img">
-                              <img src="./assets/img/psCatch.webp" alt="PSCatch">
+                              <img src="./assets/img/psCatch.webp" alt="PSCatch PlayStation price tracker app icon" width="1497" height="819">
                           </div>
                           <div class="project-info">
                               <h3>PSCatch</h3>
@@ -497,7 +515,7 @@
                       <div class="project-item glass-card">
                           <div class="card-glow"></div>
                           <div class="project-img">
-                              <img src="./assets/img/vibrantIcons.webp" alt="Icons">
+                              <img src="./assets/img/vibrantIcons.webp" alt="Vibrant Icons Unity Editor tool icon" width="1500" height="1000">
                           </div>
                           <div class="project-info">
                               <h3>Vibrant Icons</h3>
@@ -514,7 +532,7 @@
                       <div class="project-item glass-card">
                           <div class="card-glow"></div>
                           <div class="project-img">
-                              <img src="./assets/img/operationDeratization.webp" alt="Game">
+                              <img src="./assets/img/operationDeratization.webp" alt="Operation Deratization first-person shooter game icon" width="1000" height="560">
                           </div>
                           <div class="project-info">
                               <h3>Operation Deratization</h3>
@@ -531,7 +549,7 @@
                       <div class="project-item glass-card">
                           <div class="card-glow"></div>
                           <div class="project-img">
-                              <img src="./assets/img/pomodoroTimer.webp" alt="Timer">
+                              <img src="./assets/img/pomodoroTimer.webp" alt="Pomodoro Timer desktop app icon" width="688" height="689">
                           </div>
                           <div class="project-info">
                               <h3>Pomodoro Timer</h3>
@@ -548,7 +566,7 @@
                       <div class="project-item glass-card">
                           <div class="card-glow"></div>
                           <div class="project-img">
-                              <img src="./assets/img/weatherProphet.webp" alt="Weather">
+                              <img src="./assets/img/weatherProphet.webp" alt="Weather Prophet desktop app icon" width="1000" height="589">
                           </div>
                           <div class="project-info">
                               <h3>Weather Prophet</h3>
@@ -578,7 +596,7 @@
              <p class="status-label hidden" style="--delay: 0s">
                <span class="status-dot"></span> Open to connecting
             </p>
-            <h1 class="contact-title hidden" style="--delay: 0.15s">Let's stay in touch!</h1>
+            <h2 class="contact-title hidden" style="--delay: 0.15s">Let's stay in touch!</h2>
             <p class="contact-desc hidden" style="--delay: 0.3s">
                Although I'm currently happily employed at
                <strong>Printbox</strong>, I'm always open to discussing new technologies, sharing knowledge, or just
@@ -624,10 +642,10 @@
    <button id="back-to-top" aria-label="Back to top">
        <svg class="icon"><use href="#icon-arrow-up"></use></svg>
    </button>
-   <button id="terminal-toggle" aria-label="Open Terminal">
+   <button id="terminal-toggle" aria-label="Open Terminal" aria-expanded="false" aria-controls="terminal-overlay">
        <svg class="icon"><use href="#icon-terminal"></use></svg>
    </button>
-   <div id="terminal-overlay" class="hidden-terminal">
+   <div id="terminal-overlay" class="hidden-terminal" role="dialog" aria-modal="true" aria-labelledby="terminal-title-label">
       <div class="terminal-window" id="terminal-window">
          <div class="terminal-header" id="terminal-header">
             <div class="term-traffic-lights">
@@ -635,7 +653,7 @@
                <button id="minimize-terminal" class="term-dot term-dot-yellow" aria-label="Minimize terminal"></button>
                <button id="maximize-terminal" class="term-dot term-dot-green" aria-label="Maximize terminal"></button>
             </div>
-            <span class="terminal-title">guest@ptrojanski: ~</span>
+            <span class="terminal-title" id="terminal-title-label">guest@ptrojanski: ~</span>
          </div>
          <div class="terminal-body" id="terminal-body">
             <div class="output">
@@ -652,12 +670,12 @@
          </div>
       </div>
    </div>
-   <script src="./assets/js/utils.min.js"></script>
-   <script src="./assets/js/navigation.min.js"></script>
-   <script src="./assets/js/ui-effects.min.js"></script>
-   <script src="./assets/js/slider.min.js"></script>
-   <script src="./assets/js/terminal.min.js"></script>
-   <script src="./assets/js/main.min.js"></script>
+   <script src="./assets/js/utils.min.js" defer></script>
+   <script src="./assets/js/navigation.min.js" defer></script>
+   <script src="./assets/js/ui-effects.min.js" defer></script>
+   <script src="./assets/js/slider.min.js" defer></script>
+   <script src="./assets/js/terminal.min.js" defer></script>
+   <script src="./assets/js/main.min.js" defer></script>
 </body>
 
 </html>
