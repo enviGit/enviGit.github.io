@@ -52,7 +52,7 @@
                          ]
                      }
       </script>
-   <script>const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent); isSafari && document.documentElement.classList.add("safari")</script>
+   <script>const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent); isSafari && document.documentElement.classList.add("safari"); "scrollRestoration" in history && (history.scrollRestoration = "manual")</script>
    <link rel="preload" href="./assets/fonts/Montserrat-Regular.woff2" as="font" type="font/woff2" crossorigin>
    <link rel="preload" href="./assets/fonts/JetBrainsMono-Bold.woff2" as="font" type="font/woff2" crossorigin>
    <link rel="stylesheet" href="./assets/css/base/variables.min.css">
