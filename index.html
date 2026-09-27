@@ -464,6 +464,7 @@
       <section id="projects">
           <div class="projects-slider-container">
               <div class="projects-orbit-wrapper">
+                  <div class="projects-ambient" aria-hidden="true"><div class="projects-ambient-layer"></div><div class="projects-ambient-layer"></div></div>
                   <div class="projects-header">
                       <h2 class="section-title hidden" style="--delay: 0s">
                           Highlighted <span>Projects</span>
@@ -481,11 +482,11 @@
                       <div class="project-item glass-card">
                           <div class="card-glow"></div>
                           <div class="project-img">
-                              <img src="./assets/img/wingetPortable.webp" alt="Winget Portable app icon" width="960" height="710">
+                              <img loading="lazy" decoding="async" src="./assets/img/wingetPortable.webp" alt="Winget Portable app icon" width="960" height="710">
                           </div>
                           <div class="project-info">
                               <h3>Winget Portable</h3>
-                              <h4>Rust | Tauri | Vanilla JS</h4>
+                              <ul class="tech-tags" aria-label="Tech stack"><li>Rust</li><li>Tauri</li><li>Vanilla JS</li></ul>
                               <div class="hidden-content">
                                   <div>
                                   <p>A lightweight Windows utility that automates software updates via Winget. Features regex terminal output filtering.</p>
@@ -498,11 +499,11 @@
                       <div class="project-item glass-card">
                           <div class="card-glow"></div>
                           <div class="project-img">
-                              <img src="./assets/img/psCatch.webp" alt="PSCatch PlayStation price tracker app icon" width="1497" height="819">
+                              <img loading="lazy" decoding="async" src="./assets/img/psCatch.webp" alt="PSCatch PlayStation price tracker app icon" width="1497" height="819">
                           </div>
                           <div class="project-info">
                               <h3>PSCatch</h3>
-                              <h4>React | Tailwind | Supabase</h4>
+                              <ul class="tech-tags" aria-label="Tech stack"><li>React</li><li>Tailwind</li><li>Supabase</li></ul>
                               <div class="hidden-content">
                                   <div>
                                   <p>A high-end PlayStation price tracker with multi-region support. Features real-time wishlist sync and a custom python scraper.</p>
@@ -515,11 +516,11 @@
                       <div class="project-item glass-card">
                           <div class="card-glow"></div>
                           <div class="project-img">
-                              <img src="./assets/img/vibrantIcons.webp" alt="Vibrant Icons Unity Editor tool icon" width="1500" height="1000">
+                              <img loading="lazy" decoding="async" src="./assets/img/vibrantIcons.webp" alt="Vibrant Icons Unity Editor tool icon" width="1500" height="1000">
                           </div>
                           <div class="project-info">
                               <h3>Vibrant Icons</h3>
-                              <h4>Unity | C#</h4>
+                              <ul class="tech-tags" aria-label="Tech stack"><li>Unity</li><li>C#</li></ul>
                               <div class="hidden-content">
                                   <div>
                                   <p>A curated Unity Editor tool published on the Asset Store that streamlines workflows by enabling customization of script icons.</p>
@@ -532,11 +533,11 @@
                       <div class="project-item glass-card">
                           <div class="card-glow"></div>
                           <div class="project-img">
-                              <img src="./assets/img/operationDeratization.webp" alt="Operation Deratization first-person shooter game icon" width="1000" height="560">
+                              <img loading="lazy" decoding="async" src="./assets/img/operationDeratization.webp" alt="Operation Deratization first-person shooter game icon" width="1000" height="560">
                           </div>
                           <div class="project-info">
                               <h3>Operation Deratization</h3>
-                              <h4>Unity | C# | FSM</h4>
+                              <ul class="tech-tags" aria-label="Tech stack"><li>Unity</li><li>C#</li><li>FSM</li></ul>
                               <div class="hidden-content">
                                   <div>
                                   <p>A low-poly, first-person shooter game with a battle royale theme. Features state-driven agent behaviors leveraging NavMesh.</p>
@@ -549,11 +550,11 @@
                       <div class="project-item glass-card">
                           <div class="card-glow"></div>
                           <div class="project-img">
-                              <img src="./assets/img/pomodoroTimer.webp" alt="Pomodoro Timer desktop app icon" width="688" height="689">
+                              <img loading="lazy" decoding="async" src="./assets/img/pomodoroTimer.webp" alt="Pomodoro Timer desktop app icon" width="688" height="689">
                           </div>
                           <div class="project-info">
                               <h3>Pomodoro Timer</h3>
-                              <h4>C# | WPF | MVVM</h4>
+                              <ul class="tech-tags" aria-label="Tech stack"><li>C#</li><li>WPF</li><li>MVVM</li></ul>
                               <div class="hidden-content">
                                   <div>
                                   <p>A clean desktop productivity utility designed to implement the Pomodoro workflow. Features decoupled components.</p>
@@ -566,11 +567,11 @@
                       <div class="project-item glass-card">
                           <div class="card-glow"></div>
                           <div class="project-img">
-                              <img src="./assets/img/weatherProphet.webp" alt="Weather Prophet desktop app icon" width="1000" height="589">
+                              <img loading="lazy" decoding="async" src="./assets/img/weatherProphet.webp" alt="Weather Prophet desktop app icon" width="1000" height="589">
                           </div>
                           <div class="project-info">
                               <h3>Weather Prophet</h3>
-                              <h4>C# | WPF | REST API</h4>
+                              <ul class="tech-tags" aria-label="Tech stack"><li>C#</li><li>WPF</li><li>REST API</li></ul>
                               <div class="hidden-content">
                                   <div>
                                   <p>A multilingual desktop client delivering real-time localized forecasts. Built on native Windows UI patterns.</p>
@@ -580,34 +581,39 @@
                           </div>
                       </div>
                     </div>
-                    <div class="slider-dots">
-                      <button class="slider-dot" aria-label="Project 1"></button>
-                      <button class="slider-dot" aria-label="Project 2"></button>
-                      <button class="slider-dot" aria-label="Project 3"></button>
-                      <button class="slider-dot" aria-label="Project 4"></button>
-                      <button class="slider-dot" aria-label="Project 5"></button>
-                      <button class="slider-dot" aria-label="Project 6"></button>
+                    <div class="slider-nav">
+                        <p class="slider-counter" aria-hidden="true"><span class="slider-counter-current">01</span> / 06</p>
+                        <div class="slider-dots">
+                            <button class="slider-dot" aria-label="Project 1"></button>
+                            <button class="slider-dot" aria-label="Project 2"></button>
+                            <button class="slider-dot" aria-label="Project 3"></button>
+                            <button class="slider-dot" aria-label="Project 4"></button>
+                            <button class="slider-dot" aria-label="Project 5"></button>
+                            <button class="slider-dot" aria-label="Project 6"></button>
+                        </div>
                     </div>
               </div>
           </div>
       </section>
       <section id="contact">
          <div class="contact-container">
-             <p class="status-label hidden" style="--delay: 0s">
-               <span class="status-dot"></span> Open to connecting
-            </p>
-            <h2 class="contact-title hidden" style="--delay: 0.15s">Let's stay in touch!</h2>
-            <p class="contact-desc hidden" style="--delay: 0.3s">
-               Although I'm currently happily employed at
-               <strong>Printbox</strong>, I'm always open to discussing new technologies, sharing knowledge, or just
-               having a chat about <strong>Unity</strong> development and
-               <strong>Cybersecurity</strong> trends.
-            </p>
-            <div class="social-icons hidden" style="--delay: 0.4s">
-               <button type="button" class="glass-social-link copy-email" data-email="paweltrojanski@gmail.com" style="--color:var(--accent)" aria-label="Copy email address to clipboard">
-                   <svg class="icon"><use href="#icon-envelope"></use></svg>
-                  <span class="social-tooltip">Email</span>
-               </button>
+            <div class="contact-main">
+               <p class="status-label hidden" style="--delay: 0s">
+                  <span class="status-dot"></span> Open to connecting
+               </p>
+               <h2 class="contact-title hidden" style="--delay: 0.15s">Let's stay <span>in touch!</span></h2>
+               <p class="contact-desc hidden" style="--delay: 0.3s">
+                  Although I'm currently happily employed at
+                  <strong>Printbox</strong>, I'm always open to discussing new technologies, sharing knowledge, or just
+                  having a chat about <strong>Unity</strong> development and
+                  <strong>Cybersecurity</strong> trends.
+               </p>
+               <div class="contact-actions hidden" style="--delay: 0.4s">
+                  <button type="button" class="cta btn-hover wave copy-email contact-email" data-email="paweltrojanski@gmail.com" aria-label="Copy email address to clipboard">
+                     <span><svg class="icon"><use href="#icon-envelope"></use></svg> paweltrojanski@gmail.com</span>
+                  </button>
+               </div>
+               <div class="social-icons hidden" style="--delay: 0.5s">
                <a href="https://github.com/enviGit" target="_blank" rel="noopener noreferrer" class="glass-social-link" style="--color:#6e5494">
                    <svg class="icon"><use href="#icon-github"></use></svg>
                   <span class="social-tooltip">GitHub</span>
@@ -628,6 +634,24 @@
                    <svg class="icon"><use href="#icon-youtube"></use></svg>
                   <span class="social-tooltip">YouTube</span>
                </a>
+               </div>
+            </div>
+            <div class="contact-terminal hidden" style="--delay: 0.35s">
+               <div class="contact-terminal-bar" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                  <p>contact.sh</p>
+               </div>
+               <div class="contact-terminal-body">
+                  <p class="term-line term-cmd" style="--i: 0">whoami</p>
+                  <p class="term-line" style="--i: 1">Paweł Trojański</p>
+                  <p class="term-line term-cmd" style="--i: 2">cat role.txt</p>
+                  <p class="term-line" style="--i: 3">Implementation Specialist <span class="term-dim">@</span> Printbox</p>
+                  <p class="term-line term-cmd" style="--i: 4">ls ~/interests</p>
+                  <p class="term-line term-dirs" style="--i: 5"><span>unity/</span> <span>cybersecurity/</span> <span>dotnet/</span> <span>hardware/</span></p>
+                  <p class="term-line term-cmd" style="--i: 6">cat education.txt</p>
+                  <p class="term-line" style="--i: 7">MSc Cybersecurity <span class="term-dim">@</span> WSEI Kraków</p>
+                  <p class="term-line term-prompt" style="--i: 8"><span class="cursor-blink">_</span></p>
+               </div>
             </div>
          </div>
       </section>
