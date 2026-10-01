@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     safeInit(initTheme);
     safeInit(initYear);
     safeInit(initVisibility);
+    safeInit(initHeroMask);
     safeInit(initTimeline);
     safeInit(initCopyEmail);
     safeInit(initScrollState);

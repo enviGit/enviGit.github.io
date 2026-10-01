@@ -31,6 +31,7 @@ A simulated terminal with a real command parser and virtual file system. Not a g
 - Drag to reposition, command history with arrow navigation
 
 ### 🎨 UI/UX & Animations
+- **Name-Mask Hero:** The name is an SVG mask over the photo. Scrolling the pinned hero zooms through the final "I" until the photo fills the screen, a `whoami` terminal card types itself in, then it fades into About. Static under reduced motion; without JS the classic hero layout stays.
 - **Bento Grid About:** Glass tiles for the bio and a grouped tech stack (languages, platforms, e-commerce, domain) with highlighted daily drivers
 - **Liquid Nav Pill:** The active-tab indicator stretches into a "bridge" spanning both the old and new tab before contracting into place, instead of a plain slide
 - **3D Project Slider:** Scroll-driven on desktop, swipe-driven on mobile with gesture intent detection, synced to real scroll position (dragging the slider no longer desyncs from the page scroll)
@@ -75,10 +76,25 @@ There are two copies of every stylesheet and script:
 /
 ├── src/                        # readable sources, edit these
 │   ├── css/
-│   │   ├── base/               # reset.css, utils.css, variables.css
-│   │   ├── components/         # buttons, cursor, navigation, scrollbar, terminal, timeline
-│   │   └── sections/           # about, contact, footer, home, projects
+│   │   ├── base/
+│   │   │   ├── reset.css
+│   │   │   ├── utils.css
+│   │   │   └── variables.css
+│   │   ├── components/
+│   │   │   ├── buttons.css
+│   │   │   ├── cursor.css
+│   │   │   ├── navigation.css
+│   │   │   ├── scrollbar.css
+│   │   │   ├── terminal.css
+│   │   │   └── timeline.css
+│   │   └── sections/
+│   │       ├── about.css
+│   │       ├── contact.css
+│   │       ├── footer.css
+│   │       ├── home.css
+│   │       └── projects.css
 │   └── js/
+│       ├── hero.js
 │       ├── main.js
 │       ├── navigation.js
 │       ├── slider.js
@@ -87,7 +103,6 @@ There are two copies of every stylesheet and script:
 │       └── utils.js
 ├── assets/                     # what the site loads
 │   ├── css/
-│   ├── css/
 │   │   ├── base/
 │   │   │   ├── reset.min.css
 │   │   │   ├── utils.min.css
@@ -95,7 +110,7 @@ There are two copies of every stylesheet and script:
 │   │   ├── components/
 │   │   │   ├── buttons.min.css
 │   │   │   ├── cursor.min.css
-│   │   │   ├── navigation.min.css 
+│   │   │   ├── navigation.min.css
 │   │   │   ├── scrollbar.min.css
 │   │   │   ├── terminal.min.css
 │   │   │   └── timeline.min.css
@@ -111,6 +126,7 @@ There are two copies of every stylesheet and script:
 │   │   ├── Geist-Variable.woff2
 │   │   └── JetBrainsMono-Bold.woff2
 │   ├── img/
+│   │   ├── me-hero.webp        # 2400px hero photo, green duotone baked in
 │   │   ├── me-large.webp
 │   │   ├── me-medium.webp
 │   │   ├── me-small.webp
@@ -122,6 +138,7 @@ There are two copies of every stylesheet and script:
 │   │   ├── weatherProphet.webp
 │   │   └── wingetPortable.webp
 │   └── js/
+│       ├── hero.min.js
 │       ├── main.min.js
 │       ├── navigation.min.js
 │       ├── slider.min.js
@@ -136,14 +153,6 @@ There are two copies of every stylesheet and script:
 ├── robots.txt
 └── sitemap.xml
 ```
-
-### Editing workflow
-
-1. Change the file in `src/`.
-2. Minify it to the matching path in `assets/` with a `.min` suffix, e.g. `src/css/sections/about.css` → `assets/css/sections/about.min.css`, `src/js/slider.js` → `assets/js/slider.min.js`.
-3. Commit both files together so `src/` and `assets/` never drift apart.
-
-Relative URLs inside CSS (for example the font paths in `variables.css`) are written for the final location in `assets/css/`, so they only resolve from the minified file. The JS files share globals and must keep the load order from `index.html`: `utils` → `navigation` → `ui-effects` → `slider` → `terminal` → `main`.
 
 ## 📬 Contact
 

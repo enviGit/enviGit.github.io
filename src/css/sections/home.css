@@ -298,3 +298,151 @@
         flex: 1 1 auto;
     }
 }
+
+/* ======================================================================
+   Name-mask hero (html.hero-mask, set in <head> when JS runs).
+   #home is taller than the viewport and its content sticks while scroll
+   progress drives the animation in hero.js.
+   ====================================================================== */
+
+html.hero-mask #home {
+    height: 260vh;
+    overflow: clip;
+}
+
+html.hero-mask #home .home {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    height: 100svh;
+    min-height: 0;
+    max-width: none;
+    padding: 0;
+}
+
+/* Reduced motion: a static hero, no long pinned scroll. */
+@media (prefers-reduced-motion: reduce) {
+    html.hero-mask #home {
+        height: auto;
+    }
+}
+
+html.hero-mask body.motion-reduced #home {
+    height: auto;
+}
+
+html.hero-mask .home-grid {
+    display: block;
+    height: 100%;
+}
+
+html.hero-mask .home-copy > .cmd-line {
+    display: none;
+}
+
+/* The real <h1> stays for screen readers and SEO. */
+html.hero-mask .home-copy > h1 {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+html.hero-mask .home-copy {
+    position: absolute;
+    left: 50%;
+    bottom: calc(9vh + env(safe-area-inset-bottom));
+    z-index: 3;
+    width: min(620px, 90vw);
+    align-items: center;
+    text-align: center;
+    translate: -50% 0;
+    opacity: calc(1 - var(--m, 0) * 6);
+}
+
+html.hero-mask .hero-actions {
+    justify-content: center;
+}
+
+/* whoami card over the full-screen photo (right side, the face is left). */
+html.hero-mask .hero-terminal-wrap {
+    --t: 0;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    right: 7vw;
+    z-index: 4;
+    width: min(420px, 36vw);
+    opacity: var(--t);
+    translate: 0 calc(-50% + (1 - var(--t)) * 40px);
+    pointer-events: none;
+}
+
+html.hero-mask .hero-terminal-wrap.is-live {
+    pointer-events: auto;
+}
+
+html.hero-mask .hero-terminal-body p {
+    opacity: 0;
+    translate: 0 4px;
+    transition: opacity .25s, translate .25s;
+}
+
+html.hero-mask .hero-terminal-body p.on {
+    opacity: 1;
+    translate: 0 0;
+}
+
+@media only screen and (max-width: 900px) {
+    html.hero-mask .hero-terminal-wrap {
+        top: auto;
+        right: 50%;
+        bottom: calc(10vh + env(safe-area-inset-bottom));
+        width: min(420px, 88vw);
+        translate: 50% calc((1 - var(--t)) * 40px);
+    }
+
+    /* Compact on phones: role + status only, so the face stays visible. */
+    html.hero-mask .hero-terminal-body p:nth-child(n+3):nth-child(-n+6) {
+        display: none;
+    }
+
+    html.hero-mask .hero-terminal-body {
+        padding: 14px 16px;
+    }
+}
+
+.mask-stage {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.mask-stage svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.mask-name {
+    font-family: Geist, system-ui, sans-serif;
+    font-weight: 900;
+    letter-spacing: -.02em;
+}
+
+/* Lifts the darkest parts of the photo inside the letters. */
+.mask-floor {
+    fill: #2c3c32;
+    mix-blend-mode: lighten;
+}
+
+.mask-grain {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: .09;
+    mix-blend-mode: overlay;
+    background-size: 160px 160px;
+}

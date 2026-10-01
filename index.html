@@ -53,9 +53,10 @@
                          ]
                      }
       </script>
-   <script>const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent); isSafari && document.documentElement.classList.add("safari"); "scrollRestoration" in history && (history.scrollRestoration = "manual"); matchMedia("(hover: hover) and (pointer: fine)").matches || document.documentElement.classList.add("native-scroll")</script>
+   <script>const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent); isSafari && document.documentElement.classList.add("safari"); "scrollRestoration" in history && (history.scrollRestoration = "manual"); matchMedia("(hover: hover) and (pointer: fine)").matches || document.documentElement.classList.add("native-scroll"); document.documentElement.classList.add("hero-mask")</script>
    <link rel="preload" href="./assets/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
    <link rel="preload" href="./assets/fonts/JetBrainsMono-Bold.woff2" as="font" type="font/woff2" crossorigin>
+   <link rel="preload" href="./assets/img/me-hero.webp" as="image" type="image/webp">
    <link rel="stylesheet" href="./assets/css/base/variables.min.css">
    <link rel="stylesheet" href="./assets/css/base/reset.min.css">
    <link rel="stylesheet" href="./assets/css/base/utils.min.css">
@@ -200,7 +201,7 @@
                      <span class="sr-only">Implementation Specialist, Unity Developer, Software Engineer</span>
                      <span class="multiple-text" aria-hidden="true"></span>
                   </h1>
-                  <p class="hero-sub hidden" style="--delay: 0.18s">Client problem solver at Printbox. Instance configs, Shopware, PrestaShop, Shopify integrations. After hours: Unity tools, desktop apps in C# &amp; Rust.</p>
+                  <p class="hero-sub hidden" style="--delay: 0.18s">Client problem solver at Printbox. Instance configs and e-commerce integrations. After hours: Unity tools, desktop apps in C# &amp; Rust.</p>
                   <div class="hero-actions hidden" style="--delay: 0.25s">
                      <a href="#projects" class="cta btn-hover wave"><span>See Projects</span></a>
                      <a href="./assets/files/cv.pdf" class="cta cta-secondary btn-hover wave" target="_blank" rel="noopener noreferrer"><span>View Resume</span></a>
@@ -702,6 +703,7 @@
    <script src="./assets/js/navigation.min.js" defer></script>
    <script src="./assets/js/ui-effects.min.js" defer></script>
    <script src="./assets/js/slider.min.js" defer></script>
+   <script src="./assets/js/hero.min.js" defer></script>
    <script src="./assets/js/terminal.min.js" defer></script>
    <script src="./assets/js/main.min.js" defer></script>
 </body>
