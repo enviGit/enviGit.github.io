@@ -31,7 +31,7 @@ A simulated terminal with a real command parser and virtual file system. Not a g
 - Drag to reposition, command history with arrow navigation
 
 ### 🎨 UI/UX & Animations
-- **Bento Grid About:** Modular glass tiles for bio, tech stack, experience (animated counters), and tools
+- **Bento Grid About:** Glass tiles for the bio and a grouped tech stack (languages, platforms, e-commerce, domain) with highlighted daily drivers
 - **Liquid Nav Pill:** The active-tab indicator stretches into a "bridge" spanning both the old and new tab before contracting into place, instead of a plain slide
 - **3D Project Slider:** Scroll-driven on desktop, swipe-driven on mobile with gesture intent detection, synced to real scroll position (dragging the slider no longer desyncs from the page scroll)
 - **Text Scramble Effect:** Cyberpunk-style character decoding on load
@@ -66,9 +66,27 @@ The site detects device capability and quality of experience independently, inst
 
 The project utilizes a clean structure within the `assets` directory, organizing styles into modular components and sections for better maintainability. CSS files are linked individually in `index.html` — there's no bundler and no single entry stylesheet.
 
+There are two copies of every stylesheet and script:
+
+- **`src/`** holds the readable sources (formatted CSS, JS with descriptive names and comments). This is where changes are made.
+- **`assets/css` and `assets/js`** hold the minified `.min` files that the site actually loads.
+
 ```text
 /
-├── assets/
+├── src/                        # readable sources, edit these
+│   ├── css/
+│   │   ├── base/               # reset.css, utils.css, variables.css
+│   │   ├── components/         # buttons, cursor, navigation, scrollbar, terminal, timeline
+│   │   └── sections/           # about, contact, footer, home, projects
+│   └── js/
+│       ├── main.js
+│       ├── navigation.js
+│       ├── slider.js
+│       ├── terminal.js
+│       ├── ui-effects.js
+│       └── utils.js
+├── assets/                     # what the site loads
+│   ├── css/
 │   ├── css/
 │   │   ├── base/
 │   │   │   ├── reset.min.css
@@ -90,17 +108,13 @@ The project utilizes a clean structure within the `assets` directory, organizing
 │   ├── files/
 │   │   └── cv.pdf
 │   ├── fonts/
-│   │   ├── JetBrainsMono-Bold.woff2
-│   │   ├── Montserrat-Bold.woff2
-│   │   ├── Montserrat-Italic.woff2
-│   │   ├── Montserrat-Light.woff2
-│   │   ├── Montserrat-Medium.woff2
-│   │   ├── Montserrat-Regular.woff2
-│   │   └── Montserrat-SemiBold.woff2
+│   │   ├── Geist-Variable.woff2
+│   │   └── JetBrainsMono-Bold.woff2
 │   ├── img/
 │   │   ├── me-large.webp
 │   │   ├── me-medium.webp
 │   │   ├── me-small.webp
+│   │   ├── og-image.jpg
 │   │   ├── operationDeratization.webp
 │   │   ├── pomodoroTimer.webp
 │   │   ├── psCatch.webp
@@ -122,6 +136,14 @@ The project utilizes a clean structure within the `assets` directory, organizing
 ├── robots.txt
 └── sitemap.xml
 ```
+
+### Editing workflow
+
+1. Change the file in `src/`.
+2. Minify it to the matching path in `assets/` with a `.min` suffix, e.g. `src/css/sections/about.css` → `assets/css/sections/about.min.css`, `src/js/slider.js` → `assets/js/slider.min.js`.
+3. Commit both files together so `src/` and `assets/` never drift apart.
+
+Relative URLs inside CSS (for example the font paths in `variables.css`) are written for the final location in `assets/css/`, so they only resolve from the minified file. The JS files share globals and must keep the load order from `index.html`: `utils` → `navigation` → `ui-effects` → `slider` → `terminal` → `main`.
 
 ## 📬 Contact
 

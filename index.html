@@ -17,13 +17,15 @@
    <meta property="og:title" content="Paweł Trojański | Portfolio">
    <meta property="og:description"
       content="Implementation Specialist & Unity Developer. Check out my projects and timeline.">
-   <meta property="og:image" content="./assets/img/me-large.webp">
-   <meta property="og:image:width" content="1300">
-   <meta property="og:image:height" content="1734">
-   <meta property="twitter:card" content="summary_large_image">
-   <meta property="twitter:url" content="https://envigit.github.io" />
-   <meta property="twitter:title" content="Paweł Trojański | Portfolio">
-   <meta property="twitter:description" content="Implementation Specialist & Unity Developer.">
+   <meta property="og:image" content="https://envigit.github.io/assets/img/og-image.jpg">
+   <meta property="og:image:width" content="1200">
+   <meta property="og:image:height" content="630">
+   <meta property="og:image:alt" content="Paweł Trojański - Implementation Specialist & Unity Developer">
+   <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:url" content="https://envigit.github.io" />
+   <meta name="twitter:title" content="Paweł Trojański | Portfolio">
+   <meta name="twitter:description" content="Implementation Specialist & Unity Developer.">
+   <meta name="twitter:image" content="https://envigit.github.io/assets/img/og-image.jpg">
    <script type=application/ld+json>
          {
                          "@context": "http://schema.org",
@@ -38,8 +40,7 @@
                          "sameAs": [
                              "https://www.linkedin.com/in/ptrojanski/",
                              "https://github.com/enviGit",
-                             "https://www.facebook.com/Envixoxo",
-                             "https://www.instagram.com/envixoxo/"
+                             "https://www.youtube.com/@env1YT"
                          ],
                          "alumniOf": "Wyższa Szkoła Ekonomii i Informatyki w Krakowie",
                          "knowsAbout": [
@@ -52,8 +53,8 @@
                          ]
                      }
       </script>
-   <script>const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent); isSafari && document.documentElement.classList.add("safari"); "scrollRestoration" in history && (history.scrollRestoration = "manual")</script>
-   <link rel="preload" href="./assets/fonts/Montserrat-Regular.woff2" as="font" type="font/woff2" crossorigin>
+   <script>const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent); isSafari && document.documentElement.classList.add("safari"); "scrollRestoration" in history && (history.scrollRestoration = "manual"); matchMedia("(hover: hover) and (pointer: fine)").matches || document.documentElement.classList.add("native-scroll")</script>
+   <link rel="preload" href="./assets/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
    <link rel="preload" href="./assets/fonts/JetBrainsMono-Bold.woff2" as="font" type="font/woff2" crossorigin>
    <link rel="stylesheet" href="./assets/css/base/variables.min.css">
    <link rel="stylesheet" href="./assets/css/base/reset.min.css">
@@ -76,6 +77,7 @@
 </head>
 
 <body>
+   <script>try { const t = localStorage.getItem("theme"); (t === "light" || !t && matchMedia("(prefers-color-scheme: light)").matches) && document.body.classList.add("light-mode") } catch (e) { }</script>
    <a href="#main-content" class="skip-link">Skip to main content</a>
    <div class="cursor"></div>
 
@@ -130,6 +132,8 @@
             <symbol id="icon-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></symbol>
             <symbol id="icon-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></symbol>
             <symbol id="icon-youtube" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></symbol>
+            <symbol id="icon-send" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></symbol>
+            <symbol id="icon-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></symbol>
             <symbol id="icon-arrow-up" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></symbol>
             <symbol id="icon-terminal" viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></symbol>
          </defs>
@@ -144,39 +148,39 @@
                <a href="#home" class="glass-link nav-link wave active-link" data-section="home"
                   aria-label="Go to Home Section">
                   <span class="text">Home</span>
-                  <svg class="icon"><use href="#icon-home"></use></svg>
+                  <svg class="icon" aria-hidden="true"><use href="#icon-home"></use></svg>
                </a>
             </li>
             <li>
                <a href="#about" class="glass-link nav-link wave" data-section="about" aria-label="Go to About Section">
                   <span class="text">About</span>
-                  <svg class="icon"><use href="#icon-user"></use></svg>
+                  <svg class="icon" aria-hidden="true"><use href="#icon-user"></use></svg>
                </a>
             </li>
             <li>
                <a href="#timeline" class="glass-link nav-link wave" data-section="timeline"
                   aria-label="Go to Timeline Section">
                   <span class="text">Timeline</span>
-                  <svg class="icon"><use href="#icon-history"></use></svg>
+                  <svg class="icon" aria-hidden="true"><use href="#icon-history"></use></svg>
                </a>
             </li>
             <li>
                <a href="#projects" class="glass-link nav-link wave" data-section="projects"
                   aria-label="Go to Projects Section">
                   <span class="text">Projects</span>
-                  <svg class="icon"><use href="#icon-code"></use></svg>
+                  <svg class="icon" aria-hidden="true"><use href="#icon-code"></use></svg>
                </a>
             </li>
             <li>
                <a href="#contact" class="glass-link nav-link wave" data-section="contact" aria-label="Go to Contact Section">
                   <span class="text">Contact</span>
-                  <svg class="icon"><use href="#icon-envelope"></use></svg>
+                  <svg class="icon" aria-hidden="true"><use href="#icon-envelope"></use></svg>
                </a>
             </li>
             <li class="nav-separator"></li>
             <li>
                <button class="theme-btn glass-btn wave" aria-label="Toggle Dark and Light Mode">
-                   <svg class="icon"><use href="#icon-sun"></use></svg>
+                   <svg class="icon" aria-hidden="true"><use href="#icon-sun"></use></svg>
                </button>
             </li>
          </ul>
@@ -193,9 +197,14 @@
                   </div>
                   <h1 class="console-output hidden" style="--delay: 0.1s">
                      <span class="hero-name">Paweł Trojański</span>
-                     <span class="multiple-text"></span>
+                     <span class="sr-only">Implementation Specialist, Unity Developer, Software Engineer</span>
+                     <span class="multiple-text" aria-hidden="true"></span>
                   </h1>
-                  <a href="#projects" class="cta btn-hover wave hidden" style="--delay: 0.25s"><span>Portfolio</span></a>
+                  <p class="hero-sub hidden" style="--delay: 0.18s">Client problem solver at Printbox. Instance configs, Shopware, PrestaShop, Shopify integrations. After hours: Unity tools, desktop apps in C# &amp; Rust.</p>
+                  <div class="hero-actions hidden" style="--delay: 0.25s">
+                     <a href="#projects" class="cta btn-hover wave"><span>See Projects</span></a>
+                     <a href="./assets/files/cv.pdf" class="cta cta-secondary btn-hover wave" target="_blank" rel="noopener noreferrer"><span>View Resume</span></a>
+                  </div>
                </div>
                <div class="hero-terminal-wrap hidden" style="--delay: 0.2s">
                   <div class="hero-terminal" id="hero-terminal">
@@ -206,13 +215,19 @@
                         <span class="hero-terminal-title">whoami.sh</span>
                      </div>
                      <div class="hero-terminal-body">
-                        <p><span class="hero-prompt">$</span> whoami</p>
-                        <p class="hero-out">Paweł Trojański</p>
                         <p><span class="hero-prompt">$</span> cat role.txt</p>
                         <p class="hero-out">Implementation Specialist @ Printbox</p>
+                        <p><span class="hero-prompt">$</span> ls ~/interests</p>
+                        <p class="hero-out hero-dirs"><span>unity/</span> <span>cybersecurity/</span> <span>dotnet/</span> <span>hardware/</span></p>
+                        <p><span class="hero-prompt">$</span> cat education.txt</p>
+                        <p class="hero-out">MSc Cybersecurity @ WSEI Kraków</p>
                         <p><span class="hero-prompt">$</span> status --check</p>
-                        <p class="hero-out hero-accent">[OK] Available for new projects<span class="cursor-blink">_</span></p>
+                        <p class="hero-out hero-accent">[OK] Employed, open to a chat<span class="cursor-blink">_</span></p>
                      </div>
+                     <button type="button" class="hero-terminal-open" aria-controls="terminal-overlay">
+                        <svg class="icon" aria-hidden="true"><use href="#icon-terminal"></use></svg>
+                        Open interactive terminal
+                     </button>
                   </div>
                </div>
             </div>
@@ -250,41 +265,47 @@
                   </div>
                </div>
                <div class="bento-tile glass-card bento-stack hidden" style="--delay: 0.2s">
-                  <h3 class="bento-title">Tech Stack</h3>
-                  <div class="skills-list">
-                     <span>C# / .NET</span>
-                     <span>Rust</span>
-                     <span>React</span>
-                     <span>Python</span>
-                     <span>C++</span>
-                     <span>SQL</span>
-                     <span>Unity3D</span>
-                     <span>Cybersecurity</span>
-                     <span>Network Automation</span>
-                     <span>Linux Administration</span>
-                     <span>Git</span>
-                     <span>XML / JSON</span>
-                     <span>Technical Integration</span>
-                     <span>Technical Support</span>
-                     <span>Agile Workflows</span>
+                  <div class="bento-head">
+                     <h3 class="bento-title">Tech Stack</h3>
+                     <p class="stack-legend"><span class="stack-swatch" aria-hidden="true"></span> Daily drivers</p>
                   </div>
-               </div>
-               <div class="bento-tile glass-card bento-metrics hidden" style="--delay: 0.3s">
-                  <h3 class="bento-title">Experience</h3>
-                  <ul class="metrics-list">
-                     <li><strong class="counter" data-target="5">0</strong><span>Years in the game</span></li>
-                     <li><strong class="counter" data-target="11">0</strong><span>Certifications earned</span></li>
-                     <li><strong class="counter" data-target="22">0</strong><span>Projects shipped</span></li>
-                     <li><strong class="counter" data-target="1000">0</strong><span>Coffees brewed</span></li>
-                  </ul>
-               </div>
-               <div class="bento-tile glass-card bento-tools hidden" style="--delay: 0.4s">
-                  <h3 class="bento-title">Built With</h3>
-                  <ul class="tools-list">
-                     <li><svg class="icon"><use href="#icon-code"></use></svg> Zed Editor</li>
-                     <li><svg class="icon"><use href="#icon-sitemap"></use></svg> Git</li>
-                     <li><svg class="icon"><use href="#icon-cubes"></use></svg> Vanilla JS (zero deps)</li>
-                  </ul>
+                  <div class="stack-group">
+                     <h4 class="stack-label">Languages</h4>
+                     <div class="skills-list">
+                        <span class="core">C# / .NET</span>
+                        <span class="core">Rust</span>
+                        <span>C++</span>
+                        <span>Python</span>
+                        <span>SQL</span>
+                     </div>
+                  </div>
+                  <div class="stack-group">
+                     <h4 class="stack-label">Platforms &amp; Tools</h4>
+                     <div class="skills-list">
+                        <span class="core">Unity3D</span>
+                        <span>React</span>
+                        <span>Git</span>
+                        <span>Linux Administration</span>
+                        <span>XML / JSON</span>
+                     </div>
+                  </div>
+                  <div class="stack-group">
+                     <h4 class="stack-label">E-commerce</h4>
+                     <div class="skills-list">
+                        <span>Shopware</span>
+                        <span>PrestaShop</span>
+                        <span>Shopify</span>
+                     </div>
+                  </div>
+                  <div class="stack-group">
+                     <h4 class="stack-label">Domain</h4>
+                     <div class="skills-list">
+                        <span>Cybersecurity</span>
+                        <span>Technical Integration</span>
+                        <span>Network Automation</span>
+                        <span>Technical Support</span>
+                     </div>
+                  </div>
                </div>
             </div>
          </div>
@@ -301,7 +322,60 @@
                <div class="timeline-line-fill"></div>
                <div class="timeline-item hidden left">
                   <div class="timeline-icon">
-                      <svg class="icon"><use href="#icon-wrench"></use></svg>
+                      <svg class="icon" aria-hidden="true"><use href="#icon-briefcase"></use></svg>
+                  </div>
+                  <div class="timeline-content glass-card">
+                     <span class="date">May 2025 - Present</span>
+                     <h3>Technical Implementation Specialist</h3>
+                     <h4>Printbox</h4>
+                     <p>
+                        Solve client issues, configure client instances, and connect them with e-commerce platforms such as Shopware, PrestaShop and Shopify.
+                     </p>
+                     <span class="badge active">Current Job</span>
+                  </div>
+               </div>
+               <div class="timeline-item hidden right">
+                  <div class="timeline-icon">
+                      <svg class="icon" aria-hidden="true"><use href="#icon-shield"></use></svg>
+                  </div>
+                  <div class="timeline-content glass-card">
+                     <span class="date">Oct 2024 - Mar 2026</span>
+                     <h3>Master’s Degree</h3>
+                     <h4>WSEI Kraków</h4>
+                     <p>
+                        Graduated in Applied Computer Science with a focus on Cybersecurity. Successfully defended my master’s thesis.
+                     </p>
+                  </div>
+               </div>
+               <div class="timeline-item hidden left">
+                  <div class="timeline-icon">
+                      <svg class="icon" aria-hidden="true"><use href="#icon-gamepad"></use></svg>
+                  </div>
+                  <div class="timeline-content glass-card">
+                     <span class="date">Oct 2020 - Jul 2024</span>
+                     <h3>Bachelor’s Degree</h3>
+                     <h4>WSEI Kraków</h4>
+                     <p>
+                        Graduated in Applied Computer Science with a specialization in Games and Multimedia. Successfully defended my engineering thesis.
+                     </p>
+                  </div>
+               </div>
+               <div class="timeline-item hidden right">
+                  <div class="timeline-icon">
+                      <svg class="icon" aria-hidden="true"><use href="#icon-hospital"></use></svg>
+                  </div>
+                  <div class="timeline-content glass-card">
+                     <span class="date">May 2021 - Apr 2022</span>
+                     <h3>Medical Receptionist</h3>
+                     <h4>Punkt Szczepień Powszechnych Łapanów, Przychodnia Bocheńska</h4>
+                     <p>
+                        Handled patient registration and front-desk support in fast-paced medical settings. Built strong communication and problem-solving under pressure.
+                     </p>
+                  </div>
+               </div>
+               <div class="timeline-item hidden left">
+                  <div class="timeline-icon">
+                      <svg class="icon" aria-hidden="true"><use href="#icon-wrench"></use></svg>
                   </div>
                   <div class="timeline-content glass-card">
                      <span class="date">Sep 2015 - Apr 2019</span>
@@ -312,152 +386,101 @@
                      </p>
                   </div>
                </div>
-               <div class="timeline-item hidden right">
-                  <div class="timeline-icon">
-                      <svg class="icon"><use href="#icon-sitemap"></use></svg>
-                  </div>
-                  <div class="timeline-content glass-card">
-                     <span class="date">Apr 2019</span>
-                     <h3>CCNA Routing & Switching</h3>
-                     <h4>Introduction to Networks</h4>
-                     <p>
-                        Mastered Cisco networking fundamentals, including network architecture, IP addressing models, and core router configurations.
-                     </p>
-                     <span class="badge">Certified</span>
-                  </div>
-               </div>
-               <div class="timeline-item hidden left">
-                  <div class="timeline-icon">
-                      <svg class="icon"><use href="#icon-certificate"></use></svg>
-                  </div>
-                  <div class="timeline-content glass-card">
-                     <span class="date">Dec 2020</span>
-                     <h3>MTA: Database Admin</h3>
-                     <p>
-                        Validated core knowledge of relational database concepts, security, and data manipulation using SQL.
-                     </p>
-                     <span class="badge">Certified</span>
-                  </div>
-               </div>
-               <div class="timeline-item hidden right">
-                  <div class="timeline-icon">
-                      <svg class="icon"><use href="#icon-code"></use></svg>
-                  </div>
-                  <div class="timeline-content glass-card">
-                     <span class="date">May - Jun 2021</span>
-                     <h3>MTA: Software Dev & HTML5</h3>
-                     <p>
-                        Earned foundational certifications covering core programming logic, object-oriented concepts, and web design basics.
-                     </p>
-                     <span class="badge">Certified</span>
-                  </div>
-               </div>
-               <div class="timeline-item hidden left">
-                  <div class="timeline-icon">
-                      <svg class="icon"><use href="#icon-user"></use></svg>
-                  </div>
-                  <div class="timeline-content glass-card">
-                     <span class="date">May 2021 - Aug 2021</span>
-                     <h3>Medical Receptionist</h3>
-                     <h4>Punkt Szczepień Powszechnych Łapanów</h4>
-                     <p>
-                        Developed strong communication, patience, and high-pressure problem-solving skills.
-                     </p>
-                  </div>
-               </div>
-               <div class="timeline-item hidden right">
-                  <div class="timeline-icon">
-                      <svg class="icon"><use href="#icon-hospital"></use></svg>
-                  </div>
-                  <div class="timeline-content glass-card">
-                     <span class="date">Nov 2021 - Apr 2022</span>
-                     <h3>Medical Receptionist</h3>
-                     <h4>Przychodnia Bocheńska</h4>
-                     <p>
-                        Managed patient registration and administrative support in a fast-paced medical environment.
-                     </p>
-                  </div>
-               </div>
-               <div class="timeline-item hidden left">
-                  <div class="timeline-icon">
-                      <svg class="icon"><use href="#icon-lock"></use></svg>
-                  </div>
-                  <div class="timeline-content glass-card">
-                     <span class="date">Dec 2021</span>
-                     <h3>MTA: Security Fundamentals</h3>
-                     <p>
-                        Validated expertise in core security principles, operating system security, network protection, and secure software concepts.
-                     </p>
-                     <span class="badge">Certified</span>
-                  </div>
-               </div>
-               <div class="timeline-item hidden right">
-                  <div class="timeline-icon">
-                      <svg class="icon"><use href="#icon-cloud"></use></svg>
-                  </div>
-                  <div class="timeline-content glass-card">
-                     <span class="date">Jan 2023</span>
-                     <h3>Azure Data Fundamentals</h3>
-                     <p>
-                        Certified in Microsoft cloud data services, validating foundational knowledge of core data concepts and relational/non-relational data options on Azure.
-                     </p>
-                     <span class="badge">Certified</span>
-                  </div>
-               </div>
-               <div class="timeline-item hidden left">
-                  <div class="timeline-icon">
-                      <svg class="icon"><use href="#icon-gamepad"></use></svg>
-                  </div>
-                  <div class="timeline-content glass-card">
-                     <span class="date">Oct 2020 - Jul 2024</span>
-                     <h3>Bachelor's Degree</h3>
-                     <h4>WSEI Kraków</h4>
-                     <p>
-                        Graduated in Applied Computer Science with a specialization in Games and Multimedia. Successfully defended my engineering thesis.
-                     </p>
-                  </div>
-               </div>
-               <div class="timeline-item hidden right">
-                  <div class="timeline-icon">
-                      <svg class="icon"><use href="#icon-server"></use></svg>
-                  </div>
-                  <div class="timeline-content glass-card">
-                     <span class="date">Jan 2026</span>
-                     <h3>CCNP Core & DevNet</h3>
-                     <h4>Credly by Pearson</h4>
-                     <p>
-                        Completed advanced training in core enterprise infrastructure, automation workflows, and infrastructure-as-code concepts.
-                     </p>
-                     <span class="badge">Certified</span>
-                  </div>
-               </div>
-               <div class="timeline-item hidden left">
-                  <div class="timeline-icon">
-                      <svg class="icon"><use href="#icon-shield"></use></svg>
-                  </div>
-                  <div class="timeline-content glass-card">
-                     <span class="date">Oct 2024 - Mar 2026</span>
-                     <h3>Master's Degree</h3>
-                     <h4>WSEI Kraków</h4>
-                     <p>
-                        Graduated in Applied Computer Science with a focus on Cybersecurity. Successfully defended my master's thesis.
-                     </p>
-                  </div>
-               </div>
-               <div class="timeline-item hidden right">
-                  <div class="timeline-icon">
-                      <svg class="icon"><use href="#icon-briefcase"></use></svg>
-                  </div>
-                  <div class="timeline-content glass-card">
-                     <span class="date">May 2025 - Present</span>
-                     <h3>Technical Implementation Specialist</h3>
-                     <h4>Printbox</h4>
-                     <p>
-                        Drive client success by managing custom system configurations, complex e-commerce integrations, and diagnosing advanced technical issues.
-                     </p>
-                     <span class="badge active">Current Job</span>
-                  </div>
-               </div>
+            </div>
+            <div class="certs">
+               <h3 class="certs-title hidden" style="--delay: 0s">Certifications</h3>
+               <ul class="certs-grid">
+                  <li class="cert glass-card hidden" style="--delay: 0.00s">
+                     <svg class="icon" aria-hidden="true"><use href="#icon-server"></use></svg>
+                     <div>
+                        <p class="cert-name"><a class="cert-link" href="https://www.credly.com/badges/0f0cb730-4d09-4a13-84d8-78cc4119b920/public_url" target="_blank" rel="noopener noreferrer">CCNP: Core Networking<span class="sr-only"> (verify credential)</span></a></p>
+                        <p class="cert-meta">Credly by Pearson <span aria-hidden="true">/</span> Jan 2026</p>
+                     </div>
+                     <svg class="icon cert-ext" aria-hidden="true"><use href="#icon-arrow-up"></use></svg>
+                  </li>
+                  <li class="cert glass-card hidden" style="--delay: 0.05s">
+                     <svg class="icon" aria-hidden="true"><use href="#icon-code"></use></svg>
+                     <div>
+                        <p class="cert-name"><a class="cert-link" href="https://www.credly.com/badges/b8ca5be9-b702-4a13-bc38-fd01ded6033c/public_url" target="_blank" rel="noopener noreferrer">DevNet Associate<span class="sr-only"> (verify credential)</span></a></p>
+                        <p class="cert-meta">Credly by Pearson <span aria-hidden="true">/</span> Jan 2026</p>
+                     </div>
+                     <svg class="icon cert-ext" aria-hidden="true"><use href="#icon-arrow-up"></use></svg>
+                  </li>
+                  <li class="cert glass-card hidden" style="--delay: 0.10s">
+                     <svg class="icon" aria-hidden="true"><use href="#icon-bar-chart"></use></svg>
+                     <div>
+                        <p class="cert-name"><a class="cert-link" href="https://graphacademy.neo4j.com/c/8c2971be-de1c-4005-8a26-54f5e835e205" target="_blank" rel="noopener noreferrer">Neo4j Graph Data Science<span class="sr-only"> (verify credential)</span></a></p>
+                        <p class="cert-meta">Neo4j GraphAcademy <span aria-hidden="true">/</span> Dec 2024</p>
+                     </div>
+                     <svg class="icon cert-ext" aria-hidden="true"><use href="#icon-arrow-up"></use></svg>
+                  </li>
+                  <li class="cert glass-card hidden" style="--delay: 0.15s">
+                     <svg class="icon" aria-hidden="true"><use href="#icon-sitemap"></use></svg>
+                     <div>
+                        <p class="cert-name"><a class="cert-link" href="https://graphacademy.neo4j.com/c/118df086-c3e7-40f7-ab39-30101bca5e71" target="_blank" rel="noopener noreferrer">Neo4j Certified Professional<span class="sr-only"> (verify credential)</span></a></p>
+                        <p class="cert-meta">Neo4j GraphAcademy <span aria-hidden="true">/</span> Dec 2024</p>
+                     </div>
+                     <svg class="icon cert-ext" aria-hidden="true"><use href="#icon-arrow-up"></use></svg>
+                  </li>
+                  <li class="cert glass-card hidden" style="--delay: 0.20s">
+                     <svg class="icon" aria-hidden="true"><use href="#icon-cloud"></use></svg>
+                     <div>
+                        <p class="cert-name">Azure Data Fundamentals</p>
+                        <p class="cert-meta">Microsoft <span aria-hidden="true">/</span> Jan 2023</p>
+                     </div>
+                  </li>
+                  <li class="cert glass-card hidden" style="--delay: 0.25s">
+                     <svg class="icon" aria-hidden="true"><use href="#icon-terminal"></use></svg>
+                     <div>
+                        <p class="cert-name"><a class="cert-link" href="https://navoica.pl/certificates/56a0c03e1b5b42b287497025248a8d9d" target="_blank" rel="noopener noreferrer">Algorithms &amp; Data Structures<span class="sr-only"> (verify credential)</span></a></p>
+                        <p class="cert-meta">ZPSB / Navoica <span aria-hidden="true">/</span> Dec 2022</p>
+                     </div>
+                     <svg class="icon cert-ext" aria-hidden="true"><use href="#icon-arrow-up"></use></svg>
+                  </li>
+                  <li class="cert glass-card hidden" style="--delay: 0.30s">
+                     <svg class="icon" aria-hidden="true"><use href="#icon-lock"></use></svg>
+                     <div>
+                        <p class="cert-name">Security Fundamentals</p>
+                        <p class="cert-meta">Microsoft MTA <span aria-hidden="true">/</span> Dec 2021</p>
+                     </div>
+                  </li>
+                  <li class="cert glass-card hidden" style="--delay: 0.35s">
+                     <svg class="icon" aria-hidden="true"><use href="#icon-cubes"></use></svg>
+                     <div>
+                        <p class="cert-name"><a class="cert-link" href="https://navoica.pl/certificates/8339ad64b1234551ab9a861fb29ac961" target="_blank" rel="noopener noreferrer">Discrete Mathematics<span class="sr-only"> (verify credential)</span></a></p>
+                        <p class="cert-meta">ZPSB / Navoica <span aria-hidden="true">/</span> Dec 2021</p>
+                     </div>
+                     <svg class="icon cert-ext" aria-hidden="true"><use href="#icon-arrow-up"></use></svg>
+                  </li>
+                  <li class="cert glass-card hidden" style="--delay: 0.40s">
+                     <svg class="icon" aria-hidden="true"><use href="#icon-code"></use></svg>
+                     <div>
+                        <p class="cert-name">Software Development &amp; HTML5</p>
+                        <p class="cert-meta">Microsoft MTA <span aria-hidden="true">/</span> May - Jun 2021</p>
+                     </div>
+                  </li>
+                  <li class="cert glass-card hidden" style="--delay: 0.45s">
+                     <svg class="icon" aria-hidden="true"><use href="#icon-certificate"></use></svg>
+                     <div>
+                        <p class="cert-name">Database Administration</p>
+                        <p class="cert-meta">Microsoft MTA <span aria-hidden="true">/</span> Dec 2020</p>
+                     </div>
+                  </li>
+                  <li class="cert glass-card hidden" style="--delay: 0.50s">
+                     <svg class="icon" aria-hidden="true"><use href="#icon-sitemap"></use></svg>
+                     <div>
+                        <p class="cert-name">CCNA: Introduction to Networks</p>
+                        <p class="cert-meta">Cisco Networking Academy <span aria-hidden="true">/</span> Apr 2019</p>
+                     </div>
+                  </li>
+                  <li class="cert glass-card hidden" style="--delay: 0.55s">
+                     <svg class="icon" aria-hidden="true"><use href="#icon-wrench"></use></svg>
+                     <div>
+                        <p class="cert-name">IT Essentials</p>
+                        <p class="cert-meta">Cisco Networking Academy <span aria-hidden="true">/</span> Apr 2019</p>
+                     </div>
+                  </li>
+               </ul>
             </div>
          </div>
       </section>
@@ -472,10 +495,10 @@
                   </div>
 
                   <button class="slider-btn prev-btn" aria-label="Previous Project">
-                      <svg class="icon"><use href="#icon-chevron-left"></use></svg>
+                      <svg class="icon" aria-hidden="true"><use href="#icon-chevron-left"></use></svg>
                   </button>
                   <button class="slider-btn next-btn" aria-label="Next Project">
-                      <svg class="icon"><use href="#icon-chevron-right"></use></svg>
+                      <svg class="icon" aria-hidden="true"><use href="#icon-chevron-right"></use></svg>
                   </button>
 
                   <div class="projects-track-3d">
@@ -489,8 +512,8 @@
                               <ul class="tech-tags" aria-label="Tech stack"><li>Rust</li><li>Tauri</li><li>Vanilla JS</li></ul>
                               <div class="hidden-content">
                                   <div>
-                                  <p>A lightweight Windows utility that automates software updates via Winget. Features regex terminal output filtering.</p>
-                                  <a href="https://github.com/enviGit/winget-portable" target="_blank" rel="noopener noreferrer" class="ctaProjects btn-hover wave"><span>GitHub Repo</span></a>
+                                  <p class="project-brief"><span class="brief-line"><span class="brief-label">Problem</span> Keeping Windows apps current means updating them one by one.</span><span class="brief-line"><span class="brief-label">Built</span> A single-exe tool that scans and batch-updates everything via Winget.</span></p>
+                                  <div class="project-actions"><a href="https://github.com/enviGit/winget-portable/releases/latest" target="_blank" rel="noopener noreferrer" class="ctaProjects btn-hover wave"><span>Download .exe</span></a><a href="https://github.com/enviGit/winget-portable" target="_blank" rel="noopener noreferrer" class="project-source" aria-label="Source code on GitHub"><svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg></a></div>
                                   </div>
                               </div>
                           </div>
@@ -506,8 +529,8 @@
                               <ul class="tech-tags" aria-label="Tech stack"><li>React</li><li>Tailwind</li><li>Supabase</li></ul>
                               <div class="hidden-content">
                                   <div>
-                                  <p>A high-end PlayStation price tracker with multi-region support. Features real-time wishlist sync and a custom python scraper.</p>
-                                  <a href="https://envigit.github.io/ps-catch/" target="_blank" rel="noopener noreferrer" class="ctaProjects btn-hover wave"><span>Visit Website</span></a>
+                                  <p class="project-brief"><span class="brief-line"><span class="brief-label">Problem</span> PlayStation prices differ across US, UK, EU and PL stores.</span><span class="brief-line"><span class="brief-label">Built</span> A tracker that merges four regions into one filterable grid, with wishlists.</span></p>
+                                  <div class="project-actions"><a href="https://envigit.github.io/ps-catch/" target="_blank" rel="noopener noreferrer" class="ctaProjects btn-hover wave"><span>Try Live Demo</span></a><a href="https://github.com/enviGit/ps-catch" target="_blank" rel="noopener noreferrer" class="project-source" aria-label="Source code on GitHub"><svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg></a></div>
                                   </div>
                               </div>
                           </div>
@@ -523,8 +546,8 @@
                               <ul class="tech-tags" aria-label="Tech stack"><li>Unity</li><li>C#</li></ul>
                               <div class="hidden-content">
                                   <div>
-                                  <p>A curated Unity Editor tool published on the Asset Store that streamlines workflows by enabling customization of script icons.</p>
-                                  <a href="https://assetstore.unity.com/packages/tools/gui/vibrant-icons-276821" target="_blank" rel="noopener noreferrer" class="ctaProjects btn-hover wave"><span>Unity Store</span></a>
+                                  <p class="project-brief"><span class="brief-line"><span class="brief-label">Problem</span> Every Unity script shares the same generic icon.</span><span class="brief-line"><span class="brief-label">Built</span> An Editor tool, published on the Asset Store, that gives scripts custom icons.</span></p>
+                                  <div class="project-actions"><a href="https://assetstore.unity.com/packages/tools/gui/vibrant-icons-276821" target="_blank" rel="noopener noreferrer" class="ctaProjects btn-hover wave"><span>View on Asset Store</span></a></div>
                                   </div>
                               </div>
                           </div>
@@ -540,8 +563,8 @@
                               <ul class="tech-tags" aria-label="Tech stack"><li>Unity</li><li>C#</li><li>FSM</li></ul>
                               <div class="hidden-content">
                                   <div>
-                                  <p>A low-poly, first-person shooter game with a battle royale theme. Features state-driven agent behaviors leveraging NavMesh.</p>
-                                  <a href="https://github.com/enviGit/OperationDeratization/tree/main" target="_blank" rel="noopener noreferrer" class="ctaProjects btn-hover wave"><span>GitHub Repo</span></a>
+                                  <p class="project-brief"><span class="brief-line"><span class="brief-label">Game</span> A low-poly battle royale FPS made by a 4-person team.</span><span class="brief-line"><span class="brief-label">My role</span> Animation and gameplay code. Enemies run on an FSM over NavMesh.</span></p>
+                                  <div class="project-actions"><a href="https://github.com/enviGit/OperationDeratization/releases/latest" target="_blank" rel="noopener noreferrer" class="ctaProjects btn-hover wave"><span>Download Game</span></a><a href="https://github.com/enviGit/OperationDeratization" target="_blank" rel="noopener noreferrer" class="project-source" aria-label="Source code on GitHub"><svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg></a></div>
                                   </div>
                               </div>
                           </div>
@@ -557,8 +580,8 @@
                               <ul class="tech-tags" aria-label="Tech stack"><li>C#</li><li>WPF</li><li>MVVM</li></ul>
                               <div class="hidden-content">
                                   <div>
-                                  <p>A clean desktop productivity utility designed to implement the Pomodoro workflow. Features decoupled components.</p>
-                                  <a href="https://github.com/enviGit/PomodoroTimer" target="_blank" rel="noopener noreferrer" class="ctaProjects btn-hover wave"><span>GitHub Repo</span></a>
+                                  <p class="project-brief"><span class="brief-line"><span class="brief-label">Problem</span> Focus timers that pull you out of the work.</span><span class="brief-line"><span class="brief-label">Built</span> A distraction-free .NET 10 timer with taskbar progress and session history.</span></p>
+                                  <div class="project-actions"><a href="https://github.com/enviGit/PomodoroTimer/releases/latest" target="_blank" rel="noopener noreferrer" class="ctaProjects btn-hover wave"><span>Download App</span></a><a href="https://github.com/enviGit/PomodoroTimer" target="_blank" rel="noopener noreferrer" class="project-source" aria-label="Source code on GitHub"><svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg></a></div>
                                   </div>
                               </div>
                           </div>
@@ -574,8 +597,8 @@
                               <ul class="tech-tags" aria-label="Tech stack"><li>C#</li><li>WPF</li><li>REST API</li></ul>
                               <div class="hidden-content">
                                   <div>
-                                  <p>A multilingual desktop client delivering real-time localized forecasts. Built on native Windows UI patterns.</p>
-                                  <a href="https://github.com/enviGit/WeatherProphet" target="_blank" rel="noopener noreferrer" class="ctaProjects btn-hover wave"><span>GitHub Repo</span></a>
+                                  <p class="project-brief"><span class="brief-line"><span class="brief-label">Problem</span> A legacy weather app that was hard to maintain.</span><span class="brief-line"><span class="brief-label">Built</span> A rewrite to MVVM on .NET 10 with live localization and two themes.</span></p>
+                                  <div class="project-actions"><a href="https://github.com/enviGit/WeatherProphet/releases/latest" target="_blank" rel="noopener noreferrer" class="ctaProjects btn-hover wave"><span>Download App</span></a><a href="https://github.com/enviGit/WeatherProphet" target="_blank" rel="noopener noreferrer" class="project-source" aria-label="Source code on GitHub"><svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg></a></div>
                                   </div>
                               </div>
                           </div>
@@ -601,73 +624,54 @@
                <p class="status-label hidden" style="--delay: 0s">
                   <span class="status-dot"></span> Open to connecting
                </p>
-               <h2 class="contact-title hidden" style="--delay: 0.15s">Let's stay <span>in touch!</span></h2>
+               <h2 class="contact-title hidden" style="--delay: 0.15s">Let’s stay <span>in touch!</span></h2>
                <p class="contact-desc hidden" style="--delay: 0.3s">
-                  Although I'm currently happily employed at
-                  <strong>Printbox</strong>, I'm always open to discussing new technologies, sharing knowledge, or just
+                  Although I’m currently happily employed at
+                  <strong>Printbox</strong>, I’m always open to discussing new technologies, sharing knowledge, or just
                   having a chat about <strong>Unity</strong> development and
                   <strong>Cybersecurity</strong> trends.
                </p>
                <div class="contact-actions hidden" style="--delay: 0.4s">
-                  <button type="button" class="cta btn-hover wave copy-email contact-email" data-email="paweltrojanski@gmail.com" aria-label="Copy email address to clipboard">
-                     <span><svg class="icon"><use href="#icon-envelope"></use></svg> paweltrojanski@gmail.com</span>
+                  <button type="button" class="cta btn-hover wave copy-email contact-email" data-email="paweltrojanski@gmail.com" aria-label="Copy email address paweltrojanski@gmail.com to clipboard">
+                     <span><svg class="icon" aria-hidden="true"><use href="#icon-copy"></use></svg> paweltrojanski@gmail.com</span>
                   </button>
+                  <a href="mailto:paweltrojanski@gmail.com" class="cta cta-secondary btn-hover wave contact-mailto"><span><svg class="icon" aria-hidden="true"><use href="#icon-send"></use></svg> Send Email</span></a>
                </div>
                <div class="social-icons hidden" style="--delay: 0.5s">
-               <a href="https://github.com/enviGit" target="_blank" rel="noopener noreferrer" class="glass-social-link" style="--color:#6e5494">
-                   <svg class="icon"><use href="#icon-github"></use></svg>
-                  <span class="social-tooltip">GitHub</span>
+               <a href="https://github.com/enviGit" target="_blank" rel="noopener noreferrer" class="glass-social-link social-labeled" style="--color:#8b6fc0">
+                   <svg class="icon" aria-hidden="true"><use href="#icon-github"></use></svg>
+                  <span class="social-label">GitHub</span>
                </a>
-               <a href="https://www.linkedin.com/in/ptrojanski/" target="_blank" rel="noopener noreferrer"class="glass-social-link" style="--color:#0077b5">
-                   <svg class="icon"><use href="#icon-linkedin"></use></svg>
-                  <span class="social-tooltip">LinkedIn</span>
+               <a href="https://www.linkedin.com/in/ptrojanski/" target="_blank" rel="noopener noreferrer" class="glass-social-link social-labeled" style="--color:#0a8fd6">
+                   <svg class="icon" aria-hidden="true"><use href="#icon-linkedin"></use></svg>
+                  <span class="social-label">LinkedIn</span>
                </a>
-               <a href="https://www.facebook.com/Envixoxo" target="_blank" rel="noopener noreferrer" class="glass-social-link" style="--color:#1877f2">
-                   <svg class="icon"><use href="#icon-facebook"></use></svg>
-                  <span class="social-tooltip">Facebook</span>
+               <a href="https://www.youtube.com/@env1YT" target="_blank" rel="noopener noreferrer" class="glass-social-link social-labeled" style="--color:#ff3b3b">
+                   <svg class="icon" aria-hidden="true"><use href="#icon-youtube"></use></svg>
+                  <span class="social-label">YouTube</span>
                </a>
-               <a href="https://www.instagram.com/envixoxo/" target="_blank" rel="noopener noreferrer" class="glass-social-link" style="--color:#e4405f">
-                   <svg class="icon"><use href="#icon-instagram"></use></svg>
-                  <span class="social-tooltip">Instagram</span>
-               </a>
-               <a href="https://www.youtube.com/@env1YT" target="_blank" rel="noopener noreferrer"class="glass-social-link" style="--color:#ff0000">
-                   <svg class="icon"><use href="#icon-youtube"></use></svg>
-                  <span class="social-tooltip">YouTube</span>
-               </a>
-               </div>
-            </div>
-            <div class="contact-terminal hidden" style="--delay: 0.35s">
-               <div class="contact-terminal-bar" aria-hidden="true">
-                  <span></span><span></span><span></span>
-                  <p>contact.sh</p>
-               </div>
-               <div class="contact-terminal-body">
-                  <p class="term-line term-cmd" style="--i: 0">whoami</p>
-                  <p class="term-line" style="--i: 1">Paweł Trojański</p>
-                  <p class="term-line term-cmd" style="--i: 2">cat role.txt</p>
-                  <p class="term-line" style="--i: 3">Implementation Specialist <span class="term-dim">@</span> Printbox</p>
-                  <p class="term-line term-cmd" style="--i: 4">ls ~/interests</p>
-                  <p class="term-line term-dirs" style="--i: 5"><span>unity/</span> <span>cybersecurity/</span> <span>dotnet/</span> <span>hardware/</span></p>
-                  <p class="term-line term-cmd" style="--i: 6">cat education.txt</p>
-                  <p class="term-line" style="--i: 7">MSc Cybersecurity <span class="term-dim">@</span> WSEI Kraków</p>
-                  <p class="term-line term-prompt" style="--i: 8"><span class="cursor-blink">_</span></p>
                </div>
             </div>
          </div>
       </section>
    </main>
-   <section id="footer">
+   <footer id="footer">
       <div class="footer-container">
+         <p class="footer-built">
+            <svg class="icon" aria-hidden="true"><use href="#icon-cubes"></use></svg>
+            Hand-built with vanilla JS, zero dependencies.
+            <a href="https://github.com/enviGit/enviGit.github.io" target="_blank" rel="noopener noreferrer">View source</a>
+         </p>
          <p>
             © <span class="year"></span> Paweł Trojański. All rights reserved.
          </p>
       </div>
-   </section>
+   </footer>
    <button id="back-to-top" class="wave" aria-label="Back to top">
-       <svg class="icon"><use href="#icon-arrow-up"></use></svg>
+       <svg class="icon" aria-hidden="true"><use href="#icon-arrow-up"></use></svg>
    </button>
    <button id="terminal-toggle" class="wave" aria-label="Open Terminal" aria-expanded="false" aria-controls="terminal-overlay">
-       <svg class="icon"><use href="#icon-terminal"></use></svg>
+       <svg class="icon" aria-hidden="true"><use href="#icon-terminal"></use></svg>
    </button>
    <div id="terminal-overlay" class="hidden-terminal" role="dialog" aria-modal="true" aria-labelledby="terminal-title-label">
       <div class="terminal-window" id="terminal-window">
@@ -681,15 +685,15 @@
          </div>
          <div class="terminal-body" id="terminal-body">
             <div class="output">
-               <p>Welcome to Paweł Trojański's Terminal v1.0.0</p>
+               <p>Welcome to Paweł Trojański’s Terminal v1.0.0</p>
                <p>
-                  Type <span class="cmd-highlight">'help'</span> to see available commands.
+                  Type <span class="cmd-highlight">‘help’</span> to see available commands.
                </p>
                <br>
             </div>
             <div class="input-line">
                <span class="prompt-text">[guest@ptrojanski ~]$</span>
-               <input id="terminal-input" autocomplete="off" spellcheck="false" autofocus>
+               <input id="terminal-input" aria-label="Terminal command" autocomplete="off" autocapitalize="off" spellcheck="false">
             </div>
          </div>
       </div>
